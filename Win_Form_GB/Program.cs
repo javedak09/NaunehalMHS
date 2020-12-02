@@ -16,7 +16,7 @@ namespace Win_Form_GB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InfoActivity());
+            Application.Run(new frmLogin());
         }
     }
 }
