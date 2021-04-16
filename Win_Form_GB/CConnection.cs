@@ -14,12 +14,29 @@ namespace Win_Form_GB
     class CConnection
     {
         public SQLiteConnection cn = null;
+        public SQLiteCommand cmd = null;
 
         public CConnection()
         {
             try
             {
-                cn = new SQLiteConnection(ConfigurationSettings.AppSettings["cnStr1"]);
+                cn = new SQLiteConnection(ConfigurationSettings.AppSettings["cnStr"]);
+
+                //cn.Open();
+
+                //cmd = new SQLiteCommand();
+
+                //cmd.CommandText = "SELECT quote($password);";
+                //cmd.Parameters.AddWithValue("$password", "admin123");
+                //cmd.Connection = cn;
+                //var quotedPassword = (string)cmd.ExecuteScalar();
+
+                //cmd.CommandText = "PRAGMA key = " + quotedPassword;
+                //cmd.Parameters.Clear();
+                //cmd.ExecuteNonQuery();
+
+                //cn.Close();
+
             }
 
             catch (Exception ex)

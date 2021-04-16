@@ -30,20 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Screening");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Follow Up");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Forms", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Mobile Health Service");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Forms", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.dataCorrectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dualEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.errorCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entryStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userPermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,10 +75,10 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel2});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 1031);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1023);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(1916, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1908, 22);
             this.statusStrip1.TabIndex = 28;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -114,44 +110,31 @@
             this.adminPanelToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1916, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1908, 24);
             this.menuStrip1.TabIndex = 27;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // dataCorrectionToolStripMenuItem
             // 
             this.dataCorrectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dualEntryToolStripMenuItem,
-            this.errorCheckToolStripMenuItem,
-            this.entryStatusToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.dataCorrectionToolStripMenuItem.Name = "dataCorrectionToolStripMenuItem";
-            this.dataCorrectionToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
-            this.dataCorrectionToolStripMenuItem.Text = "Data Correction";
+            this.dataCorrectionToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.dataCorrectionToolStripMenuItem.Text = "Data Entry";
             // 
-            // dualEntryToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.dualEntryToolStripMenuItem.Name = "dualEntryToolStripMenuItem";
-            this.dualEntryToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.dualEntryToolStripMenuItem.Text = "Dual Entry";
-            // 
-            // errorCheckToolStripMenuItem
-            // 
-            this.errorCheckToolStripMenuItem.Name = "errorCheckToolStripMenuItem";
-            this.errorCheckToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.errorCheckToolStripMenuItem.Text = "Error Check";
-            // 
-            // entryStatusToolStripMenuItem
-            // 
-            this.entryStatusToolStripMenuItem.Name = "entryStatusToolStripMenuItem";
-            this.entryStatusToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.entryStatusToolStripMenuItem.Text = "Entry Status";
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
+            this.toolStripMenuItem1.Text = "MHS Form";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.exitToolStripMenuItem.Text = "Logout";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // adminPanelToolStripMenuItem
@@ -167,20 +150,20 @@
             // userPermissionsToolStripMenuItem
             // 
             this.userPermissionsToolStripMenuItem.Name = "userPermissionsToolStripMenuItem";
-            this.userPermissionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.userPermissionsToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.userPermissionsToolStripMenuItem.Text = "User Permissions";
             this.userPermissionsToolStripMenuItem.Click += new System.EventHandler(this.userPermissionsToolStripMenuItem_Click);
             // 
             // createDictionaryToolStripMenuItem
             // 
             this.createDictionaryToolStripMenuItem.Name = "createDictionaryToolStripMenuItem";
-            this.createDictionaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.createDictionaryToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.createDictionaryToolStripMenuItem.Text = "Create Dictionary";
             // 
             // exportDataToolStripMenuItem
             // 
             this.exportDataToolStripMenuItem.Name = "exportDataToolStripMenuItem";
-            this.exportDataToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportDataToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.exportDataToolStripMenuItem.Text = "Export Data";
             // 
             // timer1
@@ -205,7 +188,7 @@
             this.naviBar1.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBar1.Location = new System.Drawing.Point(0, 24);
             this.naviBar1.Name = "naviBar1";
-            this.naviBar1.Size = new System.Drawing.Size(256, 1007);
+            this.naviBar1.Size = new System.Drawing.Size(256, 999);
             this.naviBar1.TabIndex = 29;
             this.naviBar1.Text = "naviBar1";
             this.naviBar1.VisibleLargeButtons = 6;
@@ -218,13 +201,13 @@
             this.naviBand6.ClientArea.Controls.Add(this.treeView1);
             this.naviBand6.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand6.ClientArea.Name = "ClientArea";
-            this.naviBand6.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand6.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand6.ClientArea.TabIndex = 0;
             this.naviBand6.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand6.LargeImage")));
             this.naviBand6.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand6.Location = new System.Drawing.Point(1, 27);
             this.naviBand6.Name = "naviBand6";
-            this.naviBand6.Size = new System.Drawing.Size(254, 748);
+            this.naviBand6.Size = new System.Drawing.Size(254, 740);
             this.naviBand6.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand6.SmallImage")));
             this.naviBand6.TabIndex = 0;
             this.naviBand6.Text = "Forms";
@@ -236,14 +219,12 @@
             this.treeView1.LineColor = System.Drawing.Color.Blue;
             this.treeView1.Location = new System.Drawing.Point(2, 3);
             this.treeView1.Name = "treeView1";
-            treeNode13.Name = "Screening";
-            treeNode13.Text = "Screening";
-            treeNode14.Name = "FollowUp";
-            treeNode14.Text = "Follow Up";
-            treeNode15.Name = "Forms";
-            treeNode15.Text = "Forms";
+            treeNode1.Name = "frm";
+            treeNode1.Text = "Mobile Health Service";
+            treeNode2.Name = "F";
+            treeNode2.Text = "Forms";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15});
+            treeNode2});
             this.treeView1.ShowLines = false;
             this.treeView1.Size = new System.Drawing.Size(246, 450);
             this.treeView1.TabIndex = 30;
@@ -257,13 +238,13 @@
             // 
             this.naviBand1.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand1.ClientArea.Name = "ClientArea";
-            this.naviBand1.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand1.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand1.ClientArea.TabIndex = 0;
             this.naviBand1.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand1.LargeImage")));
             this.naviBand1.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand1.Location = new System.Drawing.Point(1, 27);
             this.naviBand1.Name = "naviBand1";
-            this.naviBand1.Size = new System.Drawing.Size(254, 748);
+            this.naviBand1.Size = new System.Drawing.Size(254, 740);
             this.naviBand1.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand1.SmallImage")));
             this.naviBand1.TabIndex = 1;
             this.naviBand1.Text = "Dual Entry";
@@ -275,13 +256,13 @@
             // 
             this.naviBand3.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand3.ClientArea.Name = "ClientArea";
-            this.naviBand3.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand3.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand3.ClientArea.TabIndex = 0;
             this.naviBand3.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand3.LargeImage")));
             this.naviBand3.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand3.Location = new System.Drawing.Point(1, 27);
             this.naviBand3.Name = "naviBand3";
-            this.naviBand3.Size = new System.Drawing.Size(254, 748);
+            this.naviBand3.Size = new System.Drawing.Size(254, 740);
             this.naviBand3.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand3.SmallImage")));
             this.naviBand3.TabIndex = 3;
             this.naviBand3.Text = "Entry Status";
@@ -293,13 +274,13 @@
             // 
             this.naviBand5.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand5.ClientArea.Name = "ClientArea";
-            this.naviBand5.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand5.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand5.ClientArea.TabIndex = 0;
             this.naviBand5.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand5.LargeImage")));
             this.naviBand5.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand5.Location = new System.Drawing.Point(1, 27);
             this.naviBand5.Name = "naviBand5";
-            this.naviBand5.Size = new System.Drawing.Size(254, 748);
+            this.naviBand5.Size = new System.Drawing.Size(254, 740);
             this.naviBand5.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand5.SmallImage")));
             this.naviBand5.TabIndex = 4;
             this.naviBand5.Text = "Create Dictionary";
@@ -311,13 +292,13 @@
             // 
             this.naviBand2.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand2.ClientArea.Name = "ClientArea";
-            this.naviBand2.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand2.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand2.ClientArea.TabIndex = 0;
             this.naviBand2.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand2.LargeImage")));
             this.naviBand2.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand2.Location = new System.Drawing.Point(1, 27);
             this.naviBand2.Name = "naviBand2";
-            this.naviBand2.Size = new System.Drawing.Size(254, 748);
+            this.naviBand2.Size = new System.Drawing.Size(254, 740);
             this.naviBand2.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand2.SmallImage")));
             this.naviBand2.TabIndex = 2;
             this.naviBand2.Text = "Error Check";
@@ -329,13 +310,13 @@
             // 
             this.naviBand4.ClientArea.Location = new System.Drawing.Point(0, 0);
             this.naviBand4.ClientArea.Name = "ClientArea";
-            this.naviBand4.ClientArea.Size = new System.Drawing.Size(254, 748);
+            this.naviBand4.ClientArea.Size = new System.Drawing.Size(254, 740);
             this.naviBand4.ClientArea.TabIndex = 0;
             this.naviBand4.LargeImage = ((System.Drawing.Image)(resources.GetObject("naviBand4.LargeImage")));
             this.naviBand4.LayoutStyle = Guifreaks.NavigationBar.NaviLayoutStyle.Office2007Silver;
             this.naviBand4.Location = new System.Drawing.Point(1, 27);
             this.naviBand4.Name = "naviBand4";
-            this.naviBand4.Size = new System.Drawing.Size(254, 748);
+            this.naviBand4.Size = new System.Drawing.Size(254, 740);
             this.naviBand4.SmallImage = ((System.Drawing.Image)(resources.GetObject("naviBand4.SmallImage")));
             this.naviBand4.TabIndex = 5;
             this.naviBand4.Text = "User Permissions";
@@ -344,11 +325,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1916, 1053);
+            this.ClientSize = new System.Drawing.Size(1908, 1045);
             this.Controls.Add(this.naviBar1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -381,15 +364,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         public System.Windows.Forms.MenuStrip menuStrip1;
-        public System.Windows.Forms.ToolStripMenuItem dataCorrectionToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem dualEntryToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem errorCheckToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entryStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adminPanelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem userPermissionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createDictionaryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private Guifreaks.NavigationBar.NaviBar naviBar1;
@@ -400,5 +374,12 @@
         private Guifreaks.NavigationBar.NaviBand naviBand5;
         private Guifreaks.NavigationBar.NaviBand naviBand2;
         private Guifreaks.NavigationBar.NaviBand naviBand4;
+        public System.Windows.Forms.ToolStripMenuItem dataCorrectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adminPanelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userPermissionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createDictionaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

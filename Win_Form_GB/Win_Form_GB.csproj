@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F10BBE77-00EB-49A4-B8AB-73EA7720A618}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Win_Form_GB</RootNamespace>
-    <AssemblyName>Win_Form_GB</AssemblyName>
+    <RootNamespace>Naunehal</RootNamespace>
+    <AssemblyName>Naunehal</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,13 +65,13 @@
       <HintPath>..\..\KAP Project &amp; Docs\KAP\KAP\bin\Debug\Spire.License.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.4.976, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.4\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlcipher.2.0.4\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=2.0.4.976, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.core.2.0.4\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.4.976, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.2.0.4\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlcipher.2.0.4\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
     </Reference>
     <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.4.976, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
       <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.4\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
@@ -121,11 +122,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCasiRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCasiRegister.Designer.cs">
+      <DependentUpon>frmCasiRegister.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFollowUpcs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmFollowUpcs.Designer.cs">
       <DependentUpon>frmFollowUpcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin_Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin_Copy.Designer.cs">
+      <DependentUpon>frmLogin_Copy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -139,6 +152,36 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMessage.Designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMSHSCRIMG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSHSCRIMG.Designer.cs">
+      <DependentUpon>frmMSHSCRIMG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMSHSCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSHSCR.Designer.cs">
+      <DependentUpon>frmMSHSCR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMSHIMG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSHIMG.Designer.cs">
+      <DependentUpon>frmMSHIMG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMSH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMSH.Designer.cs">
+      <DependentUpon>frmMSH.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPermissions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,22 +194,58 @@
     <Compile Include="frmScreening.Designer.cs">
       <DependentUpon>frmScreening.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUploadInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUploadInfo.Designer.cs">
+      <DependentUpon>frmUploadInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SCR.Designer.cs">
+      <DependentUpon>SCR.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCasiRegister.resx">
+      <DependentUpon>frmCasiRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin_Copy.resx">
+      <DependentUpon>frmLogin_Copy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMSHSCRIMG.resx">
+      <DependentUpon>frmMSHSCRIMG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMSHSCR.resx">
+      <DependentUpon>frmMSHSCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMSHIMG.resx">
+      <DependentUpon>frmMSHIMG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMSH.resx">
+      <DependentUpon>frmMSH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPermissions.resx">
       <DependentUpon>frmPermissions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreening.resx">
       <DependentUpon>frmScreening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUploadInfo.resx">
+      <DependentUpon>frmUploadInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,7 +255,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SCR.resx">
+      <DependentUpon>SCR.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -205,8 +288,10 @@
     <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
     <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
     <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlcipher.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlcipher.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlcipher.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlcipher.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlcipher.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlcipher.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlcipher.2.0.4\build\net461\SQLitePCLRaw.lib.e_sqlcipher.targets')" />
 </Project>

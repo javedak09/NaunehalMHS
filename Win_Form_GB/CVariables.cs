@@ -10,7 +10,7 @@ namespace Win_Form_GB
 {
     class CVariables
     {
-        static string AppName = "GB Data Ver 1.0.2020";
+        static string AppName = "Naunehal Study Ver 1.2.2021";
         static string g_DSS_ID;
         static string g_iPOP_ID;
         static Form frm;
@@ -45,6 +45,10 @@ namespace Win_Form_GB
         static bool IsErr = false;        
         static bool IsMonthWise = false;
         static string uID = "";
+
+        static string distid = "";
+        static string uccode = "";
+        static string seq_masterid = "";
 
         static bool val1 = false;
         static bool val2 = false;
@@ -95,6 +99,8 @@ namespace Win_Form_GB
         static string _etdt;
 
         static string lang;
+
+        static double zscore;
 
 
 
@@ -1024,6 +1030,66 @@ namespace Win_Form_GB
                 lang = value;
             }
         }
+
+
+
+        public static double setZscore
+        {
+            get
+            {
+                return zscore;
+            }
+
+            set
+            {
+                zscore = value;
+            }
+        }
+
+
+
+        public static string dist_id
+        {
+            get
+            {
+                return distid;
+            }
+
+            set
+            {
+                distid = value;
+            }
+        }
+
+
+        public static string uc_code
+        {
+            get
+            {
+                return uccode;
+            }
+
+            set
+            {
+                uccode = value;
+            }
+        }
+
+
+        public static string seq_master_id
+        {
+            get
+            {
+                return seq_masterid;
+            }
+
+            set
+            {
+                seq_masterid = value;
+            }
+        }
+
+
 
 
 

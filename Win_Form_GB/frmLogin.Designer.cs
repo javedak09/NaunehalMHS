@@ -30,160 +30,143 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdoUrdu = new System.Windows.Forms.RadioButton();
-            this.rdoEng = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmdUploadData = new System.Windows.Forms.Button();
+            this.cmdDownloadUsers = new System.Windows.Forms.Button();
+            this.ddlDistrict = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmdCancel = new System.Windows.Forms.Button();
+            this.cmdLogin = new System.Windows.Forms.Button();
+            this.txtPasswd = new System.Windows.Forms.TextBox();
             this.txtUserID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmdDownload = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.rdoUrdu);
-            this.groupBox1.Controls.Add(this.rdoEng);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.txtPassword);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cmdUploadData);
+            this.groupBox1.Controls.Add(this.cmdDownloadUsers);
+            this.groupBox1.Controls.Add(this.ddlDistrict);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.cmdCancel);
+            this.groupBox1.Controls.Add(this.cmdLogin);
+            this.groupBox1.Controls.Add(this.txtPasswd);
             this.groupBox1.Controls.Add(this.txtUserID);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 156);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.Size = new System.Drawing.Size(371, 255);
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Window";
             // 
-            // rdoUrdu
+            // cmdUploadData
             // 
-            this.rdoUrdu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoUrdu.Location = new System.Drawing.Point(195, 84);
-            this.rdoUrdu.Name = "rdoUrdu";
-            this.rdoUrdu.Size = new System.Drawing.Size(56, 24);
-            this.rdoUrdu.TabIndex = 3;
-            this.rdoUrdu.TabStop = true;
-            this.rdoUrdu.Text = "Urdu";
-            this.rdoUrdu.UseVisualStyleBackColor = true;
+            this.cmdUploadData.Location = new System.Drawing.Point(106, 214);
+            this.cmdUploadData.Name = "cmdUploadData";
+            this.cmdUploadData.Size = new System.Drawing.Size(169, 32);
+            this.cmdUploadData.TabIndex = 7;
+            this.cmdUploadData.Text = "Upload Data";
+            this.cmdUploadData.UseVisualStyleBackColor = true;
+            this.cmdUploadData.Click += new System.EventHandler(this.cmdUploadData_Click);
             // 
-            // rdoEng
+            // cmdDownloadUsers
             // 
-            this.rdoEng.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoEng.Location = new System.Drawing.Point(99, 84);
-            this.rdoEng.Name = "rdoEng";
-            this.rdoEng.Size = new System.Drawing.Size(60, 24);
-            this.rdoEng.TabIndex = 2;
-            this.rdoEng.TabStop = true;
-            this.rdoEng.Text = "English";
-            this.rdoEng.UseVisualStyleBackColor = true;
+            this.cmdDownloadUsers.Location = new System.Drawing.Point(106, 176);
+            this.cmdDownloadUsers.Name = "cmdDownloadUsers";
+            this.cmdDownloadUsers.Size = new System.Drawing.Size(169, 32);
+            this.cmdDownloadUsers.TabIndex = 6;
+            this.cmdDownloadUsers.Text = "Download Data";
+            this.cmdDownloadUsers.UseVisualStyleBackColor = true;
+            this.cmdDownloadUsers.Click += new System.EventHandler(this.cmdDownloadUsers_Click);
             // 
-            // button2
+            // ddlDistrict
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(176, 117);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "&Cancel";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.ddlDistrict.FormattingEnabled = true;
+            this.ddlDistrict.Location = new System.Drawing.Point(121, 100);
+            this.ddlDistrict.Name = "ddlDistrict";
+            this.ddlDistrict.Size = new System.Drawing.Size(219, 21);
+            this.ddlDistrict.TabIndex = 2;
             // 
-            // button1
+            // label3
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(80, 118);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "&Login";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "District";
             // 
-            // txtPassword
+            // cmdCancel
             // 
-            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(99, 56);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(219, 20);
-            this.txtPassword.TabIndex = 1;
+            this.cmdCancel.Location = new System.Drawing.Point(200, 138);
+            this.cmdCancel.Name = "cmdCancel";
+            this.cmdCancel.Size = new System.Drawing.Size(75, 32);
+            this.cmdCancel.TabIndex = 4;
+            this.cmdCancel.Text = "Cancel";
+            this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
-            // label2
+            // cmdLogin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "&Password:";
+            this.cmdLogin.Location = new System.Drawing.Point(106, 138);
+            this.cmdLogin.Name = "cmdLogin";
+            this.cmdLogin.Size = new System.Drawing.Size(75, 32);
+            this.cmdLogin.TabIndex = 3;
+            this.cmdLogin.Text = "Login";
+            this.cmdLogin.UseVisualStyleBackColor = true;
+            this.cmdLogin.Click += new System.EventHandler(this.cmdLogin_Click);
+            // 
+            // txtPasswd
+            // 
+            this.txtPasswd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswd.Location = new System.Drawing.Point(121, 67);
+            this.txtPasswd.Name = "txtPasswd";
+            this.txtPasswd.PasswordChar = '*';
+            this.txtPasswd.Size = new System.Drawing.Size(219, 20);
+            this.txtPasswd.TabIndex = 1;
             // 
             // txtUserID
             // 
             this.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserID.Location = new System.Drawing.Point(99, 30);
+            this.txtUserID.Location = new System.Drawing.Point(121, 31);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(219, 20);
             this.txtUserID.TabIndex = 0;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(23, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Password";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(37, 33);
+            this.label1.Location = new System.Drawing.Point(23, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "&User ID:";
-            // 
-            // cmdDownload
-            // 
-            this.cmdDownload.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cmdDownload.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDownload.Image = ((System.Drawing.Image)(resources.GetObject("cmdDownload.Image")));
-            this.cmdDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdDownload.Location = new System.Drawing.Point(12, 159);
-            this.cmdDownload.Name = "cmdDownload";
-            this.cmdDownload.Size = new System.Drawing.Size(116, 23);
-            this.cmdDownload.TabIndex = 7;
-            this.cmdDownload.Text = "Download Users";
-            this.cmdDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdDownload.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.cmdDownload.UseVisualStyleBackColor = true;
-            this.cmdDownload.Visible = false;
-            this.cmdDownload.Click += new System.EventHandler(this.cmdDownload_Click);
+            this.label1.Text = "User ID";
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 180);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(401, 271);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cmdDownload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLogin_KeyPress);
             this.groupBox1.ResumeLayout(false);
@@ -195,14 +178,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button cmdDownload;
-        private System.Windows.Forms.RadioButton rdoUrdu;
-        private System.Windows.Forms.RadioButton rdoEng;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPasswd;
+        private System.Windows.Forms.TextBox txtUserID;
+        private System.Windows.Forms.Button cmdCancel;
+        private System.Windows.Forms.Button cmdLogin;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox ddlDistrict;
+        private System.Windows.Forms.Button cmdDownloadUsers;
+        private System.Windows.Forms.Button cmdUploadData;
     }
 }
