@@ -10,7 +10,7 @@ namespace Win_Form_GB
 {
     class CVariables
     {
-        static string AppName = "Naunehal Study Ver 1.2.2021";
+        static string AppName = "Naunehal Study Ver 1.3.2021";
         static string g_DSS_ID;
         static string g_iPOP_ID;
         static Form frm;
