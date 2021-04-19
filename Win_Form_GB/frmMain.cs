@@ -308,7 +308,7 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("http://F38158/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -455,7 +455,7 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("http://F38158/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
 
 
                 int winBuild = Environment.OSVersion.Version.Build;

@@ -106,7 +106,7 @@ namespace Win_Form_GB
             try
             {
 
-                var request = (HttpWebRequest)WebRequest.CreateHttp("http://f38158/naunehal/api/getdata.php");
+                var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata.php");
 
                 //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
 
@@ -186,12 +186,7 @@ namespace Win_Form_GB
             try
             {
 
-                //string str_json = webGetMethod("http://f46916:8080/naunehalwindows/api/getDataEnc.php");
-                //string result = str_json.Replace(@"\\", "");
-                //InsertData(str_json);
-
-
-                var request = (HttpWebRequest)WebRequest.CreateHttp("http://f38158/naunehal/api/getdata.php");
+                var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata.php");
 
                 //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
 
@@ -275,8 +270,7 @@ namespace Win_Form_GB
         {
             try
             {
-                //var request = (HttpWebRequest)WebRequest.CreateHttp("http://f38158/naunehal/api/getCamp.php");
-                var request = (HttpWebRequest)WebRequest.CreateHttp("http://f38158/naunehal/api/getData.php");
+                var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
 
                 string dist_id = "";
 
@@ -421,7 +415,9 @@ namespace Win_Form_GB
         {
             try
             {
-                var request = (HttpWebRequest)WebRequest.CreateHttp("http://f38158/naunehal/api/getdata2.php");
+                //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata2.php");
+
+                var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
 
 
                 //string param_json = "{\"table\":\"camp\", \"select\":\"idCamp\", \"iddoctor\", \"doctor_name\", \"check\":\"\" }";
@@ -736,7 +732,7 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("http://F38158/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -883,7 +879,7 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("http://F38158/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
 
 
                 int winBuild = Environment.OSVersion.Version.Build;

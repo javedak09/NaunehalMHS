@@ -2023,7 +2023,7 @@ namespace Win_Form_GB
             }
             else
             {
-                if (Convert.ToInt32(mh09d.Text) < 1 && Convert.ToInt32(mh09d.Text) > 29)
+                if (Convert.ToInt32(mh09d.Text) < 1 || Convert.ToInt32(mh09d.Text) > 29)
                 {
                     MessageBox.Show("Age in days must be between 1 - 29 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mh09d.Focus();
