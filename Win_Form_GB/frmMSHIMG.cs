@@ -296,6 +296,15 @@ namespace Win_Form_GB
                 return false;
             }
 
+
+            if (string.IsNullOrEmpty(mh06.Text))
+            {
+                MessageBox.Show("Doctor's name is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mh06.Focus();
+                return false;
+            }
+
+
             if (string.IsNullOrEmpty(mh09y.Text))
             {
                 MessageBox.Show("Age in years is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -364,6 +373,7 @@ namespace Win_Form_GB
             else if (!mh01701.Checked && mh01701.Enabled == true &&
                 !mh01702.Checked && mh01702.Enabled == true &&
                 !mh01703.Checked && mh01703.Enabled == true &&
+                !mh01704.Checked && mh01704.Enabled == true &&
                 !mh017077.Checked && mh017077.Enabled == true)
             {
                 MessageBox.Show("Diagnosis in pregnant women / mothers ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -636,6 +646,7 @@ namespace Win_Form_GB
             string var_mh01702 = "";
             string var_mh01703 = "";
             string var_mh017077 = "";
+            string var_mh01704 = "";
 
 
 
@@ -808,10 +819,19 @@ namespace Win_Form_GB
             }
 
 
+            if (mh01704.Checked == true && mh01704.Enabled == true)
+            {
+                var_mh01704 = "4";
+            }
+
+
             if (mh017077.Checked == true && mh017077.Enabled == true)
             {
                 var_mh017077 = "77";
             }
+
+
+
 
 
 
@@ -1324,8 +1344,8 @@ namespace Win_Form_GB
                 //string qry = "INSERT INTO camp_patient_dtl (mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh011, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode) values ('" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "')";
 
 
-                string qry = "INSERT INTO camp_patient_dtl (master_id, FORM_ID, mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh01101, mh01102, mh01103, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode, mh027a, mh027b, chknone, entrydate, userid, chkNoneDiag) values " +
-                    "('" + masterid + "', '" + FORM_ID.Text + "', '" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + mh01102.Text.Replace('\n', ' ') + "', '" + mh01103.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "', '" + var_mh027a1 + "', '" + var_mh027b + "', '" + var_chknone + "', '" + EntryDate.ToShortDateString() + "', '" + CVariables.UserID + "', '" + var_chkNoneDiag + "')";
+                string qry = "INSERT INTO camp_patient_dtl (master_id, FORM_ID, mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh01101, mh01102, mh01103, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh01704, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode, mh027a, mh027b, chknone, entrydate, userid, chkNoneDiag) values " +
+                    "('" + masterid + "', '" + FORM_ID.Text + "', '" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + mh01102.Text.Replace('\n', ' ') + "', '" + mh01103.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh01704 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "', '" + var_mh027a1 + "', '" + var_mh027b + "', '" + var_chknone + "', '" + EntryDate.ToShortDateString() + "', '" + CVariables.UserID + "', '" + var_chkNoneDiag + "')";
 
 
 
@@ -1659,6 +1679,7 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
+                    obj_op.EnableControls(mh01704);
                     obj_op.EnableControls(mh017077);
 
                     obj_op.DisableControls(mh015);
@@ -1756,6 +1777,7 @@ namespace Win_Form_GB
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
+                    obj_op.DisableControls_Checkbox(mh01704);
                     obj_op.DisableControls_Checkbox(mh017077);
                     obj_op.DisableControls(mh017077x);
 
@@ -1851,6 +1873,7 @@ namespace Win_Form_GB
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
+                    obj_op.DisableControls_Checkbox(mh01704);
                     obj_op.DisableControls_Checkbox(mh017077);
                     obj_op.DisableControls(mh017077x);
 
@@ -1947,6 +1970,7 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
+                    obj_op.EnableControls(mh01704);
                     obj_op.EnableControls(mh017077);
 
 
@@ -2023,9 +2047,9 @@ namespace Win_Form_GB
             }
             else
             {
-                if (Convert.ToInt32(mh09d.Text) < 1 || Convert.ToInt32(mh09d.Text) > 29)
+                if (Convert.ToInt32(mh09d.Text) < 0 || Convert.ToInt32(mh09d.Text) > 29)
                 {
-                    MessageBox.Show("Age in days must be between 1 - 29 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Age in days must be between 0 - 29 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     mh09d.Focus();
                 }
             }
@@ -2072,6 +2096,7 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
+                    obj_op.EnableControls(mh01704);
                     obj_op.EnableControls(mh017077);
 
                     obj_op.EnableControls(mh02001);
@@ -2180,6 +2205,7 @@ namespace Win_Form_GB
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
+                    obj_op.DisableControls_Checkbox(mh01704);
                     obj_op.DisableControls_Checkbox(mh017077);
 
                     obj_op.DisableControls(mh017077x);
@@ -2242,6 +2268,7 @@ namespace Win_Form_GB
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
+                    obj_op.DisableControls_Checkbox(mh01704);
                     obj_op.DisableControls_Checkbox(mh017077);
 
                     obj_op.DisableControls(mh017077x);
@@ -2265,6 +2292,7 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
+                    obj_op.EnableControls(mh01704);
                     obj_op.EnableControls(mh017077);
 
                     panel1.Enabled = true;
@@ -2326,6 +2354,7 @@ namespace Win_Form_GB
                         obj_op.EnableControls(mh01701);
                         obj_op.EnableControls(mh01702);
                         obj_op.EnableControls(mh01703);
+                        obj_op.EnableControls(mh01704);
                         obj_op.EnableControls(mh017077);
 
 
@@ -2421,6 +2450,7 @@ namespace Win_Form_GB
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
+                        obj_op.DisableControls_Checkbox(mh01704);
                         obj_op.DisableControls_Checkbox(mh017077);
                         obj_op.DisableControls(mh017077x);
 
@@ -2528,6 +2558,7 @@ namespace Win_Form_GB
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
+                        obj_op.DisableControls_Checkbox(mh01704);
                         obj_op.DisableControls_Checkbox(mh017077);
                         obj_op.DisableControls(mh017077x);
 
@@ -2618,6 +2649,7 @@ namespace Win_Form_GB
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
+                        obj_op.DisableControls_Checkbox(mh01704);
                         obj_op.DisableControls_Checkbox(mh017077);
 
                         obj_op.DisableControls(mh017077x);
@@ -2638,6 +2670,7 @@ namespace Win_Form_GB
                         obj_op.EnableControls(mh01701);
                         obj_op.EnableControls(mh01702);
                         obj_op.EnableControls(mh01703);
+                        obj_op.EnableControls(mh01704);
                         obj_op.EnableControls(mh017077);
 
                         panel1.Enabled = true;
@@ -3230,7 +3263,9 @@ namespace Win_Form_GB
             mh01701.Checked = false;
             mh01702.Checked = false;
             mh01703.Checked = false;
+            mh01704.Checked = false;
             mh017077.Checked = false;
+            
 
             obj_op.DisableControls(mh017077x);
 
@@ -3854,6 +3889,29 @@ namespace Win_Form_GB
                 MessageBox.Show("if Ever received routine immunization is [2 - No] then Vaccination Card available cannot be [1 - Yes] ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 mh02401.Checked = false;
             }
+        }
+
+        private void mh01704_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+            if (mh01704.Checked)
+            {
+                obj_op.DisableControls_Checkbox2(mh01701);
+                obj_op.DisableControls_Checkbox2(mh01702);
+                obj_op.DisableControls_Checkbox2(mh01703);
+                obj_op.DisableControls_Checkbox2(mh017077);
+                obj_op.DisableControls(mh017077x);
+            }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh01701);
+                obj_op.EnableControls_Checkbox(mh01702);
+                obj_op.EnableControls_Checkbox(mh01703);
+                obj_op.EnableControls_Checkbox(mh017077);
+            }
+
+            obj_op = null;
         }
     }
 }

@@ -83,6 +83,7 @@
             this.mh02101 = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.mh01704 = new System.Windows.Forms.CheckBox();
             this.chkNoneDiag = new System.Windows.Forms.CheckBox();
             this.FORM_ID = new System.Windows.Forms.MaskedTextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -164,6 +165,7 @@
             // 
             // mh010
             // 
+            this.mh010.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mh010.FormattingEnabled = true;
             this.mh010.Location = new System.Drawing.Point(487, 175);
             this.mh010.Name = "mh010";
@@ -337,7 +339,7 @@
             this.mh017077x.Location = new System.Drawing.Point(190, 404);
             this.mh017077x.Mask = ">??????????????????????????????????????????????????";
             this.mh017077x.Name = "mh017077x";
-            this.mh017077x.Size = new System.Drawing.Size(515, 20);
+            this.mh017077x.Size = new System.Drawing.Size(414, 20);
             this.mh017077x.TabIndex = 27;
             // 
             // mh01803
@@ -732,6 +734,7 @@
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabPage1.Controls.Add(this.mh01704);
             this.tabPage1.Controls.Add(this.chkNoneDiag);
             this.tabPage1.Controls.Add(this.FORM_ID);
             this.tabPage1.Controls.Add(this.textBox2);
@@ -841,6 +844,18 @@
             this.tabPage1.Size = new System.Drawing.Size(862, 1039);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // mh01704
+            // 
+            this.mh01704.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.mh01704.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mh01704.Location = new System.Drawing.Point(618, 403);
+            this.mh01704.Name = "mh01704";
+            this.mh01704.Size = new System.Drawing.Size(110, 19);
+            this.mh01704.TabIndex = 348;
+            this.mh01704.Text = "Not Applicable";
+            this.mh01704.UseVisualStyleBackColor = false;
+            this.mh01704.CheckedChanged += new System.EventHandler(this.mh01704_CheckedChanged);
             // 
             // chkNoneDiag
             // 
@@ -1233,6 +1248,7 @@
             // 
             // mh06
             // 
+            this.mh06.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mh06.FormattingEnabled = true;
             this.mh06.Location = new System.Drawing.Point(525, 125);
             this.mh06.Name = "mh06";
@@ -1279,6 +1295,7 @@
             // 
             // mh014
             // 
+            this.mh014.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mh014.FormattingEnabled = true;
             this.mh014.Location = new System.Drawing.Point(515, 292);
             this.mh014.Name = "mh014";
@@ -1288,6 +1305,7 @@
             // 
             // mh013
             // 
+            this.mh013.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mh013.FormattingEnabled = true;
             this.mh013.Location = new System.Drawing.Point(334, 293);
             this.mh013.Name = "mh013";
@@ -1564,7 +1582,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 300);
-            this.ClientSize = new System.Drawing.Size(1017, 1045);
+            this.ClientSize = new System.Drawing.Size(1068, 1045);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1721,5 +1739,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.MaskedTextBox FORM_ID;
         private System.Windows.Forms.CheckBox chkNoneDiag;
+        private System.Windows.Forms.CheckBox mh01704;
     }
 }

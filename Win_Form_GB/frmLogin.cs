@@ -13,6 +13,7 @@ using System.Net;
 using System.IO;
 using System.Net.Http;
 using System.Web.Script.Serialization;
+using System.Configuration;
 
 namespace Win_Form_GB
 {
@@ -23,9 +24,98 @@ namespace Win_Form_GB
             InitializeComponent();
         }
 
+
+        private void setSqliteVersion()
+        {
+            var new_version = ConfigurationSettings.AppSettings["dbver"];
+
+            string stm = "PRAGMA user_version = " + new_version;
+
+            CConnection cn = new CConnection();
+
+            cn.MConnOpen();
+
+            SQLiteCommand cmd = new SQLiteCommand(stm, cn.cn);
+            SQLiteDataReader dr = cmd.ExecuteReader();
+
+            cn.MConnClose();
+        }
+
+
+        private Int64 getSqliteVersion()
+        {
+            string stm = "PRAGMA user_version";
+
+            CConnection cn = new CConnection();
+
+            cn.MConnOpen();
+
+            SQLiteCommand cmd = new SQLiteCommand(stm, cn.cn);
+
+            SQLiteDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                //Console.WriteLine($"SQLite version: {dr.GetInt64(0)}");
+
+                return dr.GetInt64(0);
+            }
+
+            cn.MConnClose();
+
+            return -1;
+        }
+
+
+
+        private void alterTableQuery(string qry)
+        {
+            CConnection cn = new CConnection();
+
+            cn.MConnOpen();
+
+            SQLiteCommand cmd = new SQLiteCommand(qry, cn.cn);
+            SQLiteDataReader dr = cmd.ExecuteReader();
+
+            cn.MConnClose();
+        }
+
+
+
+        private void dbupgrade()
+        {
+            var curr_version = getSqliteVersion();
+
+            var new_version = ConfigurationSettings.AppSettings["dbver"];
+
+
+            if (curr_version != -1 && curr_version > Convert.ToInt64(new_version))
+            {
+                switch (curr_version)
+                {
+                    case 1:
+                        var qry = "ALTER TABLE camp_patient_dtl add column mh01704 text";
+                        alterTableQuery(qry);
+
+                        setSqliteVersion();
+                        goto default;
+
+                    default:
+                        break;
+
+                }
+
+            }
+        }
+
+
         private void frmLogin_Load(object sender, EventArgs e)
         {
             this.Text = CVariables.AppName1;
+
+            //setSqliteVersion();
+
+            //dbupgrade();
 
             getDistrict_Hardcoded();
 
@@ -1259,7 +1349,7 @@ namespace Win_Form_GB
                     fd.mh02 = ds.Tables[0].Rows[a]["mh02"].ToString();
                     fd.mh03 = ds.Tables[0].Rows[a]["mh03"].ToString();
                     fd.mh04 = ds.Tables[0].Rows[a]["mh04"].ToString();
-                    fd.mh05 = ds.Tables[0].Rows[a]["mh05"].ToString();                   
+                    fd.mh05 = ds.Tables[0].Rows[a]["mh05"].ToString();
                     fd.uccode = ds.Tables[0].Rows[a]["uccode"].ToString();
                     fd.dist_id = ds.Tables[0].Rows[a]["dist_id"].ToString();
                     fd.databy = "desktop";
@@ -1422,7 +1512,7 @@ namespace Win_Form_GB
             public string mh02;
             public string mh03;
             public string mh04;
-            public string mh05;           
+            public string mh05;
 
             public string uccode;
             public string dist_id;
