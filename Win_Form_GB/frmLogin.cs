@@ -131,6 +131,38 @@ namespace Win_Form_GB
         }
 
 
+        private bool checkDoctorsExists()
+        {
+            bool isexists = false;
+
+            try
+            {
+                CConnection cn = new CConnection();
+
+                SQLiteDataAdapter da = new SQLiteDataAdapter("select * from camp_doctors ", cn.cn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+                if (ds.Tables.Count > 0)
+                {
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        isexists = true;
+                    }
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return isexists;
+        }
+
+
+
         private void getDistrict_FromSqliteDB()
         {
             try
@@ -173,6 +205,7 @@ namespace Win_Form_GB
                 comboSource.Add("Peshawar", "1");
                 comboSource.Add("Lakki Marwat", "2");
                 comboSource.Add("Quetta", "3");
+                comboSource.Add("Training District", "9");
 
 
                 ddlDistrict.DataSource = new BindingSource(comboSource, null);
@@ -722,7 +755,15 @@ namespace Win_Form_GB
 
         private void cmdLogin_Click(object sender, EventArgs e)
         {
-            Login();
+            if (checkDoctorsExists() == true)
+            {
+                Login();
+            }
+            else
+            {
+                MessageBox.Show("Doctors does not exist please download first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
 
@@ -748,7 +789,7 @@ namespace Win_Form_GB
 
                 CConnection cn = new CConnection();
 
-                SQLiteDataAdapter da = new SQLiteDataAdapter("select * from users where username='" + txtUserID.Text + "' and password='" + txtPasswd.Text + "'", cn.cn);
+                SQLiteDataAdapter da = new SQLiteDataAdapter("select * from users where username='" + txtUserID.Text + "' and password='" + txtPasswd.Text + "' and dist_id='" + ddlDistrict.SelectedValue.ToString() + "'", cn.cn);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
@@ -760,9 +801,9 @@ namespace Win_Form_GB
                         {
 
                             CVariables.UserID = ds.Tables[0].Rows[0][0].ToString();
-                            CVariables.UserName = ds.Tables[0].Rows[0][1].ToString();
+                            CVariables.UserName = ds.Tables[0].Rows[0]["username"].ToString();
                             CVariables.GetPassword = ds.Tables[0].Rows[0]["password"].ToString();
-                            CVariables.GetDBName = "gbdata";
+                            //CVariables.GetDBName = "gbdata";
 
 
                             CVariables.IsUserFirstOrSecond = "User1";

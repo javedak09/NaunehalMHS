@@ -83,6 +83,7 @@
             this.mh02101 = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.chkVaccination = new System.Windows.Forms.CheckBox();
             this.mh01704 = new System.Windows.Forms.CheckBox();
             this.chkNoneDiag = new System.Windows.Forms.CheckBox();
             this.FORM_ID = new System.Windows.Forms.MaskedTextBox();
@@ -271,6 +272,7 @@
             // 
             // cmdSave
             // 
+            this.cmdSave.CausesValidation = false;
             this.cmdSave.Location = new System.Drawing.Point(751, 74);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(109, 40);
@@ -734,6 +736,7 @@
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabPage1.Controls.Add(this.chkVaccination);
             this.tabPage1.Controls.Add(this.mh01704);
             this.tabPage1.Controls.Add(this.chkNoneDiag);
             this.tabPage1.Controls.Add(this.FORM_ID);
@@ -845,6 +848,18 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // chkVaccination
+            // 
+            this.chkVaccination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.chkVaccination.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkVaccination.Location = new System.Drawing.Point(580, 926);
+            this.chkVaccination.Name = "chkVaccination";
+            this.chkVaccination.Size = new System.Drawing.Size(159, 19);
+            this.chkVaccination.TabIndex = 349;
+            this.chkVaccination.Text = "Vaccination not reported";
+            this.chkVaccination.UseVisualStyleBackColor = false;
+            this.chkVaccination.CheckedChanged += new System.EventHandler(this.chkVaccination_CheckedChanged);
+            // 
             // mh01704
             // 
             this.mh01704.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -876,7 +891,7 @@
             this.FORM_ID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.FORM_ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FORM_ID.ForeColor = System.Drawing.Color.Black;
-            this.FORM_ID.Location = new System.Drawing.Point(652, 76);
+            this.FORM_ID.Location = new System.Drawing.Point(656, 46);
             this.FORM_ID.Mask = "9999999";
             this.FORM_ID.Name = "FORM_ID";
             this.FORM_ID.Size = new System.Drawing.Size(62, 21);
@@ -889,7 +904,7 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(593, 76);
+            this.textBox2.Location = new System.Drawing.Point(597, 46);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(48, 15);
             this.textBox2.TabIndex = 345;
@@ -1582,7 +1597,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 300);
-            this.ClientSize = new System.Drawing.Size(1068, 1045);
+            this.ClientSize = new System.Drawing.Size(1102, 1045);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1740,5 +1755,6 @@
         private System.Windows.Forms.MaskedTextBox FORM_ID;
         private System.Windows.Forms.CheckBox chkNoneDiag;
         private System.Windows.Forms.CheckBox mh01704;
+        private System.Windows.Forms.CheckBox chkVaccination;
     }
 }
