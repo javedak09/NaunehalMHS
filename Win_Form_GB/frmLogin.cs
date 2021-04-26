@@ -1223,6 +1223,7 @@ namespace Win_Form_GB
                     fd.deviceid = SystemInformation.ComputerName;
                     fd.sysdate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                     fd.id = ds.Tables[0].Rows[a]["id"].ToString();
+                    fd.form_id = ds.Tables[0].Rows[a]["form_id"].ToString();
                     fd.mh01 = ds.Tables[0].Rows[a]["mh01"].ToString();
                     fd.mh02 = ds.Tables[0].Rows[a]["mh02"].ToString();
                     fd.mh03 = ds.Tables[0].Rows[a]["mh03"].ToString();
@@ -1249,6 +1250,7 @@ namespace Win_Form_GB
                     fd.mh01701 = ds.Tables[0].Rows[a]["mh01701"].ToString();
                     fd.mh01702 = ds.Tables[0].Rows[a]["mh01702"].ToString();
                     fd.mh01703 = ds.Tables[0].Rows[a]["mh01703"].ToString();
+                    fd.mh01704 = ds.Tables[0].Rows[a]["mh01704"].ToString();
                     fd.mh017077 = ds.Tables[0].Rows[a]["mh017077"].ToString();
                     fd.mh017077x = ds.Tables[0].Rows[a]["mh017077x"].ToString();
 
@@ -1275,8 +1277,6 @@ namespace Win_Form_GB
                     fd.chkNoneDiag = ds.Tables[0].Rows[a]["chkNoneDiag"].ToString();
 
 
-
-
                     fd.mh01901 = ds.Tables[0].Rows[a]["mh01901"].ToString();
                     fd.mh01902 = ds.Tables[0].Rows[a]["mh01902"].ToString();
                     fd.mh01903 = ds.Tables[0].Rows[a]["mh01903"].ToString();
@@ -1294,6 +1294,7 @@ namespace Win_Form_GB
                     fd.mh019015 = ds.Tables[0].Rows[a]["mh019015"].ToString();
                     fd.mh019077 = ds.Tables[0].Rows[a]["mh019077"].ToString();
                     fd.mh019077x = ds.Tables[0].Rows[a]["mh019077x"].ToString();
+                    fd.chkNone = ds.Tables[0].Rows[a]["chkNone"].ToString();
 
 
                     fd.mh020 = ds.Tables[0].Rows[a]["mh020"].ToString();
@@ -1310,11 +1311,15 @@ namespace Win_Form_GB
                     fd.mh02604 = ds.Tables[0].Rows[a]["mh02604"].ToString();
                     fd.mh02605 = ds.Tables[0].Rows[a]["mh02605"].ToString();
                     fd.mh02606 = ds.Tables[0].Rows[a]["mh02606"].ToString();
+                    fd.mh027a = ds.Tables[0].Rows[a]["mh027a"].ToString();
+
                     fd.mh02607 = ds.Tables[0].Rows[a]["mh02607"].ToString();
                     fd.mh02608 = ds.Tables[0].Rows[a]["mh02608"].ToString();
                     fd.mh02609 = ds.Tables[0].Rows[a]["mh02609"].ToString();
                     fd.mh026010 = ds.Tables[0].Rows[a]["mh026010"].ToString();
                     fd.mh026011 = ds.Tables[0].Rows[a]["mh026011"].ToString();
+                    fd.mh027b = ds.Tables[0].Rows[a]["mh027b"].ToString();
+
                     fd.mh026012 = ds.Tables[0].Rows[a]["mh026012"].ToString();
                     fd.mh026013 = ds.Tables[0].Rows[a]["mh026013"].ToString();
                     fd.mh026014 = ds.Tables[0].Rows[a]["mh026014"].ToString();
@@ -1323,6 +1328,7 @@ namespace Win_Form_GB
                     fd.mh026017 = ds.Tables[0].Rows[a]["mh026017"].ToString();
                     fd.mh026018 = ds.Tables[0].Rows[a]["mh026018"].ToString();
                     fd.mh026019 = ds.Tables[0].Rows[a]["mh026019"].ToString();
+                    fd.chkVaccination = ds.Tables[0].Rows[a]["chkVaccination"].ToString();
 
 
                     fd.mh027 = ds.Tables[0].Rows[a]["mh027"].ToString();
@@ -1333,8 +1339,7 @@ namespace Win_Form_GB
                     fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
                     fd.mh01103 = ds.Tables[0].Rows[a]["mh01103"].ToString();
 
-                    fd.mh027a = ds.Tables[0].Rows[a]["mh027a"].ToString();
-                    fd.mh027b = ds.Tables[0].Rows[a]["mh027b"].ToString();
+
                     fd.uccode = ds.Tables[0].Rows[a]["uccode"].ToString();
                     fd.dist_id = ds.Tables[0].Rows[a]["dist_id"].ToString();
                     fd.databy = "desktop";
@@ -1422,6 +1427,7 @@ namespace Win_Form_GB
         public class forms_data
         {
             public string _id;
+            public string form_id;
             public string deviceid;
             public string sysdate;
             public string id;
@@ -1449,6 +1455,7 @@ namespace Win_Form_GB
             public string mh01701;
             public string mh01702;
             public string mh01703;
+            public string mh01704;
             public string mh017077;
             public string mh017077x;
 
@@ -1490,6 +1497,7 @@ namespace Win_Form_GB
             public string mh019015;
             public string mh019077;
             public string mh019077x;
+            public string chkNone;
 
 
             public string mh020;
@@ -1518,10 +1526,12 @@ namespace Win_Form_GB
             public string mh026017;
             public string mh026018;
             public string mh026019;
+            public string chkVaccination;
 
             public string mh027;
             public string mh028;
             public string mh029;
+
 
             public string mh01101;
             public string mh01102;
@@ -1533,7 +1543,6 @@ namespace Win_Form_GB
             public string uccode;
             public string dist_id;
             public string databy;
-
             public string userid;
             public string entrydate;
 
