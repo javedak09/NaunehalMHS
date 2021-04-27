@@ -660,9 +660,13 @@ namespace Win_Form_GB
 
                 //getDistrict_Hardcoded();
 
+                cmdDownloadUsers.Text = "Please wait Downloading Data";
+
                 downloadCamps();
                 downloadUsers();
                 downloadDoctors();
+
+                cmdDownloadUsers.Text = "Download Data";
             }
         }
 

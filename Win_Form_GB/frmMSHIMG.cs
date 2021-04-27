@@ -512,18 +512,20 @@ namespace Win_Form_GB
                 && !mh026017.Checked && mh026017.Enabled == true
                 && !mh026018.Checked && mh026018.Enabled == true
                 && !mh026019.Checked && mh026019.Enabled == true
+                && !mh027a1.Checked && mh027a1.Enabled == true
+                && !mh027a2.Checked && mh027a2.Enabled == true
                 && !chkVaccination.Checked && chkVaccination.Enabled == true
                 )
             {
                 MessageBox.Show("Vaccination is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
-            else if (!mh027a1.Checked && mh027a1.Enabled == true
-                && !mh027a2.Checked && mh027a2.Enabled == true)
-            {
-                MessageBox.Show("OPV or Refused for OPV Vaccination is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return false;
-            }
+            //else if (!mh027a1.Checked && mh027a1.Enabled == true
+            //    && !mh027a2.Checked && mh027a2.Enabled == true)
+            //{
+            //    MessageBox.Show("OPV or Refused for OPV Vaccination is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    return false;
+            //}
             else if (!mh02701.Checked && mh02701.Enabled == true
                 && !mh02702.Checked && mh02702.Enabled == true)
             {
@@ -3624,6 +3626,9 @@ namespace Win_Form_GB
 
         private void mh02608_CheckedChanged(object sender, EventArgs e)
         {
+            CDBOperations obj_op = new CDBOperations();
+
+
             //if (mh02608.Checked == true)
             //{
             //    mh02609.Checked = false;
@@ -3638,12 +3643,24 @@ namespace Win_Form_GB
                 mh026010.Checked = false;
                 mh026011.Checked = false;
                 mh027b.Checked = false;
-                mh027a1.Checked = false;
+                //mh027a1.Checked = false;
+
+                obj_op.DisableControls_Checkbox2(mh027a1);
+                obj_op.DisableControls_Checkbox2(mh027a2);
             }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh027a1);
+                obj_op.EnableControls_Checkbox(mh027a2);
+            }
+
+            obj_op = null;
         }
 
         private void mh02609_CheckedChanged(object sender, EventArgs e)
         {
+            CDBOperations obj_op = new CDBOperations();
+
 
             //if (mh02609.Checked == true)
             //{
@@ -3659,12 +3676,24 @@ namespace Win_Form_GB
                 mh026010.Checked = false;
                 mh026011.Checked = false;
                 mh027b.Checked = false;
-                mh027a1.Checked = false;
+                //mh027a1.Checked = false;
+
+                obj_op.DisableControls_Checkbox2(mh027a1);
+                obj_op.DisableControls_Checkbox2(mh027a2);
             }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh027a1);
+                obj_op.EnableControls_Checkbox(mh027a2);
+            }
+
+            obj_op = null;
         }
 
         private void mh026010_CheckedChanged(object sender, EventArgs e)
         {
+            CDBOperations obj_op = new CDBOperations();
+
             //if (mh026010.Checked == true)
             //{
             //    mh02608.Checked = false;
@@ -3680,12 +3709,24 @@ namespace Win_Form_GB
                 mh02609.Checked = false;
                 mh026011.Checked = false;
                 mh027b.Checked = false;
-                mh027a1.Checked = false;
+                //mh027a1.Checked = false;
+
+                obj_op.DisableControls_Checkbox2(mh027a1);
+                obj_op.DisableControls_Checkbox2(mh027a2);
             }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh027a1);
+                obj_op.EnableControls_Checkbox(mh027a2);
+            }
+
+            obj_op = null;
         }
 
         private void mh026011_CheckedChanged(object sender, EventArgs e)
         {
+            CDBOperations obj_op = new CDBOperations();
+
             //if (mh026011.Checked == true)
             //{
             //    mh02608.Checked = false;
@@ -3700,8 +3741,18 @@ namespace Win_Form_GB
                 mh02609.Checked = false;
                 mh026010.Checked = false;
                 mh027b.Checked = false;
-                mh027a1.Checked = false;
+                //mh027a1.Checked = false;
+
+                obj_op.DisableControls_Checkbox2(mh027a1);
+                obj_op.DisableControls_Checkbox2(mh027a2);
             }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh027a1);
+                obj_op.EnableControls_Checkbox(mh027a2);
+            }
+
+            obj_op = null;
         }
 
         private void mh026014_CheckedChanged(object sender, EventArgs e)
@@ -3762,13 +3813,13 @@ namespace Win_Form_GB
 
         private void mh027a1_CheckedChanged(object sender, EventArgs e)
         {
-            //if (mh027a1.Checked == true)
-            //{
-            //    mh02608.Checked = false;
-            //    mh02609.Checked = false;
-            //    mh026010.Checked = false;
-            //    mh026011.Checked = false;
-            //}
+            if (mh027a1.Checked == true)
+            {
+                mh02608.Checked = false;
+                mh02609.Checked = false;
+                mh026010.Checked = false;
+                mh026011.Checked = false;
+            }
 
 
             if (mh027a1.Checked == true && mh027a2.Checked)
@@ -3776,6 +3827,8 @@ namespace Win_Form_GB
                 MessageBox.Show("Refused for OPV is selected please unchecked ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 mh027a1.Checked = false;
             }
+
+
         }
 
         private void mh026019_CheckedChanged(object sender, EventArgs e)
@@ -4139,6 +4192,6 @@ namespace Win_Form_GB
 
 
         }
-        
+
     }
 }
