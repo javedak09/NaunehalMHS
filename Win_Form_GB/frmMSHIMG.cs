@@ -1533,6 +1533,7 @@ namespace Win_Form_GB
             comboSource.Add("0", "Select Pallor");
             comboSource.Add("1", "Positive");
             comboSource.Add("2", "Negative");
+            comboSource.Add("99", "Not Reported");
 
             mh013.DataSource = new BindingSource(comboSource, null);
             mh013.DisplayMember = "Value";
@@ -1547,6 +1548,7 @@ namespace Win_Form_GB
             comboSource.Add("0", "Select Hydration");
             comboSource.Add("1", "Adequate");
             comboSource.Add("2", "Inadequate");
+            comboSource.Add("99", "Not Reported");
 
             mh014.DataSource = new BindingSource(comboSource, null);
             mh014.DisplayMember = "Value";
