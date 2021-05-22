@@ -1391,6 +1391,7 @@ namespace Win_Form_GB
 
                 MessageBox.Show("Record saved successfully ", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
             }
 
             catch (Exception ex)

@@ -1405,6 +1405,7 @@ namespace Win_Form_GB
                     fd.databy = "desktop";
                     fd.userid = ds.Tables[0].Rows[a]["userid"].ToString();
                     fd.entrydate = ds.Tables[0].Rows[a]["entrydate"].ToString();
+                    fd.form_id = ds.Tables[0].Rows[a]["form_id"].ToString();
 
 
                     forms.Add(fd);
@@ -1559,6 +1560,7 @@ namespace Win_Form_GB
         public class forms_data_master
         {
             public string _id;
+            public string form_id;
             public string deviceid;
             public string sysdate;
             public string id;
