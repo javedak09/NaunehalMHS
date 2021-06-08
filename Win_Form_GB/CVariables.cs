@@ -42,7 +42,7 @@ namespace Win_Form_GB
         static bool IsDateWise = false;
         static bool IsUserWise = false;
         static bool IsWholeReport = false;
-        static bool IsErr = false;        
+        static bool IsErr = false;
         static bool IsMonthWise = false;
         static string uID = "";
 
@@ -55,6 +55,7 @@ namespace Win_Form_GB
         static bool val3 = false;
         static bool CohortCase = false;
         static bool IsNotEligibile = false;
+
 
 
         static bool iserrormsg = false;
@@ -102,12 +103,55 @@ namespace Win_Form_GB
 
         static double zscore;
 
+        static string SERVER_URL = "https://vcoe1.aku.edu/naunehal/api/";
+        static string TESTING_URL = "http://F38158/naunehal/api/";
+        static string GET_DATA_FILENAME = "getData.php";
+        static string SYNC_DATA_FILENAME = "sync.php";
+
 
 
         public CVariables(string AppName)
         {
             AppName = AppName;
         }
+
+
+        public static string getServerURL
+        {
+            get
+            {
+                return SERVER_URL;
+            }
+        }
+
+
+        public static string getTestingURL
+        {
+            get
+            {
+                return TESTING_URL;
+            }
+        }
+
+
+
+        public static string getDataFileName
+        {
+            get
+            {
+                return GET_DATA_FILENAME;
+            }
+        }
+
+
+        public static string getSyncFileName
+        {
+            get
+            {
+                return SYNC_DATA_FILENAME;
+            }
+        }
+
 
 
         public static string EligibilityID
@@ -559,7 +603,7 @@ namespace Win_Form_GB
                 Success = value;
             }
         }
-        
+
 
 
         public static bool MonthWiseGroupby

@@ -793,6 +793,27 @@ namespace Win_Form_GB
         }
 
 
+
+        public void DisableControls_RadioButton2(RadioButton txtbox)
+        {
+            try
+            {
+                txtbox.Checked = false;
+                txtbox.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            finally
+            {
+                txtbox = null;
+            }
+        }
+
+
+
         public void DisableControls(Control txtbox)
         {
             try

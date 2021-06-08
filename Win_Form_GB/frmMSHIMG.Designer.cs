@@ -83,6 +83,19 @@
             this.mh02101 = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.mh03102 = new System.Windows.Forms.RadioButton();
+            this.mh03101 = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.mh03002 = new System.Windows.Forms.RadioButton();
+            this.mh03001 = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mh01705 = new System.Windows.Forms.CheckBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.mh010a2 = new System.Windows.Forms.RadioButton();
+            this.mh010a1 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.chkVaccination = new System.Windows.Forms.CheckBox();
             this.mh01704 = new System.Windows.Forms.CheckBox();
             this.chkNoneDiag = new System.Windows.Forms.CheckBox();
@@ -154,6 +167,9 @@
             this.mh015 = new System.Windows.Forms.MaskedTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -289,7 +305,7 @@
             this.mh012.Mask = "999.9";
             this.mh012.Name = "mh012";
             this.mh012.Size = new System.Drawing.Size(52, 20);
-            this.mh012.TabIndex = 15;
+            this.mh012.TabIndex = 17;
             this.mh012.Leave += new System.EventHandler(this.mh012_Leave);
             // 
             // mh017077
@@ -299,7 +315,7 @@
             this.mh017077.Location = new System.Drawing.Point(120, 410);
             this.mh017077.Name = "mh017077";
             this.mh017077.Size = new System.Drawing.Size(15, 14);
-            this.mh017077.TabIndex = 26;
+            this.mh017077.TabIndex = 29;
             this.mh017077.UseVisualStyleBackColor = true;
             this.mh017077.CheckedChanged += new System.EventHandler(this.mh017077_CheckedChanged);
             // 
@@ -310,7 +326,7 @@
             this.mh01703.Location = new System.Drawing.Point(502, 389);
             this.mh01703.Name = "mh01703";
             this.mh01703.Size = new System.Drawing.Size(15, 14);
-            this.mh01703.TabIndex = 25;
+            this.mh01703.TabIndex = 27;
             this.mh01703.UseVisualStyleBackColor = true;
             // 
             // mh01702
@@ -320,7 +336,7 @@
             this.mh01702.Location = new System.Drawing.Point(287, 389);
             this.mh01702.Name = "mh01702";
             this.mh01702.Size = new System.Drawing.Size(15, 14);
-            this.mh01702.TabIndex = 24;
+            this.mh01702.TabIndex = 26;
             this.mh01702.UseVisualStyleBackColor = true;
             // 
             // mh01701
@@ -330,7 +346,7 @@
             this.mh01701.Location = new System.Drawing.Point(120, 389);
             this.mh01701.Name = "mh01701";
             this.mh01701.Size = new System.Drawing.Size(15, 14);
-            this.mh01701.TabIndex = 23;
+            this.mh01701.TabIndex = 25;
             this.mh01701.UseVisualStyleBackColor = true;
             // 
             // mh017077x
@@ -342,7 +358,7 @@
             this.mh017077x.Mask = ">??????????????????????????????????????????????????";
             this.mh017077x.Name = "mh017077x";
             this.mh017077x.Size = new System.Drawing.Size(414, 20);
-            this.mh017077x.TabIndex = 27;
+            this.mh017077x.TabIndex = 30;
             // 
             // mh01803
             // 
@@ -351,7 +367,7 @@
             this.mh01803.Location = new System.Drawing.Point(502, 452);
             this.mh01803.Name = "mh01803";
             this.mh01803.Size = new System.Drawing.Size(15, 14);
-            this.mh01803.TabIndex = 30;
+            this.mh01803.TabIndex = 34;
             this.mh01803.UseVisualStyleBackColor = true;
             // 
             // mh01802
@@ -361,7 +377,7 @@
             this.mh01802.Location = new System.Drawing.Point(287, 452);
             this.mh01802.Name = "mh01802";
             this.mh01802.Size = new System.Drawing.Size(15, 14);
-            this.mh01802.TabIndex = 29;
+            this.mh01802.TabIndex = 33;
             this.mh01802.UseVisualStyleBackColor = true;
             // 
             // mh01801
@@ -371,7 +387,7 @@
             this.mh01801.Location = new System.Drawing.Point(120, 452);
             this.mh01801.Name = "mh01801";
             this.mh01801.Size = new System.Drawing.Size(15, 14);
-            this.mh01801.TabIndex = 28;
+            this.mh01801.TabIndex = 32;
             this.mh01801.UseVisualStyleBackColor = true;
             // 
             // mh01804
@@ -381,7 +397,7 @@
             this.mh01804.Location = new System.Drawing.Point(120, 469);
             this.mh01804.Name = "mh01804";
             this.mh01804.Size = new System.Drawing.Size(15, 14);
-            this.mh01804.TabIndex = 31;
+            this.mh01804.TabIndex = 35;
             this.mh01804.UseVisualStyleBackColor = true;
             // 
             // mh01805
@@ -391,7 +407,7 @@
             this.mh01805.Location = new System.Drawing.Point(287, 470);
             this.mh01805.Name = "mh01805";
             this.mh01805.Size = new System.Drawing.Size(15, 14);
-            this.mh01805.TabIndex = 32;
+            this.mh01805.TabIndex = 36;
             this.mh01805.UseVisualStyleBackColor = true;
             // 
             // mh01806
@@ -401,7 +417,7 @@
             this.mh01806.Location = new System.Drawing.Point(502, 469);
             this.mh01806.Name = "mh01806";
             this.mh01806.Size = new System.Drawing.Size(15, 14);
-            this.mh01806.TabIndex = 33;
+            this.mh01806.TabIndex = 37;
             this.mh01806.UseVisualStyleBackColor = true;
             // 
             // mh01807
@@ -411,7 +427,7 @@
             this.mh01807.Location = new System.Drawing.Point(120, 487);
             this.mh01807.Name = "mh01807";
             this.mh01807.Size = new System.Drawing.Size(15, 14);
-            this.mh01807.TabIndex = 34;
+            this.mh01807.TabIndex = 38;
             this.mh01807.UseVisualStyleBackColor = true;
             // 
             // mh01808
@@ -421,7 +437,7 @@
             this.mh01808.Location = new System.Drawing.Point(287, 488);
             this.mh01808.Name = "mh01808";
             this.mh01808.Size = new System.Drawing.Size(15, 14);
-            this.mh01808.TabIndex = 35;
+            this.mh01808.TabIndex = 39;
             this.mh01808.UseVisualStyleBackColor = true;
             // 
             // mh01809
@@ -431,7 +447,7 @@
             this.mh01809.Location = new System.Drawing.Point(502, 486);
             this.mh01809.Name = "mh01809";
             this.mh01809.Size = new System.Drawing.Size(15, 14);
-            this.mh01809.TabIndex = 36;
+            this.mh01809.TabIndex = 40;
             this.mh01809.UseVisualStyleBackColor = true;
             // 
             // mh018010
@@ -441,7 +457,7 @@
             this.mh018010.Location = new System.Drawing.Point(120, 506);
             this.mh018010.Name = "mh018010";
             this.mh018010.Size = new System.Drawing.Size(15, 14);
-            this.mh018010.TabIndex = 37;
+            this.mh018010.TabIndex = 41;
             this.mh018010.UseVisualStyleBackColor = true;
             // 
             // mh018011
@@ -451,7 +467,7 @@
             this.mh018011.Location = new System.Drawing.Point(287, 507);
             this.mh018011.Name = "mh018011";
             this.mh018011.Size = new System.Drawing.Size(15, 14);
-            this.mh018011.TabIndex = 38;
+            this.mh018011.TabIndex = 42;
             this.mh018011.UseVisualStyleBackColor = true;
             // 
             // mh018012
@@ -461,7 +477,7 @@
             this.mh018012.Location = new System.Drawing.Point(502, 504);
             this.mh018012.Name = "mh018012";
             this.mh018012.Size = new System.Drawing.Size(15, 14);
-            this.mh018012.TabIndex = 39;
+            this.mh018012.TabIndex = 43;
             this.mh018012.UseVisualStyleBackColor = true;
             // 
             // mh018013
@@ -471,7 +487,7 @@
             this.mh018013.Location = new System.Drawing.Point(120, 524);
             this.mh018013.Name = "mh018013";
             this.mh018013.Size = new System.Drawing.Size(15, 14);
-            this.mh018013.TabIndex = 40;
+            this.mh018013.TabIndex = 44;
             this.mh018013.UseVisualStyleBackColor = true;
             // 
             // mh018014
@@ -481,7 +497,7 @@
             this.mh018014.Location = new System.Drawing.Point(287, 525);
             this.mh018014.Name = "mh018014";
             this.mh018014.Size = new System.Drawing.Size(15, 14);
-            this.mh018014.TabIndex = 41;
+            this.mh018014.TabIndex = 45;
             this.mh018014.UseVisualStyleBackColor = true;
             // 
             // mh018015
@@ -491,7 +507,7 @@
             this.mh018015.Location = new System.Drawing.Point(502, 522);
             this.mh018015.Name = "mh018015";
             this.mh018015.Size = new System.Drawing.Size(15, 14);
-            this.mh018015.TabIndex = 42;
+            this.mh018015.TabIndex = 46;
             this.mh018015.UseVisualStyleBackColor = true;
             // 
             // mh018016
@@ -501,7 +517,7 @@
             this.mh018016.Location = new System.Drawing.Point(120, 541);
             this.mh018016.Name = "mh018016";
             this.mh018016.Size = new System.Drawing.Size(15, 14);
-            this.mh018016.TabIndex = 43;
+            this.mh018016.TabIndex = 47;
             this.mh018016.UseVisualStyleBackColor = true;
             // 
             // mh018077x
@@ -513,7 +529,7 @@
             this.mh018077x.Mask = ">??????????????????????????????????????????????????";
             this.mh018077x.Name = "mh018077x";
             this.mh018077x.Size = new System.Drawing.Size(310, 20);
-            this.mh018077x.TabIndex = 45;
+            this.mh018077x.TabIndex = 49;
             // 
             // mh018077
             // 
@@ -522,7 +538,7 @@
             this.mh018077.Location = new System.Drawing.Point(287, 543);
             this.mh018077.Name = "mh018077";
             this.mh018077.Size = new System.Drawing.Size(15, 14);
-            this.mh018077.TabIndex = 44;
+            this.mh018077.TabIndex = 48;
             this.mh018077.UseVisualStyleBackColor = true;
             this.mh018077.CheckedChanged += new System.EventHandler(this.mh018077_CheckedChanged);
             // 
@@ -535,7 +551,7 @@
             this.mh019077x.Mask = ">??????????????????????????????????????????????????";
             this.mh019077x.Name = "mh019077x";
             this.mh019077x.Size = new System.Drawing.Size(480, 20);
-            this.mh019077x.TabIndex = 62;
+            this.mh019077x.TabIndex = 67;
             // 
             // mh019077
             // 
@@ -544,7 +560,7 @@
             this.mh019077.Location = new System.Drawing.Point(120, 671);
             this.mh019077.Name = "mh019077";
             this.mh019077.Size = new System.Drawing.Size(15, 14);
-            this.mh019077.TabIndex = 61;
+            this.mh019077.TabIndex = 66;
             this.mh019077.UseVisualStyleBackColor = true;
             this.mh019077.CheckedChanged += new System.EventHandler(this.mh019077_CheckedChanged);
             // 
@@ -555,7 +571,7 @@
             this.mh019015.Location = new System.Drawing.Point(502, 653);
             this.mh019015.Name = "mh019015";
             this.mh019015.Size = new System.Drawing.Size(15, 14);
-            this.mh019015.TabIndex = 60;
+            this.mh019015.TabIndex = 65;
             this.mh019015.UseVisualStyleBackColor = true;
             this.mh019015.CheckedChanged += new System.EventHandler(this.mh019015_CheckedChanged);
             // 
@@ -566,7 +582,7 @@
             this.mh019014.Location = new System.Drawing.Point(287, 654);
             this.mh019014.Name = "mh019014";
             this.mh019014.Size = new System.Drawing.Size(15, 14);
-            this.mh019014.TabIndex = 59;
+            this.mh019014.TabIndex = 64;
             this.mh019014.UseVisualStyleBackColor = true;
             this.mh019014.CheckedChanged += new System.EventHandler(this.mh019014_CheckedChanged);
             // 
@@ -577,7 +593,7 @@
             this.mh019013.Location = new System.Drawing.Point(120, 653);
             this.mh019013.Name = "mh019013";
             this.mh019013.Size = new System.Drawing.Size(15, 14);
-            this.mh019013.TabIndex = 58;
+            this.mh019013.TabIndex = 63;
             this.mh019013.UseVisualStyleBackColor = true;
             this.mh019013.CheckedChanged += new System.EventHandler(this.mh019013_CheckedChanged);
             // 
@@ -588,7 +604,7 @@
             this.mh019012.Location = new System.Drawing.Point(502, 635);
             this.mh019012.Name = "mh019012";
             this.mh019012.Size = new System.Drawing.Size(15, 14);
-            this.mh019012.TabIndex = 57;
+            this.mh019012.TabIndex = 62;
             this.mh019012.UseVisualStyleBackColor = true;
             this.mh019012.CheckedChanged += new System.EventHandler(this.mh019012_CheckedChanged);
             // 
@@ -599,7 +615,7 @@
             this.mh019011.Location = new System.Drawing.Point(287, 636);
             this.mh019011.Name = "mh019011";
             this.mh019011.Size = new System.Drawing.Size(15, 14);
-            this.mh019011.TabIndex = 56;
+            this.mh019011.TabIndex = 61;
             this.mh019011.UseVisualStyleBackColor = true;
             this.mh019011.CheckedChanged += new System.EventHandler(this.mh019011_CheckedChanged);
             // 
@@ -610,7 +626,7 @@
             this.mh019010.Location = new System.Drawing.Point(120, 635);
             this.mh019010.Name = "mh019010";
             this.mh019010.Size = new System.Drawing.Size(15, 14);
-            this.mh019010.TabIndex = 55;
+            this.mh019010.TabIndex = 60;
             this.mh019010.UseVisualStyleBackColor = true;
             this.mh019010.CheckedChanged += new System.EventHandler(this.mh019010_CheckedChanged);
             // 
@@ -621,7 +637,7 @@
             this.mh01909.Location = new System.Drawing.Point(502, 617);
             this.mh01909.Name = "mh01909";
             this.mh01909.Size = new System.Drawing.Size(15, 14);
-            this.mh01909.TabIndex = 54;
+            this.mh01909.TabIndex = 59;
             this.mh01909.UseVisualStyleBackColor = true;
             this.mh01909.CheckedChanged += new System.EventHandler(this.mh01909_CheckedChanged);
             // 
@@ -632,7 +648,7 @@
             this.mh01908.Location = new System.Drawing.Point(287, 618);
             this.mh01908.Name = "mh01908";
             this.mh01908.Size = new System.Drawing.Size(15, 14);
-            this.mh01908.TabIndex = 53;
+            this.mh01908.TabIndex = 58;
             this.mh01908.UseVisualStyleBackColor = true;
             this.mh01908.CheckedChanged += new System.EventHandler(this.mh01908_CheckedChanged);
             // 
@@ -643,7 +659,7 @@
             this.mh01907.Location = new System.Drawing.Point(120, 616);
             this.mh01907.Name = "mh01907";
             this.mh01907.Size = new System.Drawing.Size(15, 14);
-            this.mh01907.TabIndex = 52;
+            this.mh01907.TabIndex = 57;
             this.mh01907.UseVisualStyleBackColor = true;
             this.mh01907.CheckedChanged += new System.EventHandler(this.mh01907_CheckedChanged);
             // 
@@ -654,7 +670,7 @@
             this.mh01906.Location = new System.Drawing.Point(502, 599);
             this.mh01906.Name = "mh01906";
             this.mh01906.Size = new System.Drawing.Size(15, 14);
-            this.mh01906.TabIndex = 51;
+            this.mh01906.TabIndex = 56;
             this.mh01906.UseVisualStyleBackColor = true;
             this.mh01906.CheckedChanged += new System.EventHandler(this.mh01906_CheckedChanged);
             // 
@@ -665,7 +681,7 @@
             this.mh01905.Location = new System.Drawing.Point(287, 600);
             this.mh01905.Name = "mh01905";
             this.mh01905.Size = new System.Drawing.Size(15, 14);
-            this.mh01905.TabIndex = 50;
+            this.mh01905.TabIndex = 55;
             this.mh01905.UseVisualStyleBackColor = true;
             this.mh01905.CheckedChanged += new System.EventHandler(this.mh01905_CheckedChanged);
             // 
@@ -676,7 +692,7 @@
             this.mh01904.Location = new System.Drawing.Point(120, 599);
             this.mh01904.Name = "mh01904";
             this.mh01904.Size = new System.Drawing.Size(15, 14);
-            this.mh01904.TabIndex = 49;
+            this.mh01904.TabIndex = 54;
             this.mh01904.UseVisualStyleBackColor = true;
             this.mh01904.CheckedChanged += new System.EventHandler(this.mh01904_CheckedChanged);
             // 
@@ -687,7 +703,7 @@
             this.mh01903.Location = new System.Drawing.Point(502, 582);
             this.mh01903.Name = "mh01903";
             this.mh01903.Size = new System.Drawing.Size(15, 14);
-            this.mh01903.TabIndex = 48;
+            this.mh01903.TabIndex = 53;
             this.mh01903.UseVisualStyleBackColor = true;
             this.mh01903.CheckedChanged += new System.EventHandler(this.mh01903_CheckedChanged);
             // 
@@ -698,7 +714,7 @@
             this.mh01902.Location = new System.Drawing.Point(287, 582);
             this.mh01902.Name = "mh01902";
             this.mh01902.Size = new System.Drawing.Size(15, 14);
-            this.mh01902.TabIndex = 47;
+            this.mh01902.TabIndex = 52;
             this.mh01902.UseVisualStyleBackColor = true;
             this.mh01902.CheckedChanged += new System.EventHandler(this.mh01902_CheckedChanged);
             // 
@@ -709,7 +725,7 @@
             this.mh01901.Location = new System.Drawing.Point(120, 582);
             this.mh01901.Name = "mh01901";
             this.mh01901.Size = new System.Drawing.Size(15, 14);
-            this.mh01901.TabIndex = 46;
+            this.mh01901.TabIndex = 51;
             this.mh01901.UseVisualStyleBackColor = true;
             this.mh01901.CheckedChanged += new System.EventHandler(this.mh01901_CheckedChanged);
             // 
@@ -719,7 +735,7 @@
             this.mh02101.Location = new System.Drawing.Point(13, 9);
             this.mh02101.Name = "mh02101";
             this.mh02101.Size = new System.Drawing.Size(14, 13);
-            this.mh02101.TabIndex = 0;
+            this.mh02101.TabIndex = 71;
             this.mh02101.TabStop = true;
             this.mh02101.UseVisualStyleBackColor = true;
             // 
@@ -736,6 +752,13 @@
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabPage1.Controls.Add(this.panel11);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.panel10);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.mh01705);
+            this.tabPage1.Controls.Add(this.panel9);
+            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.chkVaccination);
             this.tabPage1.Controls.Add(this.mh01704);
             this.tabPage1.Controls.Add(this.chkNoneDiag);
@@ -848,6 +871,146 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.mh03102);
+            this.panel11.Controls.Add(this.mh03101);
+            this.panel11.Location = new System.Drawing.Point(650, 805);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(91, 21);
+            this.panel11.TabIndex = 356;
+            // 
+            // mh03102
+            // 
+            this.mh03102.AutoSize = true;
+            this.mh03102.Location = new System.Drawing.Point(55, 4);
+            this.mh03102.Name = "mh03102";
+            this.mh03102.Size = new System.Drawing.Size(39, 17);
+            this.mh03102.TabIndex = 84;
+            this.mh03102.TabStop = true;
+            this.mh03102.Text = "No";
+            this.mh03102.UseVisualStyleBackColor = true;
+            this.mh03102.CheckedChanged += new System.EventHandler(this.mh03102_CheckedChanged);
+            // 
+            // mh03101
+            // 
+            this.mh03101.AutoSize = true;
+            this.mh03101.Location = new System.Drawing.Point(6, 4);
+            this.mh03101.Name = "mh03101";
+            this.mh03101.Size = new System.Drawing.Size(43, 17);
+            this.mh03101.TabIndex = 83;
+            this.mh03101.TabStop = true;
+            this.mh03101.Text = "Yes";
+            this.mh03101.UseVisualStyleBackColor = true;
+            this.mh03101.CheckedChanged += new System.EventHandler(this.mh03101_CheckedChanged);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(541, 807);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(97, 19);
+            this.label3.TabIndex = 355;
+            this.label3.Text = "Child is not well";
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.mh03002);
+            this.panel10.Controls.Add(this.mh03001);
+            this.panel10.Location = new System.Drawing.Point(431, 803);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(91, 24);
+            this.panel10.TabIndex = 354;
+            // 
+            // mh03002
+            // 
+            this.mh03002.AutoSize = true;
+            this.mh03002.Location = new System.Drawing.Point(55, 5);
+            this.mh03002.Name = "mh03002";
+            this.mh03002.Size = new System.Drawing.Size(39, 17);
+            this.mh03002.TabIndex = 82;
+            this.mh03002.TabStop = true;
+            this.mh03002.Text = "No";
+            this.mh03002.UseVisualStyleBackColor = true;
+            this.mh03002.CheckedChanged += new System.EventHandler(this.mh03002_CheckedChanged);
+            // 
+            // mh03001
+            // 
+            this.mh03001.AutoSize = true;
+            this.mh03001.Location = new System.Drawing.Point(6, 5);
+            this.mh03001.Name = "mh03001";
+            this.mh03001.Size = new System.Drawing.Size(43, 17);
+            this.mh03001.TabIndex = 81;
+            this.mh03001.TabStop = true;
+            this.mh03001.Text = "Yes";
+            this.mh03001.UseVisualStyleBackColor = true;
+            this.mh03001.CheckedChanged += new System.EventHandler(this.mh03001_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(271, 806);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 19);
+            this.label2.TabIndex = 353;
+            this.label2.Text = "Fully immunized as per Age";
+            // 
+            // mh01705
+            // 
+            this.mh01705.BackColor = System.Drawing.Color.White;
+            this.mh01705.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mh01705.Location = new System.Drawing.Point(646, 385);
+            this.mh01705.Name = "mh01705";
+            this.mh01705.Size = new System.Drawing.Size(98, 19);
+            this.mh01705.TabIndex = 28;
+            this.mh01705.Text = "Not Pregnant";
+            this.mh01705.UseVisualStyleBackColor = false;
+            this.mh01705.CheckedChanged += new System.EventHandler(this.mh01705_CheckedChanged);
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.mh010a2);
+            this.panel9.Controls.Add(this.mh010a1);
+            this.panel9.Location = new System.Drawing.Point(516, 199);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(169, 20);
+            this.panel9.TabIndex = 351;
+            // 
+            // mh010a2
+            // 
+            this.mh010a2.AutoSize = true;
+            this.mh010a2.Location = new System.Drawing.Point(81, 1);
+            this.mh010a2.Name = "mh010a2";
+            this.mh010a2.Size = new System.Drawing.Size(73, 17);
+            this.mh010a2.TabIndex = 13;
+            this.mh010a2.TabStop = true;
+            this.mh010a2.Text = "Unmarried";
+            this.mh010a2.UseVisualStyleBackColor = true;
+            this.mh010a2.CheckedChanged += new System.EventHandler(this.mh010a2_CheckedChanged);
+            // 
+            // mh010a1
+            // 
+            this.mh010a1.AutoSize = true;
+            this.mh010a1.Location = new System.Drawing.Point(13, 1);
+            this.mh010a1.Name = "mh010a1";
+            this.mh010a1.Size = new System.Drawing.Size(60, 17);
+            this.mh010a1.TabIndex = 12;
+            this.mh010a1.TabStop = true;
+            this.mh010a1.Text = "Married";
+            this.mh010a1.UseVisualStyleBackColor = true;
+            this.mh010a1.CheckedChanged += new System.EventHandler(this.mh010a1_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(437, 200);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.TabIndex = 350;
+            this.label1.Text = "Marital status";
+            // 
             // chkVaccination
             // 
             this.chkVaccination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -864,10 +1027,10 @@
             // 
             this.mh01704.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.mh01704.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mh01704.Location = new System.Drawing.Point(618, 403);
+            this.mh01704.Location = new System.Drawing.Point(618, 405);
             this.mh01704.Name = "mh01704";
             this.mh01704.Size = new System.Drawing.Size(110, 19);
-            this.mh01704.TabIndex = 348;
+            this.mh01704.TabIndex = 31;
             this.mh01704.Text = "Not Applicable";
             this.mh01704.UseVisualStyleBackColor = false;
             this.mh01704.CheckedChanged += new System.EventHandler(this.mh01704_CheckedChanged);
@@ -880,7 +1043,7 @@
             this.chkNoneDiag.Location = new System.Drawing.Point(683, 534);
             this.chkNoneDiag.Name = "chkNoneDiag";
             this.chkNoneDiag.Size = new System.Drawing.Size(56, 19);
-            this.chkNoneDiag.TabIndex = 347;
+            this.chkNoneDiag.TabIndex = 50;
             this.chkNoneDiag.Text = "None";
             this.chkNoneDiag.UseVisualStyleBackColor = false;
             this.chkNoneDiag.CheckedChanged += new System.EventHandler(this.chkNoneDiag_CheckedChanged);
@@ -915,33 +1078,33 @@
             this.mh01103.BackColor = System.Drawing.Color.White;
             this.mh01103.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mh01103.ForeColor = System.Drawing.Color.Black;
-            this.mh01103.Location = new System.Drawing.Point(120, 261);
+            this.mh01103.Location = new System.Drawing.Point(120, 263);
             this.mh01103.Mask = resources.GetString("mh01103.Mask");
             this.mh01103.Name = "mh01103";
             this.mh01103.Size = new System.Drawing.Size(598, 20);
-            this.mh01103.TabIndex = 14;
+            this.mh01103.TabIndex = 16;
             // 
             // mh01102
             // 
             this.mh01102.BackColor = System.Drawing.Color.White;
             this.mh01102.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mh01102.ForeColor = System.Drawing.Color.Black;
-            this.mh01102.Location = new System.Drawing.Point(120, 239);
+            this.mh01102.Location = new System.Drawing.Point(120, 241);
             this.mh01102.Mask = resources.GetString("mh01102.Mask");
             this.mh01102.Name = "mh01102";
             this.mh01102.Size = new System.Drawing.Size(598, 20);
-            this.mh01102.TabIndex = 13;
+            this.mh01102.TabIndex = 15;
             // 
             // mh01101
             // 
             this.mh01101.BackColor = System.Drawing.Color.White;
             this.mh01101.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mh01101.ForeColor = System.Drawing.Color.Black;
-            this.mh01101.Location = new System.Drawing.Point(120, 217);
+            this.mh01101.Location = new System.Drawing.Point(120, 219);
             this.mh01101.Mask = resources.GetString("mh01101.Mask");
             this.mh01101.Name = "mh01101";
             this.mh01101.Size = new System.Drawing.Size(598, 20);
-            this.mh01101.TabIndex = 12;
+            this.mh01101.TabIndex = 14;
             this.mh01101.Leave += new System.EventHandler(this.mh01101_Leave);
             // 
             // cmdMainMenu
@@ -1039,7 +1202,7 @@
             // 
             this.panel6.Controls.Add(this.mh02502);
             this.panel6.Controls.Add(this.mh02501);
-            this.panel6.Location = new System.Drawing.Point(610, 788);
+            this.panel6.Location = new System.Drawing.Point(610, 785);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(104, 24);
             this.panel6.TabIndex = 339;
@@ -1050,7 +1213,7 @@
             this.mh02502.Location = new System.Drawing.Point(61, 4);
             this.mh02502.Name = "mh02502";
             this.mh02502.Size = new System.Drawing.Size(14, 13);
-            this.mh02502.TabIndex = 1;
+            this.mh02502.TabIndex = 80;
             this.mh02502.TabStop = true;
             this.mh02502.UseVisualStyleBackColor = true;
             // 
@@ -1060,7 +1223,7 @@
             this.mh02501.Location = new System.Drawing.Point(14, 4);
             this.mh02501.Name = "mh02501";
             this.mh02501.Size = new System.Drawing.Size(14, 13);
-            this.mh02501.TabIndex = 0;
+            this.mh02501.TabIndex = 79;
             this.mh02501.TabStop = true;
             this.mh02501.UseVisualStyleBackColor = true;
             this.mh02501.CheckedChanged += new System.EventHandler(this.mh02501_CheckedChanged);
@@ -1080,7 +1243,7 @@
             this.mh02302.Location = new System.Drawing.Point(62, 8);
             this.mh02302.Name = "mh02302";
             this.mh02302.Size = new System.Drawing.Size(14, 13);
-            this.mh02302.TabIndex = 1;
+            this.mh02302.TabIndex = 76;
             this.mh02302.TabStop = true;
             this.mh02302.UseVisualStyleBackColor = true;
             this.mh02302.CheckedChanged += new System.EventHandler(this.mh02302_CheckedChanged);
@@ -1091,7 +1254,7 @@
             this.mh02301.Location = new System.Drawing.Point(15, 9);
             this.mh02301.Name = "mh02301";
             this.mh02301.Size = new System.Drawing.Size(14, 13);
-            this.mh02301.TabIndex = 0;
+            this.mh02301.TabIndex = 75;
             this.mh02301.TabStop = true;
             this.mh02301.UseVisualStyleBackColor = true;
             // 
@@ -1110,7 +1273,7 @@
             this.mh02102.Location = new System.Drawing.Point(60, 8);
             this.mh02102.Name = "mh02102";
             this.mh02102.Size = new System.Drawing.Size(14, 13);
-            this.mh02102.TabIndex = 1;
+            this.mh02102.TabIndex = 72;
             this.mh02102.TabStop = true;
             this.mh02102.UseVisualStyleBackColor = true;
             // 
@@ -1129,7 +1292,7 @@
             this.mh02402.Location = new System.Drawing.Point(53, 2);
             this.mh02402.Name = "mh02402";
             this.mh02402.Size = new System.Drawing.Size(14, 13);
-            this.mh02402.TabIndex = 1;
+            this.mh02402.TabIndex = 78;
             this.mh02402.TabStop = true;
             this.mh02402.UseVisualStyleBackColor = true;
             // 
@@ -1139,7 +1302,7 @@
             this.mh02401.Location = new System.Drawing.Point(6, 2);
             this.mh02401.Name = "mh02401";
             this.mh02401.Size = new System.Drawing.Size(14, 13);
-            this.mh02401.TabIndex = 0;
+            this.mh02401.TabIndex = 77;
             this.mh02401.TabStop = true;
             this.mh02401.UseVisualStyleBackColor = true;
             this.mh02401.CheckedChanged += new System.EventHandler(this.mh02401_CheckedChanged);
@@ -1159,7 +1322,7 @@
             this.mh02202.Location = new System.Drawing.Point(52, 9);
             this.mh02202.Name = "mh02202";
             this.mh02202.Size = new System.Drawing.Size(14, 13);
-            this.mh02202.TabIndex = 1;
+            this.mh02202.TabIndex = 74;
             this.mh02202.TabStop = true;
             this.mh02202.UseVisualStyleBackColor = true;
             this.mh02202.CheckedChanged += new System.EventHandler(this.mh02202_CheckedChanged);
@@ -1170,7 +1333,7 @@
             this.mh02201.Location = new System.Drawing.Point(5, 8);
             this.mh02201.Name = "mh02201";
             this.mh02201.Size = new System.Drawing.Size(14, 13);
-            this.mh02201.TabIndex = 0;
+            this.mh02201.TabIndex = 73;
             this.mh02201.TabStop = true;
             this.mh02201.UseVisualStyleBackColor = true;
             // 
@@ -1189,7 +1352,7 @@
             this.mh02001.Location = new System.Drawing.Point(4, 8);
             this.mh02001.Name = "mh02001";
             this.mh02001.Size = new System.Drawing.Size(14, 13);
-            this.mh02001.TabIndex = 0;
+            this.mh02001.TabIndex = 69;
             this.mh02001.TabStop = true;
             this.mh02001.UseVisualStyleBackColor = true;
             // 
@@ -1199,7 +1362,7 @@
             this.mh02002.Location = new System.Drawing.Point(51, 8);
             this.mh02002.Name = "mh02002";
             this.mh02002.Size = new System.Drawing.Size(14, 13);
-            this.mh02002.TabIndex = 1;
+            this.mh02002.TabIndex = 70;
             this.mh02002.TabStop = true;
             this.mh02002.UseVisualStyleBackColor = true;
             // 
@@ -1210,7 +1373,7 @@
             this.chkMUAC.Location = new System.Drawing.Point(342, 348);
             this.chkMUAC.Name = "chkMUAC";
             this.chkMUAC.Size = new System.Drawing.Size(42, 19);
-            this.chkMUAC.TabIndex = 22;
+            this.chkMUAC.TabIndex = 24;
             this.chkMUAC.Text = "NA";
             this.chkMUAC.UseVisualStyleBackColor = true;
             this.chkMUAC.CheckedChanged += new System.EventHandler(this.chkMUAC_CheckedChanged);
@@ -1222,7 +1385,7 @@
             this.chkHeight.Location = new System.Drawing.Point(342, 325);
             this.chkHeight.Name = "chkHeight";
             this.chkHeight.Size = new System.Drawing.Size(42, 19);
-            this.chkHeight.TabIndex = 20;
+            this.chkHeight.TabIndex = 22;
             this.chkHeight.Text = "NA";
             this.chkHeight.UseVisualStyleBackColor = true;
             this.chkHeight.CheckedChanged += new System.EventHandler(this.chkHeight_CheckedChanged);
@@ -1256,7 +1419,7 @@
             this.chkWeight.Location = new System.Drawing.Point(244, 291);
             this.chkWeight.Name = "chkWeight";
             this.chkWeight.Size = new System.Drawing.Size(42, 19);
-            this.chkWeight.TabIndex = 16;
+            this.chkWeight.TabIndex = 18;
             this.chkWeight.Text = "NA";
             this.chkWeight.UseVisualStyleBackColor = true;
             this.chkWeight.CheckedChanged += new System.EventHandler(this.chkWeight_CheckedChanged);
@@ -1299,7 +1462,7 @@
             // 
             this.chkPW.AutoSize = true;
             this.chkPW.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkPW.Location = new System.Drawing.Point(642, 200);
+            this.chkPW.Location = new System.Drawing.Point(774, 293);
             this.chkPW.Name = "chkPW";
             this.chkPW.Size = new System.Drawing.Size(82, 19);
             this.chkPW.TabIndex = 98;
@@ -1315,7 +1478,7 @@
             this.mh014.Location = new System.Drawing.Point(515, 292);
             this.mh014.Name = "mh014";
             this.mh014.Size = new System.Drawing.Size(131, 21);
-            this.mh014.TabIndex = 18;
+            this.mh014.TabIndex = 20;
             this.mh014.Leave += new System.EventHandler(this.mh014_Leave);
             // 
             // mh013
@@ -1325,7 +1488,7 @@
             this.mh013.Location = new System.Drawing.Point(334, 293);
             this.mh013.Name = "mh013";
             this.mh013.Size = new System.Drawing.Size(123, 21);
-            this.mh013.TabIndex = 17;
+            this.mh013.TabIndex = 19;
             this.mh013.Leave += new System.EventHandler(this.mh013_Leave);
             // 
             // chkNone
@@ -1336,7 +1499,7 @@
             this.chkNone.Location = new System.Drawing.Point(683, 665);
             this.chkNone.Name = "chkNone";
             this.chkNone.Size = new System.Drawing.Size(56, 19);
-            this.chkNone.TabIndex = 63;
+            this.chkNone.TabIndex = 68;
             this.chkNone.Text = "None";
             this.chkNone.UseVisualStyleBackColor = false;
             this.chkNone.CheckedChanged += new System.EventHandler(this.chkNone_CheckedChanged);
@@ -1578,7 +1741,7 @@
             this.mh016.Mask = "99.99";
             this.mh016.Name = "mh016";
             this.mh016.Size = new System.Drawing.Size(145, 20);
-            this.mh016.TabIndex = 21;
+            this.mh016.TabIndex = 23;
             this.mh016.Leave += new System.EventHandler(this.mh016_Leave);
             // 
             // mh015
@@ -1589,7 +1752,8 @@
             this.mh015.Mask = "999.9";
             this.mh015.Name = "mh015";
             this.mh015.Size = new System.Drawing.Size(105, 20);
-            this.mh015.TabIndex = 19;
+            this.mh015.TabIndex = 21;
+            this.mh015.Leave += new System.EventHandler(this.mh015_Leave);
             // 
             // frmMSHIMG
             // 
@@ -1597,7 +1761,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMargin = new System.Drawing.Size(0, 300);
-            this.ClientSize = new System.Drawing.Size(1102, 1045);
+            this.ClientSize = new System.Drawing.Size(1119, 1045);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1612,6 +1776,12 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -1756,5 +1926,18 @@
         private System.Windows.Forms.CheckBox chkNoneDiag;
         private System.Windows.Forms.CheckBox mh01704;
         private System.Windows.Forms.CheckBox chkVaccination;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.RadioButton mh010a2;
+        private System.Windows.Forms.RadioButton mh010a1;
+        private System.Windows.Forms.CheckBox mh01705;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.RadioButton mh03002;
+        private System.Windows.Forms.RadioButton mh03001;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.RadioButton mh03102;
+        private System.Windows.Forms.RadioButton mh03101;
+        private System.Windows.Forms.Label label3;
     }
 }

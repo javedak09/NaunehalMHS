@@ -308,7 +308,8 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
+                //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -455,7 +456,8 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
+                //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
+                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -733,6 +735,10 @@ namespace Win_Form_GB
                     fd.mh09m = ds.Tables[0].Rows[a]["mh09m"].ToString();
                     fd.mh09d = ds.Tables[0].Rows[a]["mh09d"].ToString();
                     fd.mh010 = ds.Tables[0].Rows[a]["mh010"].ToString();
+
+                    fd.mh010a = ds.Tables[0].Rows[a]["mh010a"].ToString();
+
+
                     fd.mh011 = ds.Tables[0].Rows[a]["mh011"].ToString();
                     fd.mh012 = ds.Tables[0].Rows[a]["mh012"].ToString();
                     fd.chkWeight = ds.Tables[0].Rows[a]["chkWeight"].ToString();
@@ -748,6 +754,7 @@ namespace Win_Form_GB
                     fd.mh01702 = ds.Tables[0].Rows[a]["mh01702"].ToString();
                     fd.mh01703 = ds.Tables[0].Rows[a]["mh01703"].ToString();
                     fd.mh01704 = ds.Tables[0].Rows[a]["mh01704"].ToString();
+                    fd.mh01705 = ds.Tables[0].Rows[a]["mh01705"].ToString();
                     fd.mh017077 = ds.Tables[0].Rows[a]["mh017077"].ToString();
                     fd.mh017077x = ds.Tables[0].Rows[a]["mh017077x"].ToString();
 
@@ -832,11 +839,15 @@ namespace Win_Form_GB
                     fd.mh028 = ds.Tables[0].Rows[a]["mh028"].ToString();
                     fd.mh029 = ds.Tables[0].Rows[a]["mh029"].ToString();
 
+
+                    fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
+                    fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
+
                     fd.mh01101 = ds.Tables[0].Rows[a]["mh01101"].ToString();
                     fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
                     fd.mh01103 = ds.Tables[0].Rows[a]["mh01103"].ToString();
-                    
-                    
+
+
                     fd.uccode = ds.Tables[0].Rows[a]["uccode"].ToString();
                     fd.dist_id = ds.Tables[0].Rows[a]["dist_id"].ToString();
                     fd.databy = "desktop";
@@ -886,6 +897,7 @@ namespace Win_Form_GB
             public string mh09m;
             public string mh09d;
             public string mh010;
+            public string mh010a;
             public string mh011;
             public string mh012;
             public string chkWeight;
@@ -899,6 +911,7 @@ namespace Win_Form_GB
             public string mh01702;
             public string mh01703;
             public string mh01704;
+            public string mh01705;
             public string mh017077;
             public string mh017077x;
 
@@ -974,6 +987,8 @@ namespace Win_Form_GB
             public string mh027;
             public string mh028;
             public string mh029;
+            public string mh030;
+            public string mh031;
 
 
             public string mh01101;

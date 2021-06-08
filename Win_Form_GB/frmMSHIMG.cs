@@ -62,6 +62,12 @@ namespace Win_Form_GB
                 mh010.Focus();
                 return false;
             }
+            else if (!mh010a1.Checked && mh010a1.Enabled == true &&
+               !mh010a2.Checked && mh010a2.Enabled == true)
+            {
+                MessageBox.Show("Please select marital status ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
             else if (string.IsNullOrEmpty(mh01101.Text))
             {
                 MessageBox.Show("Presenting complaints is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -352,37 +358,52 @@ namespace Win_Form_GB
                 mh010.Focus();
                 return false;
             }
-            else if (string.IsNullOrEmpty(mh01101.Text))
+
+
+            if (!mh010a1.Checked && mh010a1.Enabled == true &&
+                !mh010a2.Checked && mh010a2.Enabled == true)
+            {
+                MessageBox.Show("Please select marital status ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+
+            if (string.IsNullOrEmpty(mh01101.Text))
             {
                 MessageBox.Show("Presenting complaints is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh01101.Focus();
                 return false;
             }
-            else if (mh012.Text == "   ." && mh012.Enabled == true)
+
+            if (mh012.Text == "   ." && mh012.Enabled == true)
             {
                 MessageBox.Show("Weight is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh012.Focus();
                 return false;
             }
-            else if (mh013.SelectedValue == "0" && mh013.Enabled == true)
+
+            if (mh013.SelectedValue == "0" && mh013.Enabled == true)
             {
                 MessageBox.Show("Pallor is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh013.Focus();
                 return false;
             }
-            else if (mh014.SelectedValue == "0" && mh014.Enabled == true)
+
+            if (mh014.SelectedValue == "0" && mh014.Enabled == true)
             {
                 MessageBox.Show("Hydration is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh014.Focus();
                 return false;
             }
-            else if (mh015.Text == "   ." && mh015.Enabled == true)
+
+            if (mh015.Text == "   ." && mh015.Enabled == true)
             {
                 MessageBox.Show("Height/Length is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh015.Focus();
                 return false;
             }
-            else if (mh016.Text == "  ." && mh016.Enabled == true)
+
+            if (mh016.Text == "  ." && mh016.Enabled == true)
             {
                 MessageBox.Show("MUAC is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 mh016.Focus();
@@ -392,6 +413,7 @@ namespace Win_Form_GB
                 !mh01702.Checked && mh01702.Enabled == true &&
                 !mh01703.Checked && mh01703.Enabled == true &&
                 !mh01704.Checked && mh01704.Enabled == true &&
+                !mh01705.Checked && mh01705.Enabled == true &&
                 !mh017077.Checked && mh017077.Enabled == true)
             {
                 MessageBox.Show("Diagnosis in pregnant women / mothers ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -493,6 +515,18 @@ namespace Win_Form_GB
                 MessageBox.Show("Received OPV in last campaign is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+            else if (!mh03001.Checked && mh03001.Enabled == true
+                && !mh03002.Checked && mh03002.Enabled == true)
+            {
+                MessageBox.Show("Fully immunized as per age is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            else if (!mh03101.Checked && mh03101.Enabled == true
+                && !mh03102.Checked && mh03102.Enabled == true)
+            {
+                MessageBox.Show("Child is not well is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
             else if (!mh02601.Checked && mh02601.Enabled == true
                 && !mh02602.Checked && mh02602.Enabled == true
                 && !mh02603.Checked && mh02603.Enabled == true
@@ -544,6 +578,8 @@ namespace Win_Form_GB
                 MessageBox.Show("Signature / Consent is required ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
+
+
 
 
 
@@ -665,11 +701,14 @@ namespace Win_Form_GB
             string var_chkMUAC = "";
 
 
+            string var_mh010a = "";
+
             string var_mh01701 = "";
             string var_mh01702 = "";
             string var_mh01703 = "";
             string var_mh017077 = "";
             string var_mh01704 = "";
+            string var_mh01705 = "";
 
 
 
@@ -719,6 +758,10 @@ namespace Win_Form_GB
             string var_mh023 = "";
             string var_mh024 = "";
             string var_mh025 = "";
+
+            string var_mh030 = "";
+            string var_mh031 = "";
+
             string var_mh027 = "";
             string var_mh028 = "";
             string var_mh029 = "";
@@ -766,6 +809,18 @@ namespace Win_Form_GB
             {
                 var_chkWeight = "0";
             }
+
+
+            if (mh010a1.Checked)
+            {
+                var_mh010a = "1";
+            }
+            else
+            {
+                var_mh010a = "2";
+            }
+
+
 
 
 
@@ -855,6 +910,10 @@ namespace Win_Form_GB
 
 
 
+            if (mh01705.Checked == true && mh01705.Enabled == true)
+            {
+                var_mh01705 = "5";
+            }
 
 
 
@@ -1126,6 +1185,34 @@ namespace Win_Form_GB
 
 
 
+            if (mh03001.Checked == true && mh03001.Enabled == true)
+            {
+                var_mh030 = "1";
+            }
+
+
+            if (mh03002.Checked == true && mh03002.Enabled == true)
+            {
+                var_mh030 = "2";
+            }
+
+
+
+
+            if (mh03101.Checked == true && mh03101.Enabled == true)
+            {
+                var_mh031 = "1";
+            }
+
+
+            if (mh03102.Checked == true && mh03102.Enabled == true)
+            {
+                var_mh031 = "2";
+            }
+
+
+
+
             if (mh02701.Checked == true && mh02701.Enabled == true)
             {
                 var_mh027 = "1";
@@ -1377,8 +1464,8 @@ namespace Win_Form_GB
                 //string qry = "INSERT INTO camp_patient_dtl (mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh011, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode) values ('" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "')";
 
 
-                string qry = "INSERT INTO camp_patient_dtl (master_id, FORM_ID, mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh01101, mh01102, mh01103, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh01704, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode, mh027a, mh027b, chknone, entrydate, userid, chkNoneDiag, chkVaccination) values " +
-                    "('" + masterid + "', '" + FORM_ID.Text + "', '" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + mh01102.Text.Replace('\n', ' ') + "', '" + mh01103.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh01704 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "', '" + var_mh027a1 + "', '" + var_mh027b + "', '" + var_chknone + "', '" + EntryDate.ToShortDateString() + "', '" + CVariables.UserName + "', '" + var_chkNoneDiag + "', '" + var_chkVaccination + "')";
+                string qry = "INSERT INTO camp_patient_dtl (master_id, FORM_ID, mh01, mh02, mh06, mh07, mh08, mh09y, mh09m, mh09d, mh010, mh010a, mh01101, mh01102, mh01103, mh012, chkWeight, mh013, mh014, mh015, chkHeight, mh016, chkMUAC, mh01701, mh01702, mh01703, mh01704, mh01705, mh017077, mh017077x, mh01801, mh01802, mh01803, mh01804, mh01805, mh01806, mh01807, mh01808, mh01809, mh018010, mh018011, mh018012, mh018013, mh018014, mh018015, mh018016, mh018077, mh018077x, mh01901, mh01902, mh01903, mh01904, mh01905, mh01906, mh01907, mh01908, mh01909, mh019010, mh019011, mh019012, mh019013, mh019014, mh019015, mh019077, mh019077x, mh020, mh021, mh022, mh023, mh024, mh025, mh030, mh031, mh02601, mh02602, mh02603, mh02604, mh02605, mh02606, mh02607, mh02608, mh02609, mh026010, mh026011, mh026012, mh026013, mh026014, mh026015, mh026016, mh026017, mh026018, mh026019, mh027, mh028, mh029, dist_id, uccode, mh027a, mh027b, chknone, entrydate, userid, chkNoneDiag, chkVaccination) values " +
+                    "('" + masterid + "', '" + Convert.ToInt64(FORM_ID.Text) + "', '" + dt_mh01.ToShortDateString() + "', '" + mh02.Text + "', '" + mh06.SelectedValue.ToString() + "', '" + mh07.Text + "', '" + mh08.Text + "', '" + mh09y.Text + "', '" + mh09m.Text + "', '" + mh09d.Text + "', '" + mh010.SelectedValue.ToString() + "', '" + var_mh010a + "', '" + mh01101.Text.Replace('\n', ' ') + "', '" + mh01102.Text.Replace('\n', ' ') + "', '" + mh01103.Text.Replace('\n', ' ') + "', '" + val_chkWeight + "', '" + var_chkWeight + "', '" + mh013.SelectedValue.ToString() + "', '" + mh014.SelectedValue.ToString() + "', '" + val_chkHeight + "', '" + var_chkHeight + "', '" + val_chkMUAC + "', '" + var_chkMUAC + "', '" + var_mh01701 + "', '" + var_mh01702 + "', '" + var_mh01703 + "', '" + var_mh01704 + "', '" + var_mh01705 + "', '" + var_mh017077 + "', '" + mh017077x.Text + "', '" + var_mh01801 + "', '" + var_mh01802 + "', '" + var_mh01803 + "', '" + var_mh01804 + "', '" + var_mh01805 + "', '" + var_mh01806 + "', '" + var_mh01807 + "', '" + var_mh01808 + "', '" + var_mh01809 + "', '" + var_mh018010 + "', '" + var_mh018011 + "', '" + var_mh018012 + "', '" + var_mh018013 + "', '" + var_mh018014 + "', '" + var_mh018015 + "', '" + var_mh018016 + "', '" + var_mh018077 + "', '" + mh018077x.Text + "', '" + var_mh01901 + "', '" + var_mh01902 + "', '" + var_mh01903 + "', '" + var_mh01904 + "', '" + var_mh01905 + "', '" + var_mh01906 + "', '" + var_mh01907 + "', '" + var_mh01908 + "', '" + var_mh01909 + "', '" + var_mh019010 + "', '" + var_mh019011 + "', '" + var_mh019012 + "', '" + var_mh019013 + "', '" + var_mh019014 + "', '" + var_mh019015 + "', '" + var_mh019077 + "', '" + mh019077x.Text + "', '" + var_mh020 + "', '" + var_mh021 + "', '" + var_mh022 + "', '" + var_mh023 + "', '" + var_mh024 + "', '" + var_mh025 + "', '" + var_mh030 + "', '" + var_mh031 + "', '" + var_mh02601 + "', '" + var_mh02602 + "', '" + var_mh02603 + "', '" + var_mh02604 + "', '" + var_mh02605 + "', '" + var_mh02606 + "', '" + var_mh02607 + "', '" + var_mh02608 + "', '" + var_mh02609 + "', '" + var_mh026010 + "', '" + var_mh026011 + "', '" + var_mh026012 + "', '" + var_mh026013 + "', '" + var_mh026014 + "', '" + var_mh026015 + "', '" + var_mh026016 + "', '" + var_mh026017 + "', '" + var_mh026018 + "', '" + var_mh026019 + "', '" + var_mh027 + "', '" + var_mh028 + "', '" + var_mh029 + "', '" + CVariables.dist_id + "', '" + CVariables.uc_code + "', '" + var_mh027a1 + "', '" + var_mh027b + "', '" + var_chknone + "', '" + EntryDate.ToShortDateString() + "', '" + CVariables.UserName + "', '" + var_chkNoneDiag + "', '" + var_chkVaccination + "')";
 
 
 
@@ -1712,10 +1799,17 @@ namespace Win_Form_GB
             {
                 if (mh010.SelectedValue.ToString() == "2" && Convert.ToInt32(mh09y.Text) >= 14 && Convert.ToInt32(mh09y.Text) <= 49)
                 {
+
+                    obj_op.EnableControls(mh010a1);
+                    obj_op.EnableControls(mh010a2);
+                    panel9.Enabled = true;
+
+
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
                     obj_op.EnableControls_Checkbox(mh01704);
+                    obj_op.EnableControls(mh01705);
                     obj_op.EnableControls(mh017077);
 
                     obj_op.DisableControls(mh015);
@@ -1734,6 +1828,7 @@ namespace Win_Form_GB
                     obj_op.DisableControls_Checkbox(mh01803);
                     obj_op.DisableControls_Checkbox(mh01804);
                     obj_op.DisableControls_Checkbox(mh01805);
+
                     obj_op.DisableControls_Checkbox(mh01806);
                     obj_op.DisableControls_Checkbox(mh01807);
                     obj_op.DisableControls_Checkbox(mh01808);
@@ -1782,6 +1877,17 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh02102);
 
 
+                    panel10.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03001);
+                    obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                    panel11.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03101);
+                    obj_op.DisableControls_RadioButton2(mh03102);
+
+
+
                     obj_op.DisableControls_RadioButton(mh02201);
                     obj_op.DisableControls_RadioButton(mh02202);
 
@@ -1807,14 +1913,136 @@ namespace Win_Form_GB
 
 
                 }
-                else if (Convert.ToInt32(mh09y.Text) <= 5)
+                else if (mh010.SelectedValue.ToString() == "1" && Convert.ToInt32(mh09y.Text) >= 14 && Convert.ToInt32(mh09y.Text) <= 49)
                 {
+
+                    obj_op.EnableControls(mh010a1);
+                    obj_op.EnableControls(mh010a2);
+                    panel9.Enabled = true;
 
 
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
                     obj_op.DisableControls_Checkbox2(mh01704);
+                    obj_op.DisableControls_Checkbox2(mh01705);
+                    obj_op.DisableControls_Checkbox(mh017077);
+                    obj_op.DisableControls(mh017077x);
+
+
+                    obj_op.DisableControls(mh015);
+                    chkHeight.Enabled = false;
+                    chkHeight.Checked = false;
+
+
+                    obj_op.DisableControls(mh016);
+                    chkMUAC.Enabled = false;
+                    chkMUAC.Checked = false;
+
+
+
+                    obj_op.DisableControls_Checkbox(mh01801);
+                    obj_op.DisableControls_Checkbox(mh01802);
+                    obj_op.DisableControls_Checkbox(mh01803);
+                    obj_op.DisableControls_Checkbox(mh01804);
+                    obj_op.DisableControls_Checkbox(mh01805);
+                    obj_op.DisableControls_Checkbox(mh01806);
+                    obj_op.DisableControls_Checkbox(mh01807);
+                    obj_op.DisableControls_Checkbox(mh01808);
+                    obj_op.DisableControls_Checkbox(mh01809);
+                    obj_op.DisableControls_Checkbox(mh018010);
+                    obj_op.DisableControls_Checkbox(mh018011);
+                    obj_op.DisableControls_Checkbox(mh018012);
+                    obj_op.DisableControls_Checkbox(mh018013);
+                    obj_op.DisableControls_Checkbox(mh018014);
+                    obj_op.DisableControls_Checkbox(mh018015);
+                    obj_op.DisableControls_Checkbox(mh018016);
+                    obj_op.DisableControls_Checkbox(mh018077);
+                    obj_op.DisableControls(mh018077x);
+
+                    obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+
+                    obj_op.DisableControls_Checkbox(mh02601);
+                    obj_op.DisableControls_Checkbox(mh02602);
+                    obj_op.DisableControls_Checkbox(mh02603);
+                    obj_op.DisableControls_Checkbox(mh02604);
+                    obj_op.DisableControls_Checkbox(mh02605);
+                    obj_op.DisableControls_Checkbox(mh02606);
+                    obj_op.DisableControls_Checkbox(mh027a1);
+                    obj_op.DisableControls_Checkbox(mh02608);
+                    obj_op.DisableControls_Checkbox(mh02609);
+                    obj_op.DisableControls_Checkbox(mh026010);
+                    obj_op.DisableControls_Checkbox(mh026011);
+                    obj_op.DisableControls_Checkbox(mh027b);
+                    obj_op.DisableControls_Checkbox(mh027a2);
+                    obj_op.DisableControls_Checkbox(mh026014);
+                    obj_op.DisableControls_Checkbox(mh026015);
+                    obj_op.DisableControls_Checkbox(mh026016);
+                    obj_op.DisableControls_Checkbox(mh026017);
+                    obj_op.DisableControls_Checkbox(mh026018);
+                    obj_op.DisableControls_Checkbox(mh026019);
+                    obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+
+                    panel1.Enabled = false;
+                    obj_op.DisableControls_RadioButton(mh02001);
+                    obj_op.DisableControls_RadioButton(mh02002);
+
+                    panel4.Enabled = false;
+                    obj_op.DisableControls_RadioButton(mh02101);
+                    obj_op.DisableControls_RadioButton(mh02102);
+
+
+                    obj_op.DisableControls_RadioButton(mh02201);
+                    obj_op.DisableControls_RadioButton(mh02202);
+
+                    obj_op.DisableControls_RadioButton(mh02301);
+                    obj_op.DisableControls_RadioButton(mh02302);
+
+                    obj_op.DisableControls_RadioButton(mh02401);
+                    obj_op.DisableControls_RadioButton(mh02402);
+
+                    obj_op.DisableControls_RadioButton(mh02501);
+                    obj_op.DisableControls_RadioButton(mh02502);
+
+                    panel2.Enabled = false;
+                    panel5.Enabled = false;
+                    panel3.Enabled = false;
+                    panel6.Enabled = false;
+
+
+                    panel8.Enabled = false;
+
+                    obj_op.DisableControls_RadioButton(mh02701);
+                    obj_op.DisableControls_RadioButton(mh02702);
+
+
+
+                    panel10.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03001);
+                    obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                    panel11.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03101);
+                    obj_op.DisableControls_RadioButton2(mh03102);
+
+                }
+                else if (Convert.ToInt32(mh09y.Text) <= 5)
+                {
+
+                    obj_op.DisableControls_RadioButton2(mh010a1);
+                    obj_op.DisableControls_RadioButton2(mh010a2);
+                    panel9.Enabled = false;
+
+
+                    obj_op.DisableControls_Checkbox(mh01701);
+                    obj_op.DisableControls_Checkbox(mh01702);
+                    obj_op.DisableControls_Checkbox(mh01703);
+                    obj_op.DisableControls_Checkbox2(mh01704);
+                    obj_op.DisableControls_Checkbox2(mh01705);
                     obj_op.DisableControls_Checkbox(mh017077);
                     obj_op.DisableControls(mh017077x);
 
@@ -1903,24 +2131,45 @@ namespace Win_Form_GB
                     obj_op.EnableControls(mh02701);
                     obj_op.EnableControls(mh02702);
 
+
+
+                    panel10.Enabled = true;
+                    obj_op.EnableControls(mh03001);
+                    obj_op.EnableControls(mh03002);
+
+
+                    panel11.Enabled = true;
+                    obj_op.EnableControls(mh03101);
+                    obj_op.EnableControls(mh03102);
+
+
+
                 }
                 else if (Convert.ToInt32(mh09y.Text) > 5)
                 {
+
+                    obj_op.DisableControls_RadioButton2(mh010a1);
+                    obj_op.DisableControls_RadioButton2(mh010a2);
+                    panel9.Enabled = false;
+
 
                     obj_op.DisableControls_Checkbox(mh01701);
                     obj_op.DisableControls_Checkbox(mh01702);
                     obj_op.DisableControls_Checkbox(mh01703);
                     obj_op.DisableControls_Checkbox2(mh01704);
+                    obj_op.DisableControls_Checkbox2(mh01705);
                     obj_op.DisableControls_Checkbox(mh017077);
                     obj_op.DisableControls(mh017077x);
 
 
                     obj_op.DisableControls(mh015);
                     chkHeight.Enabled = false;
+                    chkHeight.Checked = false;
 
 
                     obj_op.DisableControls(mh016);
                     chkMUAC.Enabled = false;
+                    chkMUAC.Checked = false;
 
 
 
@@ -2002,14 +2251,31 @@ namespace Win_Form_GB
                     obj_op.DisableControls_RadioButton(mh02702);
 
 
+
+                    panel10.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03001);
+                    obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                    panel11.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03101);
+                    obj_op.DisableControls_RadioButton2(mh03102);
+
+
                 }
                 else
                 {
+
+                    obj_op.EnableControls(mh010a1);
+                    obj_op.EnableControls(mh010a2);
+                    panel9.Enabled = true;
+
 
                     obj_op.EnableControls(mh01701);
                     obj_op.EnableControls(mh01702);
                     obj_op.EnableControls(mh01703);
                     obj_op.EnableControls_Checkbox(mh01704);
+                    obj_op.EnableControls(mh01705);
                     obj_op.EnableControls(mh017077);
 
 
@@ -2036,6 +2302,16 @@ namespace Win_Form_GB
 
                     obj_op.DisableControls_RadioButton(mh02701);
                     obj_op.DisableControls_RadioButton(mh02702);
+
+
+                    panel10.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03001);
+                    obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                    panel11.Enabled = false;
+                    obj_op.DisableControls_RadioButton2(mh03101);
+                    obj_op.DisableControls_RadioButton2(mh03102);
 
                 }
             }
@@ -2424,18 +2700,28 @@ namespace Win_Form_GB
                 {
                     if (mh010.SelectedValue.ToString() == "2" && Convert.ToInt32(mh09y.Text) >= 14 && Convert.ToInt32(mh09y.Text) <= 49)
                     {
+
+                        obj_op.EnableControls(mh010a1);
+                        obj_op.EnableControls(mh010a2);
+                        panel9.Enabled = true;
+
+
                         obj_op.EnableControls(mh01701);
                         obj_op.EnableControls(mh01702);
                         obj_op.EnableControls(mh01703);
                         obj_op.EnableControls_Checkbox(mh01704);
+
+                        obj_op.EnableControls(mh01705);
                         obj_op.EnableControls(mh017077);
 
 
                         obj_op.DisableControls(mh015);
                         chkHeight.Enabled = false;
+                        chkHeight.Checked = false;
 
                         obj_op.DisableControls(mh016);
                         chkMUAC.Enabled = false;
+                        chkMUAC.Checked = false;
 
 
                         obj_op.DisableControls_Checkbox(mh01801);
@@ -2516,14 +2802,148 @@ namespace Win_Form_GB
                         obj_op.DisableControls_RadioButton(mh02702);
 
 
+                        panel10.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03001);
+                        obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                        panel11.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03101);
+                        obj_op.DisableControls_RadioButton2(mh03102);
+
+
                     }
-                    else if (Convert.ToInt32(mh09y.Text) <= 5)
+                    else if (mh010.SelectedValue.ToString() == "1" && Convert.ToInt32(mh09y.Text) >= 14 && Convert.ToInt32(mh09y.Text) <= 49)
                     {
+
+                        obj_op.EnableControls(mh010a1);
+                        obj_op.EnableControls(mh010a2);
+                        panel9.Enabled = true;
+
 
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
                         obj_op.DisableControls_Checkbox2(mh01704);
+                        obj_op.DisableControls_Checkbox2(mh01705);
+                        obj_op.DisableControls_Checkbox(mh017077);
+                        obj_op.DisableControls(mh017077x);
+
+
+                        obj_op.DisableControls(mh015);
+                        chkHeight.Enabled = false;
+                        chkHeight.Checked = false;
+
+
+                        obj_op.DisableControls(mh016);
+                        chkMUAC.Enabled = false;
+                        chkMUAC.Checked = false;
+
+
+
+                        obj_op.DisableControls_Checkbox(mh01801);
+                        obj_op.DisableControls_Checkbox(mh01802);
+                        obj_op.DisableControls_Checkbox(mh01803);
+                        obj_op.DisableControls_Checkbox(mh01804);
+                        obj_op.DisableControls_Checkbox(mh01805);
+                        obj_op.DisableControls_Checkbox(mh01806);
+                        obj_op.DisableControls_Checkbox(mh01807);
+                        obj_op.DisableControls_Checkbox(mh01808);
+                        obj_op.DisableControls_Checkbox(mh01809);
+                        obj_op.DisableControls_Checkbox(mh018010);
+                        obj_op.DisableControls_Checkbox(mh018011);
+                        obj_op.DisableControls_Checkbox(mh018012);
+                        obj_op.DisableControls_Checkbox(mh018013);
+                        obj_op.DisableControls_Checkbox(mh018014);
+                        obj_op.DisableControls_Checkbox(mh018015);
+                        obj_op.DisableControls_Checkbox(mh018016);
+                        obj_op.DisableControls_Checkbox(mh018077);
+                        obj_op.DisableControls(mh018077x);
+
+                        obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+
+                        obj_op.DisableControls_Checkbox(mh02601);
+                        obj_op.DisableControls_Checkbox(mh02602);
+                        obj_op.DisableControls_Checkbox(mh02603);
+                        obj_op.DisableControls_Checkbox(mh02604);
+                        obj_op.DisableControls_Checkbox(mh02605);
+                        obj_op.DisableControls_Checkbox(mh02606);
+                        obj_op.DisableControls_Checkbox(mh027a1);
+                        obj_op.DisableControls_Checkbox(mh02608);
+                        obj_op.DisableControls_Checkbox(mh02609);
+                        obj_op.DisableControls_Checkbox(mh026010);
+                        obj_op.DisableControls_Checkbox(mh026011);
+                        obj_op.DisableControls_Checkbox(mh027b);
+                        obj_op.DisableControls_Checkbox(mh027a2);
+                        obj_op.DisableControls_Checkbox(mh026014);
+                        obj_op.DisableControls_Checkbox(mh026015);
+                        obj_op.DisableControls_Checkbox(mh026016);
+                        obj_op.DisableControls_Checkbox(mh026017);
+                        obj_op.DisableControls_Checkbox(mh026018);
+                        obj_op.DisableControls_Checkbox(mh026019);
+                        obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+
+                        panel1.Enabled = false;
+                        obj_op.DisableControls_RadioButton(mh02001);
+                        obj_op.DisableControls_RadioButton(mh02002);
+
+                        panel4.Enabled = false;
+                        obj_op.DisableControls_RadioButton(mh02101);
+                        obj_op.DisableControls_RadioButton(mh02102);
+
+
+                        obj_op.DisableControls_RadioButton(mh02201);
+                        obj_op.DisableControls_RadioButton(mh02202);
+
+                        obj_op.DisableControls_RadioButton(mh02301);
+                        obj_op.DisableControls_RadioButton(mh02302);
+
+                        obj_op.DisableControls_RadioButton(mh02401);
+                        obj_op.DisableControls_RadioButton(mh02402);
+
+                        obj_op.DisableControls_RadioButton(mh02501);
+                        obj_op.DisableControls_RadioButton(mh02502);
+
+                        panel2.Enabled = false;
+                        panel5.Enabled = false;
+                        panel3.Enabled = false;
+                        panel6.Enabled = false;
+
+
+                        panel8.Enabled = false;
+
+                        obj_op.DisableControls_RadioButton(mh02701);
+                        obj_op.DisableControls_RadioButton(mh02702);
+
+
+
+                        panel10.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03001);
+                        obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                        panel11.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03101);
+                        obj_op.DisableControls_RadioButton2(mh03102);
+
+
+                    }
+                    else if (Convert.ToInt32(mh09y.Text) <= 5)
+                    {
+
+                        obj_op.DisableControls_RadioButton2(mh010a1);
+                        obj_op.DisableControls_RadioButton2(mh010a2);
+                        panel9.Enabled = false;
+
+
+                        obj_op.DisableControls_Checkbox(mh01701);
+                        obj_op.DisableControls_Checkbox(mh01702);
+                        obj_op.DisableControls_Checkbox(mh01703);
+                        obj_op.DisableControls_Checkbox2(mh01704);
+                        obj_op.DisableControls_Checkbox2(mh01705);
                         obj_op.DisableControls_Checkbox(mh017077);
                         obj_op.DisableControls(mh017077x);
 
@@ -2617,22 +3037,41 @@ namespace Win_Form_GB
                         obj_op.EnableControls(mh02702);
 
 
+                        panel10.Enabled = true;
+                        obj_op.EnableControls(mh03001);
+                        obj_op.EnableControls(mh03002);
+
+
+                        panel11.Enabled = true;
+                        obj_op.EnableControls(mh03101);
+                        obj_op.EnableControls(mh03102);
+
+
                     }
                     else if (Convert.ToInt32(mh09y.Text) > 5)
                     {
 
+
+                        obj_op.DisableControls_RadioButton2(mh010a1);
+                        obj_op.DisableControls_RadioButton2(mh010a2);
+                        panel9.Enabled = false;
+
+
                         obj_op.DisableControls(mh015);
                         chkHeight.Enabled = false;
+                        chkHeight.Checked = false;
 
 
                         obj_op.DisableControls(mh016);
                         chkMUAC.Enabled = false;
+                        chkMUAC.Checked = false;
 
 
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
                         obj_op.DisableControls_Checkbox2(mh01704);
+                        obj_op.DisableControls_Checkbox2(mh01705);
                         obj_op.DisableControls_Checkbox(mh017077);
                         obj_op.DisableControls(mh017077x);
 
@@ -2717,14 +3156,30 @@ namespace Win_Form_GB
                         obj_op.DisableControls_RadioButton(mh02702);
 
 
+                        panel10.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03001);
+                        obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                        panel11.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03101);
+                        obj_op.DisableControls_RadioButton2(mh03102);
+
                     }
                     else
                     {
 
+                        obj_op.DisableControls(mh010a1);
+                        obj_op.DisableControls(mh010a2);
+                        panel9.Enabled = false;
+
+
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
+
                         obj_op.DisableControls_Checkbox2(mh01704);
+                        obj_op.DisableControls_Checkbox2(mh01705);
                         obj_op.DisableControls_Checkbox(mh017077);
 
                         obj_op.DisableControls(mh017077x);
@@ -2735,6 +3190,16 @@ namespace Win_Form_GB
 
                         obj_op.DisableControls_RadioButton(mh02101);
                         obj_op.DisableControls_RadioButton(mh02102);
+
+
+                        panel10.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03001);
+                        obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                        panel11.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03101);
+                        obj_op.DisableControls_RadioButton2(mh03102);
 
                     }
                 }
@@ -2742,10 +3207,15 @@ namespace Win_Form_GB
                 {
                     if (mh010.SelectedValue.ToString() == "2")
                     {
+                        obj_op.EnableControls(mh010a1);
+                        obj_op.EnableControls(mh010a2);
+                        panel9.Enabled = true;
+
                         obj_op.EnableControls(mh01701);
                         obj_op.EnableControls(mh01702);
                         obj_op.EnableControls(mh01703);
                         obj_op.EnableControls_Checkbox(mh01704);
+                        obj_op.EnableControls(mh01705);
                         obj_op.EnableControls(mh017077);
 
                         panel1.Enabled = true;
@@ -2753,10 +3223,16 @@ namespace Win_Form_GB
                     }
                     else
                     {
+                        obj_op.DisableControls_RadioButton2(mh010a1);
+                        obj_op.DisableControls_RadioButton2(mh010a2);
+                        panel9.Enabled = false;
+
+
                         obj_op.DisableControls_Checkbox(mh01701);
                         obj_op.DisableControls_Checkbox(mh01702);
                         obj_op.DisableControls_Checkbox(mh01703);
                         obj_op.DisableControls_Checkbox2(mh01704);
+                        obj_op.DisableControls_Checkbox2(mh01705);
                         obj_op.DisableControls_Checkbox(mh017077);
                         obj_op.DisableControls(mh017077x);
 
@@ -2769,8 +3245,19 @@ namespace Win_Form_GB
                         obj_op.DisableControls_RadioButton(mh02102);
 
 
+
                         panel1.Enabled = false;
                         panel4.Enabled = false;
+
+
+                        panel10.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03001);
+                        obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                        panel11.Enabled = false;
+                        obj_op.DisableControls_RadioButton2(mh03101);
+                        obj_op.DisableControls_RadioButton2(mh03102);
 
 
                     }
@@ -3323,6 +3810,11 @@ namespace Win_Form_GB
 
             mh010.SelectedValue = "0";
 
+            mh010a1.Checked = false;
+            mh010a2.Checked = false;
+
+
+
             mh01101.Text = "";
             mh01102.Text = "";
             mh01103.Text = "";
@@ -3345,6 +3837,7 @@ namespace Win_Form_GB
             mh01702.Checked = false;
             mh01703.Checked = false;
             mh01704.Checked = false;
+            mh01705.Checked = false;
             mh017077.Checked = false;
 
 
@@ -3413,6 +3906,12 @@ namespace Win_Form_GB
             mh02501.Checked = false;
             mh02502.Checked = false;
 
+
+            mh03001.Checked = false;
+            mh03002.Checked = false;
+
+            mh03101.Checked = false;
+            mh03102.Checked = false;
 
             mh02601.Checked = false;
             mh02602.Checked = false;
@@ -4066,6 +4565,7 @@ namespace Win_Form_GB
             if ((mh01701.Checked ||
                mh01702.Checked ||
                mh01703.Checked ||
+               mh01705.Checked ||
                mh017077.Checked) && mh01704.Checked)
             {
                 MessageBox.Show("You have already selected an option in Diagnosis in pregnant women / mother. Please clear it first  ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -4079,14 +4579,17 @@ namespace Win_Form_GB
                 obj_op.DisableControls_Checkbox2(mh01701);
                 obj_op.DisableControls_Checkbox2(mh01702);
                 obj_op.DisableControls_Checkbox2(mh01703);
+                obj_op.DisableControls_Checkbox2(mh01705);
                 obj_op.DisableControls_Checkbox2(mh017077);
                 obj_op.DisableControls(mh017077x);
+
             }
             else
             {
                 obj_op.EnableControls_Checkbox(mh01701);
                 obj_op.EnableControls_Checkbox(mh01702);
                 obj_op.EnableControls_Checkbox(mh01703);
+                obj_op.EnableControls_Checkbox(mh01705);
                 obj_op.EnableControls_Checkbox(mh017077);
             }
 
@@ -4196,5 +4699,989 @@ namespace Win_Form_GB
 
         }
 
+        private void mh015_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mh01705_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if ((mh01701.Checked ||
+               mh01702.Checked ||
+               mh01703.Checked ||
+               mh017077.Checked) && mh01705.Checked)
+            {
+                MessageBox.Show("You have already selected an option in Diagnosis in pregnant women / mother. Please clear it first  ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                mh01705.Checked = false;
+                return;
+            }
+
+
+            if (mh01705.Checked)
+            {
+                obj_op.DisableControls_Checkbox2(mh01701);
+                obj_op.DisableControls_Checkbox2(mh01702);
+                obj_op.DisableControls_Checkbox2(mh01703);
+                obj_op.DisableControls_Checkbox2(mh017077);
+                obj_op.DisableControls(mh017077x);
+
+
+                panel1.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02001);
+                obj_op.DisableControls_RadioButton(mh02002);
+
+                panel4.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02101);
+                obj_op.DisableControls_RadioButton(mh02102);
+            }
+            else
+            {
+                obj_op.EnableControls_Checkbox(mh01701);
+                obj_op.EnableControls_Checkbox(mh01702);
+                obj_op.EnableControls_Checkbox(mh01703);
+                obj_op.EnableControls_Checkbox(mh017077);
+
+
+                panel1.Enabled = true;
+                obj_op.EnableControls(mh02001);
+                obj_op.EnableControls(mh02002);
+
+                panel4.Enabled = true;
+                obj_op.EnableControls(mh02101);
+                obj_op.EnableControls(mh02102);
+
+            }
+
+            obj_op = null;
+        }
+
+        private void mh03001_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if (mh03001.Checked && mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+
+            }
+            else if (mh03002.Checked && mh03102.Checked)
+            {
+                obj_op.EnableControls(mh02601);
+                obj_op.EnableControls(mh02602);
+                obj_op.EnableControls(mh02603);
+                obj_op.EnableControls(mh02604);
+                obj_op.EnableControls(mh02605);
+                obj_op.EnableControls(mh02606);
+                obj_op.EnableControls(mh027a1);
+                obj_op.EnableControls(mh02608);
+                obj_op.EnableControls(mh02609);
+                obj_op.EnableControls(mh026010);
+                obj_op.EnableControls(mh026011);
+                obj_op.EnableControls(mh027b);
+                obj_op.EnableControls(mh026014);
+                obj_op.EnableControls(mh027a2);
+                obj_op.EnableControls(mh026015);
+                obj_op.EnableControls(mh026016);
+                obj_op.EnableControls(mh026017);
+                obj_op.EnableControls(mh026018);
+                obj_op.EnableControls(mh026019);
+
+
+                panel8.Enabled = true;
+                obj_op.EnableControls(mh02701);
+                obj_op.EnableControls(mh02702);
+
+            }
+            else if (mh03001.Checked || mh03102.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked || mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+
+            obj_op = null;
+        }
+
+        private void mh03101_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if (mh03001.Checked && mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked && mh03102.Checked)
+            {
+                obj_op.EnableControls(mh02601);
+                obj_op.EnableControls(mh02602);
+                obj_op.EnableControls(mh02603);
+                obj_op.EnableControls(mh02604);
+                obj_op.EnableControls(mh02605);
+                obj_op.EnableControls(mh02606);
+                obj_op.EnableControls(mh027a1);
+                obj_op.EnableControls(mh02608);
+                obj_op.EnableControls(mh02609);
+                obj_op.EnableControls(mh026010);
+                obj_op.EnableControls(mh026011);
+                obj_op.EnableControls(mh027b);
+                obj_op.EnableControls(mh026014);
+                obj_op.EnableControls(mh027a2);
+                obj_op.EnableControls(mh026015);
+                obj_op.EnableControls(mh026016);
+                obj_op.EnableControls(mh026017);
+                obj_op.EnableControls(mh026018);
+                obj_op.EnableControls(mh026019);
+
+                panel8.Enabled = true;
+                obj_op.EnableControls(mh02701);
+                obj_op.EnableControls(mh02702);
+
+            }
+            else if (mh03001.Checked || mh03102.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked || mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+
+            obj_op = null;
+        }
+
+        private void mh03102_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if (mh03001.Checked && mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked && mh03102.Checked)
+            {
+                obj_op.EnableControls(mh02601);
+                obj_op.EnableControls(mh02602);
+                obj_op.EnableControls(mh02603);
+                obj_op.EnableControls(mh02604);
+                obj_op.EnableControls(mh02605);
+                obj_op.EnableControls(mh02606);
+                obj_op.EnableControls(mh027a1);
+                obj_op.EnableControls(mh02608);
+                obj_op.EnableControls(mh02609);
+                obj_op.EnableControls(mh026010);
+                obj_op.EnableControls(mh026011);
+                obj_op.EnableControls(mh027b);
+                obj_op.EnableControls(mh026014);
+                obj_op.EnableControls(mh027a2);
+                obj_op.EnableControls(mh026015);
+                obj_op.EnableControls(mh026016);
+                obj_op.EnableControls(mh026017);
+                obj_op.EnableControls(mh026018);
+                obj_op.EnableControls(mh026019);
+
+                panel8.Enabled = true;
+                obj_op.EnableControls(mh02701);
+                obj_op.EnableControls(mh02702);
+            }
+            else if (mh03001.Checked || mh03102.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked || mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+
+
+            obj_op = null;
+        }
+
+        private void mh03002_CheckedChanged(object sender, EventArgs e)
+        {
+
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if (mh03001.Checked && mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked && mh03102.Checked)
+            {
+                obj_op.EnableControls(mh02601);
+                obj_op.EnableControls(mh02602);
+                obj_op.EnableControls(mh02603);
+                obj_op.EnableControls(mh02604);
+                obj_op.EnableControls(mh02605);
+                obj_op.EnableControls(mh02606);
+                obj_op.EnableControls(mh027a1);
+                obj_op.EnableControls(mh02608);
+                obj_op.EnableControls(mh02609);
+                obj_op.EnableControls(mh026010);
+                obj_op.EnableControls(mh026011);
+                obj_op.EnableControls(mh027b);
+                obj_op.EnableControls(mh026014);
+                obj_op.EnableControls(mh027a2);
+                obj_op.EnableControls(mh026015);
+                obj_op.EnableControls(mh026016);
+                obj_op.EnableControls(mh026017);
+                obj_op.EnableControls(mh026018);
+                obj_op.EnableControls(mh026019);
+
+                panel8.Enabled = true;
+                obj_op.EnableControls(mh02701);
+                obj_op.EnableControls(mh02702);
+            }
+            else if (mh03001.Checked || mh03102.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+            else if (mh03002.Checked || mh03101.Checked)
+            {
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+
+                panel8.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+            }
+
+
+            obj_op = null;
+
+        }
+
+        private void mh010a2_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+            if (mh010a2.Checked && mh010.SelectedValue.ToString() == "2")
+            {
+                obj_op.DisableControls_Checkbox(mh01701);
+                obj_op.DisableControls_Checkbox(mh01702);
+                obj_op.DisableControls_Checkbox(mh01703);
+                obj_op.DisableControls_Checkbox2(mh01704);
+                obj_op.DisableControls_Checkbox2(mh01705);
+                obj_op.DisableControls_Checkbox(mh017077);
+                obj_op.DisableControls(mh017077x);
+
+
+                obj_op.DisableControls(mh015);
+                chkHeight.Enabled = false;
+
+
+                obj_op.DisableControls(mh016);
+                chkMUAC.Enabled = false;
+
+
+
+                obj_op.DisableControls_Checkbox(mh01801);
+                obj_op.DisableControls_Checkbox(mh01802);
+                obj_op.DisableControls_Checkbox(mh01803);
+                obj_op.DisableControls_Checkbox(mh01804);
+                obj_op.DisableControls_Checkbox(mh01805);
+                obj_op.DisableControls_Checkbox(mh01806);
+                obj_op.DisableControls_Checkbox(mh01807);
+                obj_op.DisableControls_Checkbox(mh01808);
+                obj_op.DisableControls_Checkbox(mh01809);
+                obj_op.DisableControls_Checkbox(mh018010);
+                obj_op.DisableControls_Checkbox(mh018011);
+                obj_op.DisableControls_Checkbox(mh018012);
+                obj_op.DisableControls_Checkbox(mh018013);
+                obj_op.DisableControls_Checkbox(mh018014);
+                obj_op.DisableControls_Checkbox(mh018015);
+                obj_op.DisableControls_Checkbox(mh018016);
+                obj_op.DisableControls_Checkbox(mh018077);
+                obj_op.DisableControls(mh018077x);
+
+                obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+                obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+
+                panel1.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02001);
+                obj_op.DisableControls_RadioButton(mh02002);
+
+                panel4.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02101);
+                obj_op.DisableControls_RadioButton(mh02102);
+
+
+                obj_op.DisableControls_RadioButton(mh02201);
+                obj_op.DisableControls_RadioButton(mh02202);
+
+                obj_op.DisableControls_RadioButton(mh02301);
+                obj_op.DisableControls_RadioButton(mh02302);
+
+                obj_op.DisableControls_RadioButton(mh02401);
+                obj_op.DisableControls_RadioButton(mh02402);
+
+                obj_op.DisableControls_RadioButton(mh02501);
+                obj_op.DisableControls_RadioButton(mh02502);
+
+                panel2.Enabled = false;
+                panel5.Enabled = false;
+                panel3.Enabled = false;
+                panel6.Enabled = false;
+
+
+                panel8.Enabled = false;
+
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+
+
+
+                panel10.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03001);
+                obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                panel11.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03101);
+                obj_op.DisableControls_RadioButton2(mh03102);
+            }
+            else if (mh010a1.Checked && mh010.SelectedValue.ToString() == "1")
+            {
+                obj_op.DisableControls_Checkbox(mh01701);
+                obj_op.DisableControls_Checkbox(mh01702);
+                obj_op.DisableControls_Checkbox(mh01703);
+                obj_op.DisableControls_Checkbox2(mh01704);
+                obj_op.DisableControls_Checkbox2(mh01705);
+                obj_op.DisableControls_Checkbox(mh017077);
+                obj_op.DisableControls(mh017077x);
+
+
+                obj_op.DisableControls(mh015);
+                chkHeight.Enabled = false;
+                chkHeight.Checked = false;
+
+
+                obj_op.DisableControls(mh016);
+                chkMUAC.Enabled = false;
+                chkMUAC.Checked = false;
+
+
+
+                obj_op.DisableControls_Checkbox(mh01801);
+                obj_op.DisableControls_Checkbox(mh01802);
+                obj_op.DisableControls_Checkbox(mh01803);
+                obj_op.DisableControls_Checkbox(mh01804);
+                obj_op.DisableControls_Checkbox(mh01805);
+                obj_op.DisableControls_Checkbox(mh01806);
+                obj_op.DisableControls_Checkbox(mh01807);
+                obj_op.DisableControls_Checkbox(mh01808);
+                obj_op.DisableControls_Checkbox(mh01809);
+                obj_op.DisableControls_Checkbox(mh018010);
+                obj_op.DisableControls_Checkbox(mh018011);
+                obj_op.DisableControls_Checkbox(mh018012);
+                obj_op.DisableControls_Checkbox(mh018013);
+                obj_op.DisableControls_Checkbox(mh018014);
+                obj_op.DisableControls_Checkbox(mh018015);
+                obj_op.DisableControls_Checkbox(mh018016);
+                obj_op.DisableControls_Checkbox(mh018077);
+                obj_op.DisableControls(mh018077x);
+
+                obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+                obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+
+                panel1.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02001);
+                obj_op.DisableControls_RadioButton(mh02002);
+
+                panel4.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02101);
+                obj_op.DisableControls_RadioButton(mh02102);
+
+
+                obj_op.DisableControls_RadioButton(mh02201);
+                obj_op.DisableControls_RadioButton(mh02202);
+
+                obj_op.DisableControls_RadioButton(mh02301);
+                obj_op.DisableControls_RadioButton(mh02302);
+
+                obj_op.DisableControls_RadioButton(mh02401);
+                obj_op.DisableControls_RadioButton(mh02402);
+
+                obj_op.DisableControls_RadioButton(mh02501);
+                obj_op.DisableControls_RadioButton(mh02502);
+
+                panel2.Enabled = false;
+                panel5.Enabled = false;
+                panel3.Enabled = false;
+                panel6.Enabled = false;
+
+
+                panel8.Enabled = false;
+
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+
+
+
+                panel10.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03001);
+                obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                panel11.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03101);
+                obj_op.DisableControls_RadioButton2(mh03102);
+            }
+
+            obj_op = null;
+
+        }
+
+        private void mh010a1_CheckedChanged(object sender, EventArgs e)
+        {
+            CDBOperations obj_op = new CDBOperations();
+
+
+            if (mh010a1.Checked && mh010.SelectedValue.ToString() == "2")
+            {
+                obj_op.EnableControls(mh010a1);
+                obj_op.EnableControls(mh010a2);
+                panel9.Enabled = true;
+
+
+                obj_op.EnableControls(mh01701);
+                obj_op.EnableControls(mh01702);
+                obj_op.EnableControls(mh01703);
+                obj_op.EnableControls_Checkbox(mh01704);
+                obj_op.EnableControls(mh01705);
+                obj_op.EnableControls(mh017077);
+
+                obj_op.DisableControls(mh015);
+                obj_op.DisableControls(mh016);
+
+
+                chkHeight.Enabled = false;
+                chkHeight.Checked = false;
+                chkMUAC.Enabled = false;
+                chkMUAC.Checked = false;
+
+
+
+                obj_op.DisableControls_Checkbox(mh01801);
+                obj_op.DisableControls_Checkbox(mh01802);
+                obj_op.DisableControls_Checkbox(mh01803);
+                obj_op.DisableControls_Checkbox(mh01804);
+                obj_op.DisableControls_Checkbox(mh01805);
+
+                obj_op.DisableControls_Checkbox(mh01806);
+                obj_op.DisableControls_Checkbox(mh01807);
+                obj_op.DisableControls_Checkbox(mh01808);
+                obj_op.DisableControls_Checkbox(mh01809);
+                obj_op.DisableControls_Checkbox(mh018010);
+                obj_op.DisableControls_Checkbox(mh018011);
+                obj_op.DisableControls_Checkbox(mh018012);
+                obj_op.DisableControls_Checkbox(mh018013);
+                obj_op.DisableControls_Checkbox(mh018014);
+                obj_op.DisableControls_Checkbox(mh018015);
+                obj_op.DisableControls_Checkbox(mh018016);
+                obj_op.DisableControls_Checkbox(mh018077);
+                obj_op.DisableControls(mh018077x);
+
+
+                obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+                obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+                panel1.Enabled = true;
+                obj_op.EnableControls(mh02001);
+                obj_op.EnableControls(mh02002);
+
+                panel4.Enabled = true;
+                obj_op.EnableControls(mh02101);
+                obj_op.EnableControls(mh02102);
+
+
+                panel10.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03001);
+                obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                panel11.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03101);
+                obj_op.DisableControls_RadioButton2(mh03102);
+
+
+
+                obj_op.DisableControls_RadioButton(mh02201);
+                obj_op.DisableControls_RadioButton(mh02202);
+
+                obj_op.DisableControls_RadioButton(mh02301);
+                obj_op.DisableControls_RadioButton(mh02302);
+
+                obj_op.DisableControls_RadioButton(mh02401);
+                obj_op.DisableControls_RadioButton(mh02402);
+
+                obj_op.DisableControls_RadioButton(mh02501);
+                obj_op.DisableControls_RadioButton(mh02502);
+
+                panel2.Enabled = false;
+                panel5.Enabled = false;
+                panel3.Enabled = false;
+                panel6.Enabled = false;
+
+
+                panel8.Enabled = false;
+
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+
+            }
+            else if (mh010a1.Checked && mh010.SelectedValue.ToString() == "1")
+            {
+                obj_op.EnableControls(mh010a1);
+                obj_op.EnableControls(mh010a2);
+                panel9.Enabled = true;
+
+
+                obj_op.DisableControls_Checkbox(mh01701);
+                obj_op.DisableControls_Checkbox(mh01702);
+                obj_op.DisableControls_Checkbox(mh01703);
+                obj_op.DisableControls_Checkbox2(mh01704);
+                obj_op.DisableControls_Checkbox2(mh01705);
+                obj_op.DisableControls_Checkbox(mh017077);
+                obj_op.DisableControls(mh017077x);
+
+
+                obj_op.DisableControls(mh015);
+                chkHeight.Enabled = false;
+                chkHeight.Checked = false;
+
+
+                obj_op.DisableControls(mh016);
+                chkMUAC.Enabled = false;
+                chkMUAC.Checked = false;
+
+
+
+                obj_op.DisableControls_Checkbox(mh01801);
+                obj_op.DisableControls_Checkbox(mh01802);
+                obj_op.DisableControls_Checkbox(mh01803);
+                obj_op.DisableControls_Checkbox(mh01804);
+                obj_op.DisableControls_Checkbox(mh01805);
+                obj_op.DisableControls_Checkbox(mh01806);
+                obj_op.DisableControls_Checkbox(mh01807);
+                obj_op.DisableControls_Checkbox(mh01808);
+                obj_op.DisableControls_Checkbox(mh01809);
+                obj_op.DisableControls_Checkbox(mh018010);
+                obj_op.DisableControls_Checkbox(mh018011);
+                obj_op.DisableControls_Checkbox(mh018012);
+                obj_op.DisableControls_Checkbox(mh018013);
+                obj_op.DisableControls_Checkbox(mh018014);
+                obj_op.DisableControls_Checkbox(mh018015);
+                obj_op.DisableControls_Checkbox(mh018016);
+                obj_op.DisableControls_Checkbox(mh018077);
+                obj_op.DisableControls(mh018077x);
+
+                obj_op.DisableControls_Checkbox2(chkNoneDiag);
+
+
+                obj_op.DisableControls_Checkbox(mh02601);
+                obj_op.DisableControls_Checkbox(mh02602);
+                obj_op.DisableControls_Checkbox(mh02603);
+                obj_op.DisableControls_Checkbox(mh02604);
+                obj_op.DisableControls_Checkbox(mh02605);
+                obj_op.DisableControls_Checkbox(mh02606);
+                obj_op.DisableControls_Checkbox(mh027a1);
+                obj_op.DisableControls_Checkbox(mh02608);
+                obj_op.DisableControls_Checkbox(mh02609);
+                obj_op.DisableControls_Checkbox(mh026010);
+                obj_op.DisableControls_Checkbox(mh026011);
+                obj_op.DisableControls_Checkbox(mh027b);
+                obj_op.DisableControls_Checkbox(mh027a2);
+                obj_op.DisableControls_Checkbox(mh026014);
+                obj_op.DisableControls_Checkbox(mh026015);
+                obj_op.DisableControls_Checkbox(mh026016);
+                obj_op.DisableControls_Checkbox(mh026017);
+                obj_op.DisableControls_Checkbox(mh026018);
+                obj_op.DisableControls_Checkbox(mh026019);
+                obj_op.DisableControls_Checkbox2(chkVaccination);
+
+
+
+                panel1.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02001);
+                obj_op.DisableControls_RadioButton(mh02002);
+
+                panel4.Enabled = false;
+                obj_op.DisableControls_RadioButton(mh02101);
+                obj_op.DisableControls_RadioButton(mh02102);
+
+
+                obj_op.DisableControls_RadioButton(mh02201);
+                obj_op.DisableControls_RadioButton(mh02202);
+
+                obj_op.DisableControls_RadioButton(mh02301);
+                obj_op.DisableControls_RadioButton(mh02302);
+
+                obj_op.DisableControls_RadioButton(mh02401);
+                obj_op.DisableControls_RadioButton(mh02402);
+
+                obj_op.DisableControls_RadioButton(mh02501);
+                obj_op.DisableControls_RadioButton(mh02502);
+
+                panel2.Enabled = false;
+                panel5.Enabled = false;
+                panel3.Enabled = false;
+                panel6.Enabled = false;
+
+
+                panel8.Enabled = false;
+
+                obj_op.DisableControls_RadioButton(mh02701);
+                obj_op.DisableControls_RadioButton(mh02702);
+
+
+
+                panel10.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03001);
+                obj_op.DisableControls_RadioButton2(mh03002);
+
+
+                panel11.Enabled = false;
+                obj_op.DisableControls_RadioButton2(mh03101);
+                obj_op.DisableControls_RadioButton2(mh03102);
+            }
+
+            obj_op = null;
+
+        }
     }
 }
