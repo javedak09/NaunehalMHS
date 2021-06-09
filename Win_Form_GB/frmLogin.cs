@@ -187,6 +187,9 @@ namespace Win_Form_GB
             checkColumn("mh01705");
             checkColumn("mh030");
             checkColumn("mh031");
+            
+            checkColumn("mh032");
+            checkColumn("mh033");
 
             getDistrict_Hardcoded();
 
@@ -301,7 +304,7 @@ namespace Win_Form_GB
             {
 
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata.php");
-                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getTestingURL);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL);
 
 
                 //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
@@ -1421,6 +1424,9 @@ namespace Win_Form_GB
                     fd.mh028 = ds.Tables[0].Rows[a]["mh028"].ToString();
                     fd.mh029 = ds.Tables[0].Rows[a]["mh029"].ToString();
                     
+                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
+                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
+                    
                     fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
                     fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
 
@@ -1623,6 +1629,11 @@ namespace Win_Form_GB
             public string mh027;
             public string mh028;
             public string mh029;
+
+
+            public string mh033;
+            public string mh032;
+            
             public string mh030;
             public string mh031;
 

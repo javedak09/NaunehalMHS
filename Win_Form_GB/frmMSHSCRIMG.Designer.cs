@@ -1285,7 +1285,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 197);
+            this.AutoScroll = true;
+            this.AutoScrollMargin = new System.Drawing.Size(300, 300);
+            this.ClientSize = new System.Drawing.Size(870, 1037);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
