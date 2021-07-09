@@ -225,7 +225,9 @@ namespace Win_Form_GB
                 }
                 else if (e.Node.Name == "frm")
                 {
-                    frmMSHIMG frm = new frmMSHIMG();
+                    //frmMSHIMG frm = new frmMSHIMG();
+
+                    frmMSHIMG_v1_8 frm = new frmMSHIMG_v1_8();
                     OpenForm(frm);
                     frm = null;
                 }
@@ -796,6 +798,7 @@ namespace Win_Form_GB
                     fd.mh019013 = ds.Tables[0].Rows[a]["mh019013"].ToString();
                     fd.mh019014 = ds.Tables[0].Rows[a]["mh019014"].ToString();
                     fd.mh019015 = ds.Tables[0].Rows[a]["mh019015"].ToString();
+                    fd.mh019017 = ds.Tables[0].Rows[a]["mh019017"].ToString();
                     fd.mh019077 = ds.Tables[0].Rows[a]["mh019077"].ToString();
                     fd.mh019077x = ds.Tables[0].Rows[a]["mh019077x"].ToString();
                     fd.chkNone = ds.Tables[0].Rows[a]["chkNone"].ToString();
@@ -803,6 +806,11 @@ namespace Win_Form_GB
 
                     fd.mh020 = ds.Tables[0].Rows[a]["mh020"].ToString();
                     fd.mh021 = ds.Tables[0].Rows[a]["mh021"].ToString();
+
+                    fd.mh021a = ds.Tables[0].Rows[a]["mh021a"].ToString();
+                    fd.mh021TTDose = ds.Tables[0].Rows[a]["mh021TTDose"].ToString();
+
+
                     fd.mh022 = ds.Tables[0].Rows[a]["mh022"].ToString();
                     fd.mh023 = ds.Tables[0].Rows[a]["mh023"].ToString();
                     fd.mh024 = ds.Tables[0].Rows[a]["mh024"].ToString();
@@ -832,6 +840,7 @@ namespace Win_Form_GB
                     fd.mh026017 = ds.Tables[0].Rows[a]["mh026017"].ToString();
                     fd.mh026018 = ds.Tables[0].Rows[a]["mh026018"].ToString();
                     fd.mh026019 = ds.Tables[0].Rows[a]["mh026019"].ToString();
+                    fd.mh026Sup = ds.Tables[0].Rows[a]["mh026Sup"].ToString();
                     fd.chkVaccination = ds.Tables[0].Rows[a]["chkVaccination"].ToString();
 
 
@@ -842,6 +851,8 @@ namespace Win_Form_GB
 
                     fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
                     fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
+                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
+                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
 
                     fd.mh01101 = ds.Tables[0].Rows[a]["mh01101"].ToString();
                     fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
@@ -951,13 +962,19 @@ namespace Win_Form_GB
             public string mh019013;
             public string mh019014;
             public string mh019015;
+            public string mh019017;
             public string mh019077;
             public string mh019077x;
             public string chkNone;
 
 
             public string mh020;
+
             public string mh021;
+
+            public string mh021a;
+            public string mh021TTDose;
+
             public string mh022;
             public string mh023;
             public string mh024;
@@ -982,6 +999,7 @@ namespace Win_Form_GB
             public string mh026017;
             public string mh026018;
             public string mh026019;
+            public string mh026Sup;
             public string chkVaccination;
 
             public string mh027;
@@ -989,6 +1007,8 @@ namespace Win_Form_GB
             public string mh029;
             public string mh030;
             public string mh031;
+            public string mh032;
+            public string mh033;
 
 
             public string mh01101;

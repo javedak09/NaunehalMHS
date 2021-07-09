@@ -14,6 +14,8 @@ using System.IO;
 using System.Net.Http;
 using System.Web.Script.Serialization;
 using System.Configuration;
+using System.Reflection;
+
 
 namespace Win_Form_GB
 {
@@ -182,14 +184,31 @@ namespace Win_Form_GB
             //setSqliteVersion();
 
             //dbupgrade();
-            
+
             checkColumn("mh010a");
             checkColumn("mh01705");
             checkColumn("mh030");
             checkColumn("mh031");
-            
+
             checkColumn("mh032");
             checkColumn("mh033");
+
+            // ver 1.8 changes below
+            checkColumn("ver");
+            checkColumn("mh019017");
+            checkColumn("mh021a");
+            checkColumn("mh021TTDose");
+            checkColumn("mh026Sup");
+
+
+            //int RevisionNumber = (int)(DateTime.UtcNow - new DateTime().AddSeconds(1)).TotalMilliseconds;
+
+            //DateTime dt = new DateTime();
+            //dt = (DateTime)"2000-01-05";
+
+            //int test = (int) (DateTime.UtcNow - new DateTime().Date.Second);
+
+
 
             getDistrict_Hardcoded();
 
@@ -386,7 +405,7 @@ namespace Win_Form_GB
             {
 
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata.php");
-                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getTestingURL + CVariables.getDataFileName);
 
                 //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
 
@@ -471,7 +490,7 @@ namespace Win_Form_GB
             try
             {
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
-                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getTestingURL + CVariables.getDataFileName);
 
                 string dist_id = "";
 
@@ -617,7 +636,7 @@ namespace Win_Form_GB
             try
             {
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
-                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getTestingURL + CVariables.getDataFileName);
 
 
                 //string param_json = "{\"table\":\"camp\", \"select\":\"idCamp\", \"iddoctor\", \"doctor_name\", \"check\":\"\" }";
@@ -945,7 +964,7 @@ namespace Win_Form_GB
 
 
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
-                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
+                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getTestingURL + CVariables.getSyncFileName);
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -1024,14 +1043,14 @@ namespace Win_Form_GB
                             statuscount++;
                             id = item.id;
 
-                            updateCampPatient_Master(id);
+                            //updateCampPatient_Master(id);
                         }
                         if (statusmessage == "2")
                         {
                             dupliatecount++;
                             id = item.id;
 
-                            updateCampPatient_Master(id);
+                            //updateCampPatient_Master(id);
                         }
 
                     }
@@ -1093,7 +1112,7 @@ namespace Win_Form_GB
 
 
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
-                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
+                webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getTestingURL + CVariables.getSyncFileName);
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
@@ -1318,8 +1337,8 @@ namespace Win_Form_GB
                     fd.mh09y = ds.Tables[0].Rows[a]["mh09y"].ToString();
                     fd.mh09m = ds.Tables[0].Rows[a]["mh09m"].ToString();
                     fd.mh09d = ds.Tables[0].Rows[a]["mh09d"].ToString();
-                    
                     fd.mh010 = ds.Tables[0].Rows[a]["mh010"].ToString();
+
                     fd.mh010a = ds.Tables[0].Rows[a]["mh010a"].ToString();
 
 
@@ -1339,7 +1358,6 @@ namespace Win_Form_GB
                     fd.mh01703 = ds.Tables[0].Rows[a]["mh01703"].ToString();
                     fd.mh01704 = ds.Tables[0].Rows[a]["mh01704"].ToString();
                     fd.mh01705 = ds.Tables[0].Rows[a]["mh01705"].ToString();
-
                     fd.mh017077 = ds.Tables[0].Rows[a]["mh017077"].ToString();
                     fd.mh017077x = ds.Tables[0].Rows[a]["mh017077x"].ToString();
 
@@ -1381,6 +1399,7 @@ namespace Win_Form_GB
                     fd.mh019013 = ds.Tables[0].Rows[a]["mh019013"].ToString();
                     fd.mh019014 = ds.Tables[0].Rows[a]["mh019014"].ToString();
                     fd.mh019015 = ds.Tables[0].Rows[a]["mh019015"].ToString();
+                    fd.mh019017 = ds.Tables[0].Rows[a]["mh019017"].ToString();
                     fd.mh019077 = ds.Tables[0].Rows[a]["mh019077"].ToString();
                     fd.mh019077x = ds.Tables[0].Rows[a]["mh019077x"].ToString();
                     fd.chkNone = ds.Tables[0].Rows[a]["chkNone"].ToString();
@@ -1388,6 +1407,11 @@ namespace Win_Form_GB
 
                     fd.mh020 = ds.Tables[0].Rows[a]["mh020"].ToString();
                     fd.mh021 = ds.Tables[0].Rows[a]["mh021"].ToString();
+
+                    fd.mh021a = ds.Tables[0].Rows[a]["mh021a"].ToString();
+                    fd.mh021TTDose = ds.Tables[0].Rows[a]["mh021TTDose"].ToString();
+
+
                     fd.mh022 = ds.Tables[0].Rows[a]["mh022"].ToString();
                     fd.mh023 = ds.Tables[0].Rows[a]["mh023"].ToString();
                     fd.mh024 = ds.Tables[0].Rows[a]["mh024"].ToString();
@@ -1417,18 +1441,19 @@ namespace Win_Form_GB
                     fd.mh026017 = ds.Tables[0].Rows[a]["mh026017"].ToString();
                     fd.mh026018 = ds.Tables[0].Rows[a]["mh026018"].ToString();
                     fd.mh026019 = ds.Tables[0].Rows[a]["mh026019"].ToString();
+                    fd.mh026Sup = ds.Tables[0].Rows[a]["mh026Sup"].ToString();
                     fd.chkVaccination = ds.Tables[0].Rows[a]["chkVaccination"].ToString();
 
 
                     fd.mh027 = ds.Tables[0].Rows[a]["mh027"].ToString();
                     fd.mh028 = ds.Tables[0].Rows[a]["mh028"].ToString();
                     fd.mh029 = ds.Tables[0].Rows[a]["mh029"].ToString();
-                    
-                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
-                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
-                    
+
+
                     fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
                     fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
+                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
+                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
 
                     fd.mh01101 = ds.Tables[0].Rows[a]["mh01101"].ToString();
                     fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
@@ -1441,6 +1466,56 @@ namespace Win_Form_GB
                     fd.userid = ds.Tables[0].Rows[a]["userid"].ToString();
                     fd.entrydate = ds.Tables[0].Rows[a]["entrydate"].ToString();
                     fd.master_id = ds.Tables[0].Rows[a]["master_id"].ToString();
+
+
+                    forms.Add(fd);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+            }
+
+            finally
+            {
+
+            }
+
+            return forms;
+        }
+
+
+
+        public List<forms_data_master> fetchData_master_2()
+        {
+            CConnection cn = new CConnection();
+
+            List<forms_data_master> forms = new List<forms_data_master>();
+
+            try
+            {
+                SQLiteDataAdapter da = new SQLiteDataAdapter("select * from camp_patient where synced is null or synced = ''", cn.cn);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+
+
+                forms_data_master fd = new forms_data_master();
+
+                FieldInfo[] arr = typeof(forms_data_master).GetFields();
+
+                string[] arr1 = { "" };
+
+
+                for (int row = 0; row <= ds.Tables[0].Rows.Count - 1; row++)
+                {
+
+                    for (int col = 0; col <= arr.Length - 1; col++)
+                    {
+                        arr1[col] = ds.Tables[0].Rows[row][col].ToString();
+                    }
 
 
                     forms.Add(fd);
@@ -1520,6 +1595,8 @@ namespace Win_Form_GB
 
 
 
+
+
         public class forms_data
         {
             public string _id;
@@ -1593,13 +1670,19 @@ namespace Win_Form_GB
             public string mh019013;
             public string mh019014;
             public string mh019015;
+            public string mh019017;
             public string mh019077;
             public string mh019077x;
             public string chkNone;
 
 
             public string mh020;
+
             public string mh021;
+
+            public string mh021a;
+            public string mh021TTDose;
+
             public string mh022;
             public string mh023;
             public string mh024;
@@ -1624,18 +1707,16 @@ namespace Win_Form_GB
             public string mh026017;
             public string mh026018;
             public string mh026019;
+            public string mh026Sup;
             public string chkVaccination;
 
             public string mh027;
             public string mh028;
             public string mh029;
-
-
-            public string mh033;
-            public string mh032;
-            
             public string mh030;
             public string mh031;
+            public string mh032;
+            public string mh033;
 
 
             public string mh01101;
