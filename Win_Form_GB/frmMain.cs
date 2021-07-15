@@ -740,16 +740,22 @@ namespace Win_Form_GB
 
                     fd.mh010a = ds.Tables[0].Rows[a]["mh010a"].ToString();
 
+                    fd.mh01101 = ds.Tables[0].Rows[a]["mh01101"].ToString();
+                    fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
+                    fd.mh01103 = ds.Tables[0].Rows[a]["mh01103"].ToString();
 
-                    fd.mh011 = ds.Tables[0].Rows[a]["mh011"].ToString();
                     fd.mh012 = ds.Tables[0].Rows[a]["mh012"].ToString();
                     fd.chkWeight = ds.Tables[0].Rows[a]["chkWeight"].ToString();
+
+
                     fd.mh013 = ds.Tables[0].Rows[a]["mh013"].ToString();
                     fd.mh014 = ds.Tables[0].Rows[a]["mh014"].ToString();
                     fd.mh015 = ds.Tables[0].Rows[a]["mh015"].ToString();
                     fd.chkHeight = ds.Tables[0].Rows[a]["chkHeight"].ToString();
                     fd.mh016 = ds.Tables[0].Rows[a]["mh016"].ToString();
                     fd.chkMUAC = ds.Tables[0].Rows[a]["chkMUAC"].ToString();
+
+                    fd.mh011 = ds.Tables[0].Rows[a]["mh011"].ToString();
 
 
                     fd.mh01701 = ds.Tables[0].Rows[a]["mh01701"].ToString();
@@ -817,6 +823,14 @@ namespace Win_Form_GB
                     fd.mh025 = ds.Tables[0].Rows[a]["mh025"].ToString();
 
 
+
+                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
+                    fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
+                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
+                    fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
+
+
+
                     fd.mh02601 = ds.Tables[0].Rows[a]["mh02601"].ToString();
                     fd.mh02602 = ds.Tables[0].Rows[a]["mh02602"].ToString();
                     fd.mh02603 = ds.Tables[0].Rows[a]["mh02603"].ToString();
@@ -848,23 +862,13 @@ namespace Win_Form_GB
                     fd.mh028 = ds.Tables[0].Rows[a]["mh028"].ToString();
                     fd.mh029 = ds.Tables[0].Rows[a]["mh029"].ToString();
 
-
-                    fd.mh030 = ds.Tables[0].Rows[a]["mh030"].ToString();
-                    fd.mh031 = ds.Tables[0].Rows[a]["mh031"].ToString();
-                    fd.mh032 = ds.Tables[0].Rows[a]["mh032"].ToString();
-                    fd.mh033 = ds.Tables[0].Rows[a]["mh033"].ToString();
-
-                    fd.mh01101 = ds.Tables[0].Rows[a]["mh01101"].ToString();
-                    fd.mh01102 = ds.Tables[0].Rows[a]["mh01102"].ToString();
-                    fd.mh01103 = ds.Tables[0].Rows[a]["mh01103"].ToString();
-
-
                     fd.uccode = ds.Tables[0].Rows[a]["uccode"].ToString();
                     fd.dist_id = ds.Tables[0].Rows[a]["dist_id"].ToString();
                     fd.databy = "desktop";
                     fd.userid = ds.Tables[0].Rows[a]["userid"].ToString();
                     fd.entrydate = ds.Tables[0].Rows[a]["entrydate"].ToString();
                     fd.master_id = ds.Tables[0].Rows[a]["master_id"].ToString();
+                    fd.ver = ds.Tables[0].Rows[a]["ver"].ToString();
 
 
                     forms.Add(fd);
@@ -1025,6 +1029,7 @@ namespace Win_Form_GB
             public string entrydate;
 
             public string master_id;
+            public string ver;
         }
 
 
@@ -1067,7 +1072,7 @@ namespace Win_Form_GB
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmMSHIMG frm = new frmMSHIMG();
+            frmMSHIMG_v1_8 frm = new frmMSHIMG_v1_8();
             OpenForm(frm);
             frm = null;
         }
