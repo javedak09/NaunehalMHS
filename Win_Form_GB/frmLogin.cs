@@ -595,6 +595,7 @@ namespace Win_Form_GB
                 var pk = certificate.GetPublicKeyString();
 
                 return pk.Equals(DomainPublicKey);
+
             }
 
             // Check whether there were any policy errors for any other domain
