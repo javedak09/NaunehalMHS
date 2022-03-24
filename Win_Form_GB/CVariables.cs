@@ -103,8 +103,9 @@ namespace Win_Form_GB
 
         static double zscore;
 
+        //static string SERVER_URL = "https://pedres2.aku.edu/amanhicovid_19study/api/";
         static string SERVER_URL = "https://vcoe1.aku.edu/naunehal/api/";
-        static string TESTING_URL = "http://F38158/naunehal/api/";
+        static string TESTING_URL = "http://cls-pae-fp59408/naunehal/api/";
         static string GET_DATA_FILENAME = "getData.php";
         static string SYNC_DATA_FILENAME = "sync.php";
 

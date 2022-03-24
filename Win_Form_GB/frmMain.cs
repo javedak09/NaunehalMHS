@@ -13,6 +13,8 @@ using System.Net;
 using System.IO;
 using System.Net.Http;
 using System.Web.Script.Serialization;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Security;
 
 
 namespace Win_Form_GB
@@ -20,6 +22,13 @@ namespace Win_Form_GB
     public partial class frmMain : Form
     {
         private static string mynode = "";
+
+
+        private const string DomainName = "vcoe1.aku.edu";
+
+
+        private const string DomainPublicKey = "3082010A02820101008CD561DF696807FD10226700A1216C4AFA5E3CFE4659207CFBD8533AE3A1D97D7F587E37291BF8B0E9065B4218330C571199B7DFF8039ABC98D949184B166BEDF282E73F53A643AB267FAFD980842F1814A1A259761E8C9DF91CF7C4C464542B4E3ADFD84F628E8B203CC96EF134EB397403873826384BA436D75E797B491950D13E24F1AAC7AF8E5017CBB59255CE54D2FC304CF668F4FE6E22B5253EF7CE2C470283CA072D089D093B6E7C1B3EC30D5ACB9E0C823407E26D4E1E2626DF4949C09165E2892CF26A10C06E4199555604F157E009F5A17EB150475C40907048CDF1CD5BE4AFF35EB44AC93C2A7A8C0CD11C1B0C4CE50DDC8DCE2594C2FF579C810203010001";
+
 
         public frmMain()
         {
@@ -290,6 +299,28 @@ namespace Win_Form_GB
 
 
 
+        private static bool PinPublicKey(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            if (certificate == null)
+                return false;
+
+            var request = sender as HttpWebRequest;
+            if (request == null)
+                return false;
+
+            // if the request is for the target domain, perform certificate pinning
+            if (string.Equals(request.Address.Authority, DomainName, StringComparison.OrdinalIgnoreCase))
+            {
+                var pk = certificate.GetPublicKeyString();
+                return pk.Equals(DomainPublicKey);
+            }
+
+            // Check whether there were any policy errors for any other domain
+            return sslPolicyErrors == SslPolicyErrors.None;
+        }
+
+
+
         public void upload_forms_master()
         {
             List<forms_data_master> datas = new List<forms_data_master>();
@@ -308,6 +339,10 @@ namespace Win_Form_GB
 
                 string requestParams = table_var.ToString();
                 HttpWebRequest webRequest;
+
+
+                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
+                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
 
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
@@ -456,6 +491,10 @@ namespace Win_Form_GB
 
                 string requestParams = table_var.ToString();
                 HttpWebRequest webRequest;
+
+
+                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
+                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
 
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");

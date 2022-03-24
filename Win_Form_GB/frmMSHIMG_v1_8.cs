@@ -3874,7 +3874,7 @@ namespace Win_Form_GB
             {
                 obj_op = new CDBOperations();
 
-                SQLiteDataAdapter da = new SQLiteDataAdapter("select * from camp_doctors a inner join campdatadown b on a.idCamp = b.idCamp where b.camp_no='" + mh02.Text + "'", cn.cn);
+                SQLiteDataAdapter da = new SQLiteDataAdapter("select DISTINCT a.iddoctor, a.staff_name from camp_doctors a inner join campdatadown b on a.idCamp = b.idCamp where b.camp_no='" + mh02.Text + "'", cn.cn);
 
 
                 //SQLiteDataAdapter da = new SQLiteDataAdapter("select * from camp_doctors where idCamp='" + mh02.Text + "'", cn.cn);

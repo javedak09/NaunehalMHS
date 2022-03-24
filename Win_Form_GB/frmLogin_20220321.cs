@@ -17,45 +17,21 @@ using System.Configuration;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
-using System.Security.Cryptography;
 
 namespace Win_Form_GB
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin_20220321 : Form
     {
 
         private const string DomainName = "vcoe1.aku.edu";
 
-        public string mypublic_pin = "";
 
-        private const string DomainPublicKey = "Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=";
-
-
-        private const string DomainPublicKey1 = "MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh" +
-"MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3" +
-"d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD" +
-"QTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT" +
-"MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j" +
-"b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG" +
-"9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB" +
-"CSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97" +
-"nh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt" +
-"43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P" +
-"T19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4" +
-"gdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO" +
-"BgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR" +
-"TLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw" +
-"DQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr" +
-"hMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg" +
-"06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF" +
-"PnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls" +
-"YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk" +
-"CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=";
+        private const string DomainPublicKey = "3082010A02820101008CD561DF696807FD10226700A1216C4AFA5E3CFE4659207CFBD8533AE3A1D97D7F587E37291BF8B0E9065B4218330C571199B7DFF8039ABC98D949184B166BEDF282E73F53A643AB267FAFD980842F1814A1A259761E8C9DF91CF7C4C464542B4E3ADFD84F628E8B203CC96EF134EB397403873826384BA436D75E797B491950D13E24F1AAC7AF8E5017CBB59255CE54D2FC304CF668F4FE6E22B5253EF7CE2C470283CA072D089D093B6E7C1B3EC30D5ACB9E0C823407E26D4E1E2626DF4949C09165E2892CF26A10C06E4199555604F157E009F5A17EB150475C40907048CDF1CD5BE4AFF35EB44AC93C2A7A8C0CD11C1B0C4CE50DDC8DCE2594C2FF579C810203010001";
 
 
 
 
-        public frmLogin()
+        public frmLogin_20220321()
         {
             InitializeComponent();
         }
@@ -530,62 +506,12 @@ namespace Win_Form_GB
         }
 
 
-        public bool MyRemoteCertificateValidationCallback(System.Object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            bool isOk = true;
-            // If there are errors in the certificate chain, look at each error to determine the cause.
-            if (sslPolicyErrors != SslPolicyErrors.None)
-            {
-                for (int i = 0; i < chain.ChainStatus.Length; i++)
-                {
-                    if (chain.ChainStatus[i].Status != X509ChainStatusFlags.RevocationStatusUnknown)
-                    {
-                        chain.ChainPolicy.RevocationFlag = X509RevocationFlag.EntireChain;
-                        chain.ChainPolicy.RevocationMode = X509RevocationMode.Online;
-                        chain.ChainPolicy.UrlRetrievalTimeout = new TimeSpan(0, 1, 0);
-                        chain.ChainPolicy.VerificationFlags = X509VerificationFlags.AllFlags;
-                        bool chainIsValid = chain.Build((X509Certificate2)certificate);
-                        if (!chainIsValid)
-                        {
-                            isOk = false;
-                        }
-                    }
-                }
-            }
-
-            return isOk;
-        }
-
-
-
-        private static bool PinPublicKey_new(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            if (certificate == null || chain == null)
-                return false;
-
-            if (sslPolicyErrors != SslPolicyErrors.None)
-                return false;
-
-            // Verify against known public key within the certificate
-            String pk = certificate.GetPublicKeyString();
-
-            byte[] myval = Encoding.ASCII.GetBytes(pk);
-            string myval1 = Convert.ToBase64String(myval);
-
-            return pk.Equals(myval1);
-
-            //return pk.Equals("Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
-        }
-
-
-
         private static bool PinPublicKey(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             if (certificate == null)
                 return false;
 
             var request = sender as HttpWebRequest;
-
             if (request == null)
                 return false;
 
@@ -593,214 +519,12 @@ namespace Win_Form_GB
             if (string.Equals(request.Address.Authority, DomainName, StringComparison.OrdinalIgnoreCase))
             {
                 var pk = certificate.GetPublicKeyString();
-
                 return pk.Equals(DomainPublicKey);
             }
 
             // Check whether there were any policy errors for any other domain
             return sslPolicyErrors == SslPolicyErrors.None;
         }
-
-
-        private static bool ValidateCertificate(HttpRequestMessage request, X509Certificate2 certificate, X509Chain certificateChain, SslPolicyErrors policy)
-        {
-            var validRootCertificates = new[] {
-                Convert.FromBase64String(DomainPublicKey1), // Set your own root certificates (format CER)
-            };
-
-
-            if (certificateChain.ChainStatus.Any(status => status.Status != X509ChainStatusFlags.UntrustedRoot))
-                return false;
-
-            foreach (var element in certificateChain.ChainElements)
-            {
-                foreach (var status in element.ChainElementStatus)
-                {
-                    if (status.Status == X509ChainStatusFlags.UntrustedRoot)
-                    {
-                        // improvement: we could validate that the request matches an internal domain by using request.RequestUri in addition to the certicate validation
-
-                        // Check that the root certificate matches one of the valid root certificates
-                        if (validRootCertificates.Any(cert => cert.SequenceEqual(element.Certificate.RawData)))
-                            continue; // Process the next status
-                    }
-
-                    return false;
-                }
-            }
-
-            // Return true only if all certificates of the chain are valid
-            return true;
-        }
-
-
-        private void downloadCamps_withoutssl()
-        {
-            try
-            {
-
-
-                //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-
-
-
-                //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
-
-
-                //var request = (HttpWebRequest)WebRequest.CreateHttp("http://cls-pae-fp59408:8080/naunehal/api/" + CVariables.getDataFileName);
-
-                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
-
-
-                //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
-
-
-                //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
-
-
-                string dist_id = "";
-
-
-                //string param_json = "{\"table\":\"camp\", \"check\":\"1\", \"locked\":\"0\", \"status\":\"e\", \"cdate\":\"03-04-2021\" }";
-
-
-                //var postData = "table=" + Uri.EscapeDataString("camp");
-                //postData += "&check=" + Uri.EscapeDataString("1");
-                //postData += "&locked=" + Uri.EscapeDataString("0");
-                //postData += "&status=" + Uri.EscapeDataString("e");
-                //postData += "&cdate=" + Uri.EscapeDataString("03-04-2021");
-
-
-
-                //var data = Encoding.ASCII.GetBytes(postData);
-
-
-
-                int winBuild = Environment.OSVersion.Version.Build;
-                String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
-
-
-                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
-
-
-                request.UserAgent = userAgent;
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-
-                //request.ContentLength = data.Length;
-
-                //using (var stream = request.GetRequestStream())
-                //{
-                //    stream.Write(data, 0, data.Length);
-                //}
-
-
-
-
-                //using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                //{
-                //    string json = new JavaScriptSerializer().Serialize(new
-                //    {
-                //        table = "camps",
-                //        filter = " camp_status = 'Conducted' AND execution_date <= '2021-04-13' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "'"
-
-                //    });
-
-                //    streamWriter.Write(json);
-                //}
-
-
-
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    string json = new JavaScriptSerializer().Serialize(new
-                    {
-                        table = "camps",
-                        filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
-
-                    });
-
-                    streamWriter.Write(json);
-                }
-
-
-                var response = (HttpWebResponse)request.GetResponse();
-
-
-                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-
-
-
-                var obj = JsonConvert.DeserializeObject<List<Camp_Patient>>(responseString);
-
-
-                CConnection cn = new CConnection();
-
-                SQLiteDataAdapter da = null;
-                DataSet ds = null;
-
-
-                da = new SQLiteDataAdapter("delete from campdatadown", cn.cn);
-                ds = new DataSet();
-                da.Fill(ds);
-
-
-                string qry = "";
-
-
-                for (int a = 0; a <= obj.Count - 1; a++)
-                {
-
-                    qry = "insert into campdatadown (idCamp, dist_id, district, ucCode, ucName, area_no, area_name, plan_date, camp_no, camp_status," +
-                        " remarks, execution_date, " +
-                        "execution_duration, colflag, locked, lockedBy, idDoctor, doctor_name) " +
-                        "values('" +
-                        obj[a].idCamp + "', '" +
-                        obj[a].dist_id + "', '" +
-                        obj[a].district + "', '" +
-                        obj[a].ucCode + "', '" +
-                        obj[a].ucName + "', '" +
-                        obj[a].area_no + "', '" +
-                        obj[a].area_name + "', '" +
-                        obj[a].plan_date + "', '" +
-                        obj[a].camp_no + "', '" +
-                        obj[a].camp_status + "', '" +
-                        obj[a].remarks + "', '" +
-                        obj[a].execution_date + "', '" +
-                        obj[a].execution_duration + "', '" +
-                        obj[a].colflag + "', '" +
-                        obj[a].locked + "', '" +
-                        obj[a].lockedBy + "', '" +
-                        obj[a].idDoctor + "', '" +
-                        obj[a].doctor_name + "')";
-
-                    da = new SQLiteDataAdapter(qry, cn.cn);
-                    ds = new DataSet();
-                    da.Fill(ds);
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserID.Focus();
-            }
-
-            finally
-            {
-
-            }
-        }
-
 
 
 
@@ -812,59 +536,15 @@ namespace Win_Form_GB
 
                 //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
 
+                ServicePointManager.Expect100Continue = true;
+                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
 
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
 
 
                 // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
-
-
-                X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1.aku.edu.cer");
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
                 var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
-
-
-                RSA privateKey = clientCertificate.GetRSAPrivateKey();
-
-
-
-
-                //File.WriteAllBytes(Application.StartupPath + @"\vcoe1.aku.edu.cer", clientCertificate.Export(X509ContentType.Cert));
-
-
-                //var cert = new X509Certificate2(bytes, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                //var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-                //store.Open(OpenFlags.ReadWrite);
-                //store.Add(cert);
-                //store.Close();
-
-
-                var pubkey = clientCertificate.GetPublicKey();
-
-                //mypublic_pin = Convert.ToBase64String(pubkey);
-
-                mypublic_pin = DomainPublicKey;
-
-
-
-                request.ClientCertificates = new X509Certificate2Collection();
-                request.ClientCertificates.Add(clientCertificate);
-
-                request.ServerCertificateValidationCallback = PinPublicKey_new;
-
-
-                //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
-
-
-                //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
 
 
                 string dist_id = "";
@@ -1003,344 +683,6 @@ namespace Win_Form_GB
 
             }
         }
-
-
-
-        public void GetData()
-        {
-            try
-            {
-                //will hold the result
-                string result = string.Empty;
-                //build the request object
-
-
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
-                //add certificate to the request
-                //request.ClientCertificates.Add(new X509Certificate(@"C:\certs\Some Cert.p12", @"SecretP@$$w0rd"));
-                //add it in a better way
-                X509Store certStore = new X509Store("My", StoreLocation.LocalMachine);
-                certStore.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-                X509Certificate2 cert = new X509Certificate2(Application.StartupPath + @"\vcoe1_aku_edu.cer");
-                certStore.Close();
-                request.ClientCertificates.Add(cert);
-
-                int winBuild = Environment.OSVersion.Version.Build;
-                String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
-
-
-                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
-
-
-                request.UserAgent = userAgent;
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-
-
-
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    string json = new JavaScriptSerializer().Serialize(new
-                    {
-                        table = "camps",
-                        filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
-
-                    });
-
-                    streamWriter.Write(json);
-                }
-
-
-                var response = (HttpWebResponse)request.GetResponse();
-
-
-                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-
-
-
-                var obj = JsonConvert.DeserializeObject<List<Camp_Patient>>(responseString);
-
-
-                CConnection cn = new CConnection();
-
-                SQLiteDataAdapter da = null;
-                DataSet ds = null;
-
-
-                da = new SQLiteDataAdapter("delete from campdatadown", cn.cn);
-                ds = new DataSet();
-                da.Fill(ds);
-
-
-                string qry = "";
-
-
-                for (int a = 0; a <= obj.Count - 1; a++)
-                {
-
-                    qry = "insert into campdatadown (idCamp, dist_id, district, ucCode, ucName, area_no, area_name, plan_date, camp_no, camp_status," +
-                        " remarks, execution_date, " +
-                        "execution_duration, colflag, locked, lockedBy, idDoctor, doctor_name) " +
-                        "values('" +
-                        obj[a].idCamp + "', '" +
-                        obj[a].dist_id + "', '" +
-                        obj[a].district + "', '" +
-                        obj[a].ucCode + "', '" +
-                        obj[a].ucName + "', '" +
-                        obj[a].area_no + "', '" +
-                        obj[a].area_name + "', '" +
-                        obj[a].plan_date + "', '" +
-                        obj[a].camp_no + "', '" +
-                        obj[a].camp_status + "', '" +
-                        obj[a].remarks + "', '" +
-                        obj[a].execution_date + "', '" +
-                        obj[a].execution_duration + "', '" +
-                        obj[a].colflag + "', '" +
-                        obj[a].locked + "', '" +
-                        obj[a].lockedBy + "', '" +
-                        obj[a].idDoctor + "', '" +
-                        obj[a].doctor_name + "')";
-
-                    da = new SQLiteDataAdapter(qry, cn.cn);
-                    ds = new DataSet();
-                    da.Fill(ds);
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserID.Focus();
-            }
-
-            finally
-            {
-
-            }
-
-        }
-
-
-
-
-        private bool CertificateValidationCallBack(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            // Step 1 - Convert the .NET 1.1 cert object to a more advanced one
-            X509Certificate2 certificate2 = new X509Certificate2(certificate);
-
-            // Step 2 - Assure that the certificate is valid!
-            bool isCertificateValid = certificate2.Verify();
-
-            // Step 3 - Compare the expected thumbprint to the certificate thumbprint. This compare order prevents null pointer exceptions.
-            bool isThumbprintAsExpected = "2105F6B740174BB86829F69F0860A89B9E88AB09".Equals(certificate2.Thumbprint);
-
-            return isCertificateValid && isThumbprintAsExpected;
-        }
-
-
-
-
-
-        private void downloadCamps_Store()
-        {
-            try
-            {
-
-
-                //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-
-
-
-                //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
-
-
-                // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
-
-
-                X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1_aku_edu.cer");
-
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-
-                var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
-
-
-                //File.WriteAllBytes(Application.StartupPath + @"\vcoe1.aku.edu.cer", clientCertificate.Export(X509ContentType.Cert));
-
-
-                //var cert = new X509Certificate2(bytes, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
-                //var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-                //store.Open(OpenFlags.ReadWrite);
-                //store.Add(cert);
-                //store.Close();
-
-
-                var certificatePublicKey = clientCertificate.GetPublicKey();
-                var certificatePublicKeyString = Convert.ToBase64String(certificatePublicKey);
-
-
-
-                request.ClientCertificates = new X509Certificate2Collection();
-                request.ClientCertificates.Add(clientCertificate);
-
-                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                
-
-                //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
-
-
-                //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
-                //{
-                //    return true;
-                //});
-
-
-                string dist_id = "";
-
-
-                //string param_json = "{\"table\":\"camp\", \"check\":\"1\", \"locked\":\"0\", \"status\":\"e\", \"cdate\":\"03-04-2021\" }";
-
-
-                //var postData = "table=" + Uri.EscapeDataString("camp");
-                //postData += "&check=" + Uri.EscapeDataString("1");
-                //postData += "&locked=" + Uri.EscapeDataString("0");
-                //postData += "&status=" + Uri.EscapeDataString("e");
-                //postData += "&cdate=" + Uri.EscapeDataString("03-04-2021");
-
-
-
-                //var data = Encoding.ASCII.GetBytes(postData);
-
-
-
-                int winBuild = Environment.OSVersion.Version.Build;
-                String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
-
-
-                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
-
-
-                request.UserAgent = userAgent;
-                request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
-
-                //request.ContentLength = data.Length;
-
-                //using (var stream = request.GetRequestStream())
-                //{
-                //    stream.Write(data, 0, data.Length);
-                //}
-
-
-
-
-                //using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                //{
-                //    string json = new JavaScriptSerializer().Serialize(new
-                //    {
-                //        table = "camps",
-                //        filter = " camp_status = 'Conducted' AND execution_date <= '2021-04-13' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "'"
-
-                //    });
-
-                //    streamWriter.Write(json);
-                //}
-
-
-
-                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-                {
-                    string json = new JavaScriptSerializer().Serialize(new
-                    {
-                        table = "camps",
-                        filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
-
-                    });
-
-                    streamWriter.Write(json);
-                }
-
-
-                var response = (HttpWebResponse)request.GetResponse();
-
-
-                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-
-
-
-                var obj = JsonConvert.DeserializeObject<List<Camp_Patient>>(responseString);
-
-
-                CConnection cn = new CConnection();
-
-                SQLiteDataAdapter da = null;
-                DataSet ds = null;
-
-
-                da = new SQLiteDataAdapter("delete from campdatadown", cn.cn);
-                ds = new DataSet();
-                da.Fill(ds);
-
-
-                string qry = "";
-
-
-                for (int a = 0; a <= obj.Count - 1; a++)
-                {
-
-                    qry = "insert into campdatadown (idCamp, dist_id, district, ucCode, ucName, area_no, area_name, plan_date, camp_no, camp_status," +
-                        " remarks, execution_date, " +
-                        "execution_duration, colflag, locked, lockedBy, idDoctor, doctor_name) " +
-                        "values('" +
-                        obj[a].idCamp + "', '" +
-                        obj[a].dist_id + "', '" +
-                        obj[a].district + "', '" +
-                        obj[a].ucCode + "', '" +
-                        obj[a].ucName + "', '" +
-                        obj[a].area_no + "', '" +
-                        obj[a].area_name + "', '" +
-                        obj[a].plan_date + "', '" +
-                        obj[a].camp_no + "', '" +
-                        obj[a].camp_status + "', '" +
-                        obj[a].remarks + "', '" +
-                        obj[a].execution_date + "', '" +
-                        obj[a].execution_duration + "', '" +
-                        obj[a].colflag + "', '" +
-                        obj[a].locked + "', '" +
-                        obj[a].lockedBy + "', '" +
-                        obj[a].idDoctor + "', '" +
-                        obj[a].doctor_name + "')";
-
-                    da = new SQLiteDataAdapter(qry, cn.cn);
-                    ds = new DataSet();
-                    da.Fill(ds);
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUserID.Focus();
-            }
-
-            finally
-            {
-
-            }
-        }
-
-
-
-
 
 
 
@@ -1483,10 +825,9 @@ namespace Win_Form_GB
 
                 cmdDownloadUsers.Text = "Please wait Downloading Data";
 
-                //GetData();
-                downloadCamps_Store();
-                //downloadUsers();
-                //downloadDoctors();
+                downloadCamps();
+                downloadUsers();
+                downloadDoctors();
 
                 cmdDownloadUsers.Text = "Download Data";
             }
@@ -2519,19 +1860,6 @@ namespace Win_Form_GB
         }
 
 
-    }
-
-
-    //
-    public class TrustAllCertificatePolicy : System.Net.ICertificatePolicy
-    {
-        public TrustAllCertificatePolicy()
-        { }
-        public bool CheckValidationResult(ServicePoint sp, System.Security.Cryptography.X509Certificates.X509Certificate cert, WebRequest req, int problem)
-        {
-
-            return true;
-        }
     }
 
 }
