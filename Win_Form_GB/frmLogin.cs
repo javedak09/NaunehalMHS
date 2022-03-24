@@ -821,13 +821,13 @@ namespace Win_Form_GB
                 // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
 
 
-                X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1.aku.edu.cer");
+              // X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1.aku.edu.cer");
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
 
 
-                RSA privateKey = clientCertificate.GetRSAPrivateKey();
+               // RSA privateKey = clientCertificate.GetRSAPrivateKey();
 
 
 
@@ -842,18 +842,18 @@ namespace Win_Form_GB
                 //store.Close();
 
 
-                var pubkey = clientCertificate.GetPublicKey();
+                //var pubkey = clientCertificate.GetPublicKey();
 
                 //mypublic_pin = Convert.ToBase64String(pubkey);
 
-                mypublic_pin = DomainPublicKey;
+                //mypublic_pin = DomainPublicKey;
 
 
 
-                request.ClientCertificates = new X509Certificate2Collection();
-                request.ClientCertificates.Add(clientCertificate);
+                //request.ClientCertificates = new X509Certificate2Collection();
+                //request.ClientCertificates.Add(clientCertificate);
 
-                request.ServerCertificateValidationCallback = PinPublicKey_new;
+                //request.ServerCertificateValidationCallback = PinPublicKey_new;
 
 
                 //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
@@ -890,10 +890,10 @@ namespace Win_Form_GB
                 String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
 
 
-                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
+                request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
 
 
-                request.UserAgent = userAgent;
+                //request.UserAgent = userAgent;
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
 
@@ -926,6 +926,7 @@ namespace Win_Form_GB
                     string json = new JavaScriptSerializer().Serialize(new
                     {
                         table = "camps",
+                        check = "1",
                         filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
 
                     });
@@ -1168,6 +1169,8 @@ namespace Win_Form_GB
 
                 var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
 
+                //var request = (HttpWebRequest)WebRequest.CreateHttp("http://cls-pae-fp51764.aku.edu/naunehal/api/getData.php");
+
 
                 //File.WriteAllBytes(Application.StartupPath + @"\vcoe1.aku.edu.cer", clientCertificate.Export(X509ContentType.Cert));
 
@@ -1259,7 +1262,7 @@ namespace Win_Form_GB
                 {
                     string json = new JavaScriptSerializer().Serialize(new
                     {
-                        table = "camps",
+                        table = "camps",                        
                         filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
 
                     });
@@ -1269,6 +1272,9 @@ namespace Win_Form_GB
 
 
                 var response = (HttpWebResponse)request.GetResponse();
+
+
+                MessageBox.Show(response.ToString());
 
 
                 var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -1340,6 +1346,185 @@ namespace Win_Form_GB
         }
 
 
+
+
+        private void downloadCamps_20220324()
+        {
+            try
+            {
+
+
+                //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
+
+
+
+                //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
+
+
+                // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
+
+
+                X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1_aku_edu.cer");
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+                var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
+
+                //var request = (HttpWebRequest)WebRequest.CreateHttp("http://cls-pae-fp51764.aku.edu/naunehal/api/getData.php");
+
+
+                //File.WriteAllBytes(Application.StartupPath + @"\vcoe1.aku.edu.cer", clientCertificate.Export(X509ContentType.Cert));
+
+
+                //var cert = new X509Certificate2(bytes, password, X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable);
+                //var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+                //store.Open(OpenFlags.ReadWrite);
+                //store.Add(cert);
+                //store.Close();
+
+
+                var certificatePublicKey = clientCertificate.GetPublicKey();
+                var certificatePublicKeyString = Convert.ToBase64String(certificatePublicKey);
+
+
+
+                request.ClientCertificates = new X509Certificate2Collection();
+                request.ClientCertificates.Add(clientCertificate);
+
+                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
+
+
+                //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
+                //{
+                //    return true;
+                //});
+
+
+                //ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
+                //{
+                //    return true;
+                //});
+
+
+                string dist_id = "";
+
+
+                //string param_json = "{\"table\":\"camp\", \"check\":\"1\", \"locked\":\"0\", \"status\":\"e\", \"cdate\":\"03-04-2021\" }";
+
+
+                //var postData = "table=" + Uri.EscapeDataString("camp");
+                //postData += "&check=" + Uri.EscapeDataString("1");
+                //postData += "&locked=" + Uri.EscapeDataString("0");
+                //postData += "&status=" + Uri.EscapeDataString("e");
+                //postData += "&cdate=" + Uri.EscapeDataString("03-04-2021");
+
+
+
+                //var data = Encoding.ASCII.GetBytes(postData);
+
+
+
+                int winBuild = Environment.OSVersion.Version.Build;
+                String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
+
+
+                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
+
+
+                request.UserAgent = userAgent;
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+
+                
+
+
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    string json = new JavaScriptSerializer().Serialize(new
+                    {
+                        table = "camps",
+                        filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
+
+                    });
+
+                    streamWriter.Write(json);
+                }
+
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+
+                MessageBox.Show(response.ToString());
+
+
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+
+
+
+                var obj = JsonConvert.DeserializeObject<List<Camp_Patient>>(responseString);
+
+
+                CConnection cn = new CConnection();
+
+                SQLiteDataAdapter da = null;
+                DataSet ds = null;
+
+
+                da = new SQLiteDataAdapter("delete from campdatadown", cn.cn);
+                ds = new DataSet();
+                da.Fill(ds);
+
+
+                string qry = "";
+
+
+                for (int a = 0; a <= obj.Count - 1; a++)
+                {
+
+                    qry = "insert into campdatadown (idCamp, dist_id, district, ucCode, ucName, area_no, area_name, plan_date, camp_no, camp_status," +
+                        " remarks, execution_date, " +
+                        "execution_duration, colflag, locked, lockedBy, idDoctor, doctor_name) " +
+                        "values('" +
+                        obj[a].idCamp + "', '" +
+                        obj[a].dist_id + "', '" +
+                        obj[a].district + "', '" +
+                        obj[a].ucCode + "', '" +
+                        obj[a].ucName + "', '" +
+                        obj[a].area_no + "', '" +
+                        obj[a].area_name + "', '" +
+                        obj[a].plan_date + "', '" +
+                        obj[a].camp_no + "', '" +
+                        obj[a].camp_status + "', '" +
+                        obj[a].remarks + "', '" +
+                        obj[a].execution_date + "', '" +
+                        obj[a].execution_duration + "', '" +
+                        obj[a].colflag + "', '" +
+                        obj[a].locked + "', '" +
+                        obj[a].lockedBy + "', '" +
+                        obj[a].idDoctor + "', '" +
+                        obj[a].doctor_name + "')";
+
+                    da = new SQLiteDataAdapter(qry, cn.cn);
+                    ds = new DataSet();
+                    da.Fill(ds);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUserID.Focus();
+            }
+
+            finally
+            {
+
+            }
+        }
 
 
 
@@ -1485,7 +1670,10 @@ namespace Win_Form_GB
                 cmdDownloadUsers.Text = "Please wait Downloading Data";
 
                 //GetData();
-                downloadCamps_Store();
+
+                downloadCamps();
+
+                //downloadCamps_Store();
                 //downloadUsers();
                 //downloadDoctors();
 
