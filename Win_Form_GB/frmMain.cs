@@ -341,10 +341,6 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
                 webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
 
@@ -355,7 +351,14 @@ namespace Win_Form_GB
 
                 webRequest.Method = "POST";
                 webRequest.UserAgent = userAgent;
-                webRequest.ContentType = "application/json";
+                //webRequest.ContentType = "application/json";
+
+                webRequest.KeepAlive = true;
+                webRequest.ContentType = "application/json; charset=utf-8";
+
+                webRequest.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
+
 
 
                 //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
@@ -493,10 +496,6 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
                 webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
 
@@ -507,7 +506,12 @@ namespace Win_Form_GB
 
                 webRequest.Method = "POST";
                 webRequest.UserAgent = userAgent;
-                webRequest.ContentType = "application/json";
+                //webRequest.ContentType = "application/json";
+
+                webRequest.KeepAlive = true;
+                webRequest.ContentType = "application/json; charset=utf-8";
+
+                webRequest.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
 
 
                 //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);

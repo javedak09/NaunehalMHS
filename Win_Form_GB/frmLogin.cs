@@ -18,6 +18,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using System.Security.Cryptography;
+using Microsoft.Win32;
 
 namespace Win_Form_GB
 {
@@ -438,19 +439,11 @@ namespace Win_Form_GB
             try
             {
 
-                //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
 
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getdata.php");
 
 
-                // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
-
-
-                var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
 
 
                 //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
@@ -463,7 +456,13 @@ namespace Win_Form_GB
 
                 request.UserAgent = userAgent;
                 request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
+                //request.ContentType = "application/x-www-form-urlencoded";
+
+                request.KeepAlive = true;
+                request.ContentType = "application/json; charset=utf-8";
+
+                request.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
 
                 using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                 {
@@ -803,9 +802,195 @@ namespace Win_Form_GB
         }
 
 
-
-
         private void downloadCamps()
+        {
+            try
+            {
+
+                //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
+
+
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
+
+
+                string dist_id = "";
+
+
+                //string param_json = "{\"table\":\"camp\", \"check\":\"1\", \"locked\":\"0\", \"status\":\"e\", \"cdate\":\"03-04-2021\" }";
+
+
+                //var postData = "table=" + Uri.EscapeDataString("camp");
+                //postData += "&check=" + Uri.EscapeDataString("1");
+                //postData += "&locked=" + Uri.EscapeDataString("0");
+                //postData += "&status=" + Uri.EscapeDataString("e");
+                //postData += "&cdate=" + Uri.EscapeDataString("03-04-2021");
+
+
+
+
+                //RegistryKey myKey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols", true);
+
+                //if (myKey != null)
+                //{
+                //    myKey.CreateSubKey("TLS 1.2");
+                //}
+
+
+                //myKey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2", true);
+
+                //if (myKey != null)
+                //{
+                //    myKey.CreateSubKey("Client");
+                //}
+
+
+
+                //myKey = Registry.LocalMachine.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client", true);
+
+                //if (myKey != null)
+                //{
+                //    myKey.SetValue("DisabledByDefault", "00000000", RegistryValueKind.DWord);
+                //    myKey.SetValue("Enabled", "00000001", RegistryValueKind.DWord);
+                //    myKey.Close();
+                //}
+
+
+
+
+                //var data = Encoding.ASCII.GetBytes(postData);
+
+
+
+                int winBuild = Environment.OSVersion.Version.Build;
+                String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
+
+
+                //request.UserAgent = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)";
+
+
+                request.UserAgent = userAgent;
+                request.Method = "POST";
+                //request.ContentType = "application/x-www-form-urlencoded";
+
+
+                request.KeepAlive = true;
+                request.ContentType = "application/json; charset=utf-8";
+
+                request.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
+
+
+                //request.ContentLength = data.Length;
+
+                //using (var stream = request.GetRequestStream())
+                //{
+                //    stream.Write(data, 0, data.Length);
+                //}
+
+
+
+
+                //using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                //{
+                //    string json = new JavaScriptSerializer().Serialize(new
+                //    {
+                //        table = "camps",
+                //        filter = " camp_status = 'Conducted' AND execution_date <= '2021-04-13' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "'"
+
+                //    });
+
+                //    streamWriter.Write(json);
+                //}
+
+
+
+                using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+                {
+                    string json = new JavaScriptSerializer().Serialize(new
+                    {
+                        table = "camps",
+                        filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
+
+                    });
+
+                    streamWriter.Write(json);
+                }
+
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+
+                var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+
+
+
+                var obj = JsonConvert.DeserializeObject<List<Camp_Patient>>(responseString);
+
+
+                CConnection cn = new CConnection();
+
+                SQLiteDataAdapter da = null;
+                DataSet ds = null;
+
+
+                da = new SQLiteDataAdapter("delete from campdatadown", cn.cn);
+                ds = new DataSet();
+                da.Fill(ds);
+
+
+                string qry = "";
+
+
+                for (int a = 0; a <= obj.Count - 1; a++)
+                {
+
+                    qry = "insert into campdatadown (idCamp, dist_id, district, ucCode, ucName, area_no, area_name, plan_date, camp_no, camp_status," +
+                        " remarks, execution_date, " +
+                        "execution_duration, colflag, locked, lockedBy, idDoctor, doctor_name) " +
+                        "values('" +
+                        obj[a].idCamp + "', '" +
+                        obj[a].dist_id + "', '" +
+                        obj[a].district + "', '" +
+                        obj[a].ucCode + "', '" +
+                        obj[a].ucName + "', '" +
+                        obj[a].area_no + "', '" +
+                        obj[a].area_name + "', '" +
+                        obj[a].plan_date + "', '" +
+                        obj[a].camp_no + "', '" +
+                        obj[a].camp_status + "', '" +
+                        obj[a].remarks + "', '" +
+                        obj[a].execution_date + "', '" +
+                        obj[a].execution_duration + "', '" +
+                        obj[a].colflag + "', '" +
+                        obj[a].locked + "', '" +
+                        obj[a].lockedBy + "', '" +
+                        obj[a].idDoctor + "', '" +
+                        obj[a].doctor_name + "')";
+
+                    da = new SQLiteDataAdapter(qry, cn.cn);
+                    ds = new DataSet();
+                    da.Fill(ds);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtUserID.Focus();
+            }
+
+            finally
+            {
+
+            }
+        }
+
+
+
+        private void downloadCamps_old()
         {
             try
             {
@@ -821,13 +1006,13 @@ namespace Win_Form_GB
                 // javed var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
 
 
-              // X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1.aku.edu.cer");
+                // X509Certificate2 clientCertificate = new X509Certificate2(Application.StartupPath + @"\vcoe1.aku.edu.cer");
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
                 var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
 
 
-               // RSA privateKey = clientCertificate.GetRSAPrivateKey();
+                // RSA privateKey = clientCertificate.GetRSAPrivateKey();
 
 
 
@@ -1191,7 +1376,7 @@ namespace Win_Form_GB
                 request.ClientCertificates.Add(clientCertificate);
 
                 ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                
+
 
                 //request.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) =>
                 //{
@@ -1262,7 +1447,7 @@ namespace Win_Form_GB
                 {
                     string json = new JavaScriptSerializer().Serialize(new
                     {
-                        table = "camps",                        
+                        table = "camps",
                         filter = " camp_status = 'Conducted' AND execution_date <= '" + DateTime.Now.ToString("yyyy-MM-dd") + "' AND dist_id='" + ddlDistrict.SelectedValue.ToString() + "' AND locked=0 AND (colflag=0 OR colflag is null) "
 
                     });
@@ -1435,7 +1620,7 @@ namespace Win_Form_GB
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
 
-                
+
 
 
 
@@ -1535,19 +1720,10 @@ namespace Win_Form_GB
             try
             {
 
-                //ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-
-                ServicePointManager.Expect100Continue = true;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-
                 //var request = (HttpWebRequest)WebRequest.CreateHttp("https://vcoe1.aku.edu/naunehal/api/getData.php");
 
 
-                // javed   var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
-
-
-                var request = (HttpWebRequest)WebRequest.CreateHttp("https://" + DomainName + "/naunehal/api/" + CVariables.getDataFileName);
+                var request = (HttpWebRequest)WebRequest.CreateHttp(CVariables.getServerURL + CVariables.getDataFileName);
 
 
                 //string param_json = "{\"table\":\"camp\", \"select\":\"idCamp\", \"iddoctor\", \"doctor_name\", \"check\":\"\" }";
@@ -1573,7 +1749,14 @@ namespace Win_Form_GB
 
                 request.UserAgent = userAgent;
                 request.Method = "POST";
-                request.ContentType = "application/x-www-form-urlencoded";
+                //request.ContentType = "application/x-www-form-urlencoded";
+
+                request.KeepAlive = true;
+                request.ContentType = "application/json; charset=utf-8";
+
+                request.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
+
                 //request.ContentLength = data.Length;
 
                 //using (var stream = request.GetRequestStream())
@@ -1674,8 +1857,8 @@ namespace Win_Form_GB
                 downloadCamps();
 
                 //downloadCamps_Store();
-                //downloadUsers();
-                //downloadDoctors();
+                downloadUsers();
+                downloadDoctors();
 
                 cmdDownloadUsers.Text = "Download Data";
             }
@@ -1878,9 +2061,6 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
 
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
                 webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
@@ -1888,12 +2068,18 @@ namespace Win_Form_GB
 
                 int winBuild = Environment.OSVersion.Version.Build;
                 String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 
                 webRequest.Method = "POST";
                 webRequest.UserAgent = userAgent;
-                webRequest.ContentType = "application/json";
+                //webRequest.ContentType = "application/json";
+
+
+                webRequest.KeepAlive = true;
+                webRequest.ContentType = "application/json; charset=utf-8";
+
+                webRequest.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
 
 
                 //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
@@ -2031,23 +2217,24 @@ namespace Win_Form_GB
                 HttpWebRequest webRequest;
 
 
-                ServicePointManager.ServerCertificateValidationCallback = PinPublicKey;
-                ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-
-
-
                 //webRequest = (HttpWebRequest)WebRequest.Create("https://vcoe1.aku.edu/naunehal/api/sync.php");
                 webRequest = (HttpWebRequest)WebRequest.Create(CVariables.getServerURL + CVariables.getSyncFileName);
 
 
                 int winBuild = Environment.OSVersion.Version.Build;
                 String userAgent = "NET/5.0 (Windows; Build/" + winBuild + ")";
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 
                 webRequest.Method = "POST";
                 webRequest.UserAgent = userAgent;
-                webRequest.ContentType = "application/json";
+                //webRequest.ContentType = "application/json";
+
+                webRequest.KeepAlive = true;
+                webRequest.ContentType = "application/json; charset=utf-8";
+
+                webRequest.Headers.Add("authorization", "Basic Eb+qZeBVhSx3JiHaG6ajJSamutbnk0cUMs/OZtgpXik=");
+
+
 
 
                 //  byte[] byteArray = Encoding.UTF8.GetBytes(requestParams);
